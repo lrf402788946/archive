@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <body style="overflow-y: scroll;">
       <div class="base-main-right">
         <b-breadcrumb>
@@ -13,212 +12,7 @@
           <b-card no-body>
             <b-tabs card v-model="tabIndex">
               <b-tab title="基本情况" :title-link-class="linkClass(0)">
-                <div class="base-padding-20 base-bg-fff">
-                  <div class="row">
-                    <div class="col-lg-10">
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">姓名：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputEmail2">性别：</label>
-                          <select class="form-control">
-                            <option selected="selected">--请选择--</option>
-                            <option>男</option>
-                            <option>女</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">民族：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">婚姻状况：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">文化程度：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">政治面貌：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">身份证号：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">办公室电话：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人电话：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">单位：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">单位性质：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">职务：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">级别：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">职称：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">家庭住址：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">电子信箱：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">填报人：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="tyx-margin-right-40 form-group">
-                          <label for="exampleInputName2">参加工作时间：</label>
-                          <input type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
-                                 readonly />
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="tyx-margin-right-40 form-group">
-                          <label for="exampleInputName2">任职时间：</label>
-                          <div class="input-group input-daterange" data-provide="datepicker">
-                            <!-- <input name="event-start-date" type="text" class="form-control" value="2012-04-05"> -->
-                            <input type="text" class="form-control tyx-cursor" value="2012-04-05" id="theTimeBegin"
-                                   data-date-format="yyyy-mm-dd" readonly />
-                            <span class="input-group-addon">至</span>
-                            <!-- <input name="event-end-date" type="text" class="form-control" value="2012-04-19"> -->
-                            <input type="text" class="form-control tyx-cursor" value="2012-04-05" id="theTimeEnd"
-                                   data-date-format="yyyy-mm-dd" readonly />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="tyx-margin-right-40 form-group">
-                          <label for="exampleInputName2">入党时间：</label>
-                          <input type="text" class="form-control tyx-cursor" id="partyTime" data-date-format="yyyy-mm-dd"
-                                 readonly />
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="tyx-margin-right-40 form-group">
-                          <label for="exampleInputName2">出生日期：</label>
-                          <input type="text" class="form-control tyx-cursor" id="begindateT" data-date-format="yyyy-mm-dd"
-                                 readonly />
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class="tyx-margin-right-40 form-group">
-                          <label for="exampleInputName2">创建时间：</label>
-                          <input type="text" class="form-control tyx-cursor" id="creationTime" data-date-format="yyyy-mm-dd"
-                                 readonly />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-2">
-                      <div class="base-margin-right-40 form-group">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">照片：</label>
-                          <div class="rz-picter">
-                            <img :src="avatar" class="img-rounded">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputFile">File input</label>
-                          <input type="file" name="avatar" id="uppic" accept="image/gif,image/jpeg,image/jpg,image/png"
-                                 @change="changeImage($event)" ref="avatarInput" class="uppic">
-                          <p class="help-block">提示语.</p>
-                        </div>
-                        <button type="submit" class="btn btn-default">上传</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-10">
-                    <div class="form-group">
-                      <label for="exampleInputName2">备注：</label>
-                      <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">干部基本状况表：</label>
-                          </div>
-                          <button type="submit" class="btn btn-default">扫描文件</button>
-                          <div style="margin-top:10px;">
-                            <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../img/8082.jpg" alt="..." class="img-rounded">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="base-padding-20 base-bg-fff" style="clear:both;">
-                  <div class="base-margin-top-10 base-align-right">
-                    <a class="btn btn-info" href="page-tables.html" data-toggle="tooltip" title="" role="button"><i
-                         class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                  </div>
-                </div>
-
+                <jbqk v-if="tabIndex === 0"></jbqk>
               </b-tab>
 
               <b-tab title="个人事项" :title-link-class="linkClass(1)">
@@ -302,7 +96,7 @@
                           <button type="submit" class="btn btn-default">扫描文件</button>
                           <div style="margin-top:10px;">
                             <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../img/8082.jpg" alt="..." class="img-rounded">
+                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
                           </div>
                         </div>
                       </div>
@@ -399,7 +193,7 @@
                           <button type="submit" class="btn btn-default">扫描文件</button>
                           <div style="margin-top:10px;">
                             <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../img/8082.jpg" alt="..." class="img-rounded">
+                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
                           </div>
                         </div>
                       </div>
@@ -495,7 +289,7 @@
                           <button type="submit" class="btn btn-default">扫描文件</button>
                           <div style="margin-top:10px;">
                             <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../img/8082.jpg" alt="..." class="img-rounded">
+                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
                           </div>
                         </div>
                       </div>
@@ -591,7 +385,7 @@
                           <button type="submit" class="btn btn-default">扫描文件</button>
                           <div style="margin-top:10px;">
                             <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../img/8082.jpg" alt="..." class="img-rounded">
+                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
                           </div>
                         </div>
                       </div>
@@ -687,7 +481,7 @@
                           <button type="submit" class="btn btn-default">扫描文件</button>
                           <div style="margin-top:10px;">
                             <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../img/8082.jpg" alt="..." class="img-rounded">
+                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
                           </div>
                         </div>
                       </div>
@@ -783,7 +577,7 @@
                           <button type="submit" class="btn btn-default">扫描文件</button>
                           <div style="margin-top:10px;">
                             <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../img/8082.jpg" alt="..." class="img-rounded">
+                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
                           </div>
                         </div>
                       </div>
@@ -879,7 +673,7 @@
                           <button type="submit" class="btn btn-default">扫描文件</button>
                           <div style="margin-top:10px;">
                             <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../img/8082.jpg" alt="..." class="img-rounded">
+                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
                           </div>
                         </div>
                       </div>
@@ -975,7 +769,7 @@
                           <button type="submit" class="btn btn-default">扫描文件</button>
                           <div style="margin-top:10px;">
                             <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../img/8082.jpg" alt="..." class="img-rounded">
+                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
                           </div>
                         </div>
                       </div>
@@ -1002,75 +796,74 @@
 
 
 <script>
-$(document).ready(function() {
-  $('#begindate').datetimepicker({
-    language: 'zh-CN',
-    autoclose: true,
-    todayBtn: true,
-    minView: 2,
-    weekStart: 1,
-    linked: true,
-  });
-
-  $('#theTimeBegin').datetimepicker({
-    language: 'zh-CN',
-    autoclose: true,
-    todayBtn: true,
-    minView: 2,
-    weekStart: 1,
-    linked: true,
-  });
-  $('#theTimeEnd').datetimepicker({
-    language: 'zh-CN',
-    autoclose: true,
-    todayBtn: true,
-    minView: 2,
-    weekStart: 1,
-    linked: true,
-  });
-  $('#creationTime').datetimepicker({
-    language: 'zh-CN',
-    autoclose: true,
-    todayBtn: true,
-    minView: 2,
-    weekStart: 1,
-    linked: true,
-  });
-  $('#partyTime').datetimepicker({
-    language: 'zh-CN',
-    autoclose: true,
-    todayBtn: true,
-    minView: 2,
-    weekStart: 1,
-    linked: true,
-  });
-
-  $('#begindateT').datetimepicker({
-    language: 'zh-CN',
-    autoclose: true,
-    todayBtn: true,
-    minView: 2,
-    weekStart: 1,
-    linked: true,
-  });
-  $('#enddate').datetimepicker({
-    language: 'zh-CN',
-    autoclose: true,
-    todayBtn: true,
-    minView: 2,
-    weekStart: 1,
-    linked: true,
-  });
-});
+import jbqk from './jbqk/index.vue';
 export default {
+  components: {
+    jbqk,
+  },
   data() {
     return {
-      avatar: require('../img/8082.jpg'),
+      avatar: require('@/assets/img/8082.jpg'),
       tabIndex: 0,
     };
   },
   mounted() {
-    this.drawLine();
+    // $('#begindate').datetimepicker({
+    //   language: 'zh-CN',
+    //   autoclose: true,
+    //   todayBtn: true,
+    //   minView: 2,
+    //   weekStart: 1,
+    //   linked: true,
+    // });
+    // $('#theTimeBegin').datetimepicker({
+    //   language: 'zh-CN',
+    //   autoclose: true,
+    //   todayBtn: true,
+    //   minView: 2,
+    //   weekStart: 1,
+    //   linked: true,
+    // });
+    // $('#theTimeEnd').datetimepicker({
+    //   language: 'zh-CN',
+    //   autoclose: true,
+    //   todayBtn: true,
+    //   minView: 2,
+    //   weekStart: 1,
+    //   linked: true,
+    // });
+    // $('#creationTime').datetimepicker({
+    //   language: 'zh-CN',
+    //   autoclose: true,
+    //   todayBtn: true,
+    //   minView: 2,
+    //   weekStart: 1,
+    //   linked: true,
+    // });
+    // $('#partyTime').datetimepicker({
+    //   language: 'zh-CN',
+    //   autoclose: true,
+    //   todayBtn: true,
+    //   minView: 2,
+    //   weekStart: 1,
+    //   linked: true,
+    // });
+    // $('#begindateT').datetimepicker({
+    //   language: 'zh-CN',
+    //   autoclose: true,
+    //   todayBtn: true,
+    //   minView: 2,
+    //   weekStart: 1,
+    //   linked: true,
+    // });
+    // $('#enddate').datetimepicker({
+    //   language: 'zh-CN',
+    //   autoclose: true,
+    //   todayBtn: true,
+    //   minView: 2,
+    //   weekStart: 1,
+    //   linked: true,
+    // });
   },
   methods: {
     linkClass(idx) {
@@ -1080,29 +873,6 @@ export default {
         return ['bgLight', 'textLight'];
       }
     },
-
-    drawLine: function() {
-      // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.getElementById('myChart'));
-      // 绘制图表
-      myChart.setOption({
-        title: { text: '在Vue中使用echarts' },
-        tooltip: {},
-        xAxis: {
-          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
-        },
-        yAxis: {},
-        series: [
-          {
-            name: '销量',
-            type: 'bar',
-            data: [5, 20, 36, 10, 10, 20],
-          },
-        ],
-      });
-    },
-    // drawLine: function结束
-
     changeImage(e) {
       var file = e.target.files[0];
       var reader = new FileReader();
@@ -1211,10 +981,10 @@ label {
   font-weight: bold !important;
   font-size: 14px;
 }
-.form-group {
+/* .form-group {
   margin-bottom: 15px !important;
-}
-.col-1,
+} */
+/* .col-1,
 .col-2,
 .col-3,
 .col-4,
@@ -1285,7 +1055,7 @@ label {
 .col-xl,
 .col-xl-auto {
   float: left;
-}
+} */
 .form-control {
   padding: 6px 12px !important;
   font-size: 14px !important;
@@ -1313,9 +1083,9 @@ label {
   background-color: #e6e6e6;
   border-color: #adadad;
 }
-.row {
+/* .row {
   display: block !important;
-}
+} */
 .base-main-right {
   height: auto !important;
 }

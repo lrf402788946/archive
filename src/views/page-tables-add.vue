@@ -1008,6 +1008,7 @@
                   </div>
                 </div>
               </b-tab>
+              
             </b-tabs>
           </b-card>
         </div>
@@ -1356,8 +1357,8 @@ label {
 </style>
 
 <style scoped>
-@import '../icon/Font-Awesome-master/css/font-awesome.css';
-@import '../layout/base-Layout-bootstrap.css';
-@import '../style/base-style-bootstrap.css';
-@import '../style/bootstrap-datetimepicker/bootstrap-datetimepicker.css';
+@import '../assets/style/Font-Awesome-master/css/font-awesome.css';
+@import '../assets/style/layout/base-Layout-bootstrap.css';
+@import '../assets/style/base-style-bootstrap.css';
+@import '../assets/style/bootstrap-datetimepicker/bootstrap-datetimepicker.css';
 </style>
