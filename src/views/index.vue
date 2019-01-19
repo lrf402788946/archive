@@ -5,7 +5,6 @@
         <b-breadcrumb-item>系统管理</b-breadcrumb-item>
         <b-breadcrumb-item>功能管理</b-breadcrumb-item>
       </b-breadcrumb>
-      <router-view/>
       <!-- 栅格 begin -->
       <div class="base-form">
         <div class="base-form-title"><a class="base-margin-left-20">查询条件</a></div>
