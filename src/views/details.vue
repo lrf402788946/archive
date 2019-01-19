@@ -103,15 +103,8 @@
                     </div>
                   </div>
                 </div>
-
-                <div class="base-padding-20 base-bg-fff" style="clear:both;">
-                  <div class="base-margin-top-10 base-align-right">
-                    <a class="btn btn-info" href="page-tables.html" data-toggle="tooltip" title="" role="button"><i
-                         class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                  </div>
-                </div>
-
               </b-tab>
+              
               <b-tab title="个人档案" :title-link-class="linkClass(2)">
                 <div class="base-padding-20 base-bg-fff">
                   <div class="row">
