@@ -286,7 +286,7 @@ export default {
     },
   },
   computed: {
-    indexs: function(){
+    indexs: function() {
       var left = 1;
       var right = this.pageNumber;
       var ar = [];
