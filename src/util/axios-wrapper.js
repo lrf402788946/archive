@@ -58,7 +58,6 @@ export default class AxiosWrapper {
     if (!options) options = {};
     if (options.params) options.params = trimData(options.params);
     const url = AxiosWrapper.merge(uri, options.params);
-
     currentRequests += 1;
     // Indicator.open({
     //   spinnerType: 'fading-circle',
@@ -68,7 +67,8 @@ export default class AxiosWrapper {
       const axios = Axios.create({
         baseURL: this.baseUrl,
       });
-      axios.defaults.headers.common.Authorization = util.token;
+      axios.defaults.baseURL = 'http://10.16.11.186:8080';
+      // axios.defaults.headers.common.Authorization = util.token;
       let res = await axios.request({
         method: isNullOrUndefined(data) ? 'get' : 'post',
         url,

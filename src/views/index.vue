@@ -1,6 +1,7 @@
  <template>
     <div>
       <body>
+        <!-- {{cadreInformation}} -->
         <div class="base-wrapper">
           <div class="base-header">
             <div class="base-header-left" id="menuHead"></div>
@@ -69,20 +70,20 @@
                     <div class="col-lg-3">
                       <div class="base-margin-right-40 form-group">
 
-                        <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入姓名">
+                        <input type="text" v-model="dagl_user.dept_name" class="form-control" id="exampleInputName2" placeholder="请输入姓名">
                       </div>
                     </div>
 
                     <div class="col-lg-3">
                       <div class="base-margin-right-40 form-group">
 
-                        <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入身份证号">
+                        <input type="text" v-model="dagl_user.id_number" class="form-control" id="exampleInputName2" placeholder="请输入身份证号">
                       </div>
                     </div>
                     <div class="col-lg-3">
                       <div class="base-margin-right-40 form-group">
 
-                        <a class="btn btn-info" href="#" data-toggle="tooltip" title="" role="button"><i class="base-margin-right-5 fa fa-search "></i>查&nbsp;&nbsp;&nbsp;询</a>
+                        <a class="btn btn-info" @click="query()" data-toggle="tooltip" title="" role="button"><i class="base-margin-right-5 fa fa-search "></i>查&nbsp;&nbsp;&nbsp;询</a>
                       </div>
                     </div>
                   </div>
@@ -113,112 +114,12 @@
                         <th>入档时间</th>
                         <th>操作</th>
                       </tr>
-                      <tr>
-                        <td>01</td>
-                        <td>令狐冲</td>
-                        <td>科员</td>
-                        <td>22010219700501567</td>
-                        <td>2019-01-12</td>
-                        <td>
-                          <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
-                            title="" role="button">查&nbsp;&nbsp;看</a>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td>02</td>
-                        <td>李嘉诚</td>
-                        <td>科员</td>
-                        <td>22010219710501421</td>
-                        <td>2019-02-11</td>
-                        <td>
-                          <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
-                            title="" role="button">查&nbsp;&nbsp;看</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>03</td>
-                        <td>郭靖</td>
-                        <td>科员</td>
-                        <td>22010219690801332</td>
-                        <td>2019-01-29</td>
-                        <td>
-                          <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
-                            title="" role="button">查&nbsp;&nbsp;看</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>04</td>
-                        <td>陈家洛</td>
-                        <td>科员</td>
-                        <td>22010219581121103X</td>
-                        <td>2019-03-12</td>
-                        <td>
-                          <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
-                            title="" role="button">查&nbsp;&nbsp;看</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>05</td>
-                        <td>丘处机</td>
-                        <td>科员</td>
-                        <td>22010219730717389</td>
-                        <td>2019-07-05</td>
-                        <td>
-                          <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
-                            title="" role="button">查&nbsp;&nbsp;看</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>06</td>
-                        <td>杨过</td>
-                        <td>科员</td>
-                        <td>22010219720901588</td>
-                        <td>2019-04-12</td>
-                        <td>
-                          <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
-                            title="" role="button">查&nbsp;&nbsp;看</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>07</td>
-                        <td>乔峰</td>
-                        <td>科员</td>
-                        <td>22010219761000053</td>
-                        <td>2019-12-01</td>
-                        <td>
-                          <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
-                            title="" role="button">查&nbsp;&nbsp;看</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>08</td>
-                        <td>段誉</td>
-                        <td>科员</td>
-                        <td>22010219700501567</td>
-                        <td>2019-09-02</td>
-                        <td>
-                          <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
-                            title="" role="button">查&nbsp;&nbsp;看</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>09</td>
-                        <td>魏璎珞</td>
-                        <td>科员</td>
-                        <td>22010219700501567</td>
-                        <td>2019-06-22</td>
-                        <td>
-                          <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
-                            title="" role="button">查&nbsp;&nbsp;看</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>10</td>
-                        <td>王刚</td>
-                        <td>科员</td>
-                        <td>22010219700501567</td>
-                        <td>2019-10-06</td>
+                      <tr v-for="(item,index) in cadreInformation" :key="index">
+                        <td>{{index+1}}</td>
+                        <td>{{item.dept_name}}</td>
+                        <td>{{item.post}}</td>
+                        <td>{{item.id_number}}</td>
+                        <td>{{item.create_date}}</td>
                         <td>
                           <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
                             title="" role="button">查&nbsp;&nbsp;看</a>
@@ -228,27 +129,35 @@
                     </tbody>
                   </table>
 
-                  <!-- 分页 begin -->
-                  <nav class="base-align-right">
+                  <!-- <nav class="base-align-right">
                     <ul class="pagination pagination-sm">
                       <li>
                         <a href="#" aria-label="Previous">
                           <span aria-hidden="true">&laquo;</span>
                         </a>
                       </li>
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
+                      <li v-for='i in pageNumber' :key="i"><a @click="query(i)">{{i}}</a></li>
                       <li>
                         <a href="#" aria-label="Next">
                           <span aria-hidden="true">&raquo;</span>
                         </a>
                       </li>
                     </ul>
-                  </nav>
-                  <!-- 分页 end -->
+                  </nav> -->
+                  <!-- 分页 -->
+                  <div class="page-bar">
+                    <ul class="pagination pagination-sm">
+                      <li v-if="cur>1"><a v-on:click="cur--,pageClick()">上一页</a></li>
+                      <li v-if="cur==1"><a class="banclick">上一页</a></li>
+                      <li v-for="index in indexs" :key="index" v-bind:class="{ 'active': cur == index}">
+                        <a v-on:click="btnClick(index)">{{ index }}</a>
+                      </li>
+                      <li v-if="cur!=pageNumber"><a v-on:click="cur++,pageClick()">下一页</a></li>
+                      <li v-if="cur == pageNumber"><a class="banclick">下一页</a></li>
+                      <li><a>共<i>{{pageNumber}}</i>页</a></li>
+                    </ul>
+                  </div> 
+                  <!-- 分页 -->
                 </div>
               </div>
 
@@ -259,60 +168,94 @@
     </div>
 </template>
 <script>
-$(function() {
-  $('#base-main').height($(window).height() - 75);
-  $(window).resize(function() {
-    $('#base-main').height($(window).height() - 75);
-  });
-  $('#base-nav').width($(window).width() - 300);
-  $(window).resize(function() {
-    $('#base-nav').width($(window).width() - 300);
-  });
-  $('#base-main-right').width($(window).width() - 300);
-  $(window).resize(function() {
-    $('#base-main-right').width($(window).width() - 300);
-  });
-});
-$(document).ready(function() {
-  var $submenu = $('.submenu');
-  var $mainmenu = $('.mainmenu');
-  $submenu.hide();
-  $submenu
-    .first()
-    .delay(400)
-    .slideDown(700);
-  $submenu.on('click', 'li', function() {
-    $submenu
-      .siblings()
-      .find('li')
-      .removeClass('chosen');
-    $(this).addClass('chosen');
-  });
-  $mainmenu.on('click', 'li', function() {
-    $(this)
-      .next('.submenu')
-      .slideToggle()
-      .siblings('.submenu')
-      .slideUp();
-  });
-  $mainmenu.children('li:last-child').on('click', function() {
-    $mainmenu
-      .fadeOut()
-      .delay(500)
-      .fadeIn();
-  });
-});
-
 export default {
   data() {
     return {
+      cadreInformation: [],
+      dagl_user: {
+        dept_name: '',
+        id_number: '',
+      },
+      skip: 0,
+      limit: 5, //每页信息数量
       timeout: 500,
       closetimer: 0,
       ddmenuitem: 0,
+      totalRow: 0, //词条数量
+      pageNumber: 10, //页码数量
+      cur: 1, //当前页码
     };
   },
-  created() {},
+  watch: {
+    cur(oldValue, newValue) {
+      console.log(arguments);
+    },
+  },
+  created() {
+    this.query();
+  },
+  mounted() {
+    var $submenu = $('.submenu');
+    var $mainmenu = $('.mainmenu');
+    $submenu.hide();
+    $submenu
+      .first()
+      .delay(400)
+      .slideDown(700);
+    $submenu.on('click', 'li', function() {
+      $submenu
+        .siblings()
+        .find('li')
+        .removeClass('chosen');
+      $(this).addClass('chosen');
+    });
+    $mainmenu.on('click', 'li', function() {
+      $(this)
+        .next('.submenu')
+        .slideToggle()
+        .siblings('.submenu')
+        .slideUp();
+    });
+    $mainmenu.children('li:last-child').on('click', function() {
+      $mainmenu
+        .fadeOut()
+        .delay(500)
+        .fadeIn();
+    });
+    $('#base-main').height($(window).height() - 75);
+    $(window).resize(function() {
+      $('#base-main').height($(window).height() - 75);
+    });
+    $('#base-nav').width($(window).width() - 241);
+    $(window).resize(function() {
+      $('#base-nav').width($(window).width() - 241);
+    });
+    $('#base-main-right').width($(window).width() - 241);
+    $(window).resize(function() {
+      $('#base-main-right').width($(window).width() - 241);
+    });
+  },
   methods: {
+    async query(i) {
+      if (i == null) {
+        let result = await this.$axios.get(
+          // '/ceshi/jbqk/jbqk_list?skip='+ (this.skip + i * this.limit) +'&limit=' + this.limit + '&dept_name=' + this.dagl_user.dept_name + '&id_number=' + this.dagl_user.id_number
+          `/ceshi/jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}&dept_name=${this.dagl_user.dept_name}&id_number=${this.dagl_user.id_number}`
+        );
+        this.totalRow = result.data.totalRow;
+        this.pageNumber = Math.ceil(this.totalRow / this.limit);
+        this.cadreInformation = result.data.jbqkList;
+      } else if (i != null) {
+        let result = await this.$axios.get(
+          // '/ceshi/jbqk/jbqk_list?skip='+ (this.skip + i * this.limit) +'&limit=' + this.limit + '&dept_name=' + this.dagl_user.dept_name + '&id_number=' + this.dagl_user.id_number
+          `/ceshi/jbqk/jbqk_list?skip=${this.skip + 3 * (i - 1)}&limit=${this.limit}&dept_name=${this.dagl_user.dept_name}
+          &id_number=${this.dagl_user.id_number}`
+        );
+        this.totalRow = result.data.totalRow;
+        this.pageNumber = Math.ceil(this.totalRow / this.limit);
+        this.cadreInformation = result.data.jbqkList;
+      }
+    },
     showmenu(id) {
       var list = document.getElementById('list' + id);
       var menu = document.getElementById('menu' + id);
@@ -332,6 +275,40 @@ export default {
     },
     mclose() {
       if (this.ddmenuitem) this.ddmenuitem.style.visibility = 'hidden';
+    },
+    btnClick: function(data) {
+      if (data != this.cur) {
+        this.cur = data;
+      }
+    },
+    pageClick: function() {
+      console.log('现在在' + this.cur + '页');
+    },
+  },
+  computed: {
+    indexs: function(){
+      var left = 1;
+      var right = this.pageNumber;
+      var ar = [];
+      if (this.pageNumber >= 5) {
+        if (this.cur > 3 && this.cur < this.pageNumber - 2) {
+          left = this.cur - 2;
+          right = this.cur + 2;
+        } else {
+          if (this.cur <= 3) {
+            left = 1;
+            right = 5;
+          } else {
+            right = this.pageNumber;
+            left = this.pageNumber - 4;
+          }
+        }
+      }
+      while (left <= right) {
+        ar.push(left);
+        left++;
+      }
+      return ar;
     },
   },
 };
@@ -561,7 +538,7 @@ table {
 }
 .base-header-left {
   float: left;
-  width: 300px;
+  width: 240px;
   height: 75px;
   line-height: 75px;
   background-color: #1c2b36;
@@ -574,7 +551,7 @@ table {
 .base-main-left {
   float: left;
   height: 100%;
-  width: 300px;
+  width: 240px;
   background-color: #1c2b36;
 }
 .base-footer {
@@ -582,7 +559,7 @@ table {
   padding: 30px 0;
   color: #46687f;
   background-color: #1c2b36;
-  width: 300px;
+  width: 240px;
   height: 100px;
   line-height: 16px;
   text-align: center;
@@ -590,6 +567,49 @@ table {
   bottom: 0;
   letter-spacing: 1px;
   z-index: 999;
+}
+.page-bar {
+  margin: 40px;
+}
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+}
+li {
+  list-style: none;
+}
+.page-bar li:first-child > a {
+  margin-left: 0px;
+}
+.page-bar a {
+  border: 1px solid #ddd;
+  text-decoration: none;
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  cursor: pointer;
+}
+.page-bar a:hover {
+  background-color: #eee;
+}
+.page-bar a.banclick {
+  cursor: not-allowed;
+}
+.page-bar .active a {
+  color: #fff;
+  cursor: default;
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+.page-bar i {
+  font-style: normal;
+  color: #d44950;
+  margin: 0px 4px;
+  font-size: 12px;
 }
 </style>
 

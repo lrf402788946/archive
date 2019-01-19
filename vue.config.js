@@ -18,10 +18,13 @@ module.exports = {
     port: '8001',
     //api地址前缀
     proxy: {
-      '/weixin': {
-        target: 'http://smart.jilinjobswx.cn',
+      '/ceshi': {
+        target: 'http://10.16.11.186:8080',
         changeOrigin: true,
         ws: true,
+        pathRewrite: {
+          '/ceshi': '',
+        },
       },
     },
   },
