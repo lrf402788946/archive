@@ -1,6 +1,6 @@
 <template lang='html'>
   <div id="index">
-      <p> index </p>
+       
   </div>
 </template>
 
@@ -12,6 +12,7 @@ export default {
     return {};
   },
   computed: {},
+  created() {},
   methods: {},
 };
 </script>
