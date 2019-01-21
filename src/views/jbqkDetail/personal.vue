@@ -1,5 +1,5 @@
 <template lang='html'>
-  <div id="index">
+  <div id="personal">
     <div class="base-padding-20 base-bg-fff">
       <div class="row">
         <div class="col-lg-12">
@@ -80,7 +80,7 @@
               <button type="submit" class="btn btn-default">扫描文件</button>
               <div style="margin-top:10px;">
                 <p class="help-block">请扫面文件并上传.</p>
-                <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
+                <img src="../../assets/img/8082.jpg" alt="..." class="img-rounded">
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
 
 <script>
 export default {
-  name: 'index',
+  name: 'personal',
   components: {},
   data() {
     return {};
