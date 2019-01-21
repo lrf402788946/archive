@@ -43,7 +43,7 @@
         </div>
         <div class="base-padding-20 base-bg-fff">
           <div class="base-align-right">
-            <a class="btn btn-info base-margin-bottom" href="page-tables-add.html" data-toggle="tooltip" title=""
+            <a class="btn btn-info base-margin-bottom" href="http://localhost:8001/page-tables.html#/add" data-toggle="tooltip" title=""
               role="button"><i class="base-margin-right-5 fa fa-plus-square"></i>添加人员</a>
             <!--  <button type="submit" class="btn btn-info base-margin-bottom"><a href="#" data-toggle="tooltip" title="导出">导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></button> -->
           </div>
@@ -75,12 +75,12 @@
           <!-- 分页 -->
           <div class="page-bar">
             <ul class="pagination pagination-sm">
-              <li v-if="cur>1"><a v-on:click="cur--,pageClick()">上一页</a></li>
+              <li v-if="cur>1"><a v-on:click="cur--,query(cur)">上一页</a></li>
               <li v-if="cur==1"><a class="banclick">上一页</a></li>
               <li v-for="index in indexs" :key="index" v-bind:class="{ 'active': cur == index}">
-                <a v-on:click="btnClick(index)">{{ index }}</a>
+                <a v-on:click="btnClick(index),query(cur)">{{ index }}</a>
               </li>
-              <li v-if="cur!=pageNumber"><a v-on:click="cur++,pageClick()">下一页</a></li>
+              <li v-if="cur!=pageNumber"><a v-on:click="cur++,query(cur)">下一页</a></li>
               <li v-if="cur == pageNumber"><a class="banclick">下一页</a></li>
               <li><a>共<i>{{pageNumber}}</i>页</a></li>
             </ul>
@@ -100,17 +100,17 @@ export default {
         id_number: '',
       },
       skip: 0,
-      limit: 5, //每页信息数量
+      limit: 1, //每页信息数量
       timeout: 500,
       closetimer: 0,
       ddmenuitem: 0,
       totalRow: 0, //词条数量
-      pageNumber: 10, //页码数量
+      pageNumber: 1, //页码数量
       cur: 1, //当前页码
     };
   },
   created() {
-    // this.query();
+    this.query();
   },
   methods: {
     async query(i) {
@@ -121,16 +121,18 @@ export default {
         );
         this.totalRow = result.data.totalRow;
         this.pageNumber = Math.ceil(this.totalRow / this.limit);
-        this.cadreInformation = result.data.jbqkList;
+        // this.cadreInformation = result.data.jbqkList;
+        this.$set(this, 'cadreInformation', result.data.jbqkList);
       } else if (i != null) {
         let result = await this.$axios.get(
           // '/ceshi/jbqk/jbqk_list?skip='+ (this.skip + i * this.limit) +'&limit=' + this.limit + '&dept_name=' + this.dagl_user.dept_name + '&id_number=' + this.dagl_user.id_number
-          `/ceshi/jbqk/jbqk_list?skip=${this.skip + 3 * (i - 1)}&limit=${this.limit}&dept_name=${this.dagl_user.dept_name}
-          &id_number=${this.dagl_user.id_number}`
+          `/ceshi/jbqk/jbqk_list?skip=${this.skip + this.limit * (i - 1)}&limit=${this.limit}&dept_name=${this.dagl_user.dept_name}
+&id_number=${this.dagl_user.id_number}`
         );
         this.totalRow = result.data.totalRow;
         this.pageNumber = Math.ceil(this.totalRow / this.limit);
-        this.cadreInformation = result.data.jbqkList;
+        // this.cadreInformation = result.data.jbqkList;
+        this.$set(this, 'cadreInformation', result.data.jbqkList);
       }
     },
     showmenu(id) {
@@ -148,9 +150,6 @@ export default {
       if (data != this.cur) {
         this.cur = data;
       }
-    },
-    pageClick: function() {
-      console.log('现在在' + this.cur + '页');
     },
   },
   computed: {
