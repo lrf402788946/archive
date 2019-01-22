@@ -2,7 +2,7 @@
   <div id="index">
      <!-- 位置导航 begin  -->
       <b-breadcrumb>
-        <b-breadcrumb-item>部门管理</b-breadcrumb-item>
+        <b-breadcrumb-item :to="{name:'DeptIndex'}">部门管理</b-breadcrumb-item>
       </b-breadcrumb>
       <!-- 表格 begin -->
       <div class="base-form">
@@ -73,32 +73,7 @@ export default {
       deleteItem: '',
     };
   },
-  computed: {
-    indexs() {
-      var left = 1;
-      var right = this.pageNumber;
-      var ar = [];
-      if (this.pageNumber >= 5) {
-        if (this.cur > 3 && this.cur < this.pageNumber - 2) {
-          left = this.cur - 2;
-          right = this.cur + 2;
-        } else {
-          if (this.cur <= 3) {
-            left = 1;
-            right = 5;
-          } else {
-            right = this.pageNumber;
-            left = this.pageNumber - 4;
-          }
-        }
-      }
-      while (left <= right) {
-        ar.push(left);
-        left++;
-      }
-      return ar;
-    },
-  },
+  computed: {},
   created() {
     this.search();
   },

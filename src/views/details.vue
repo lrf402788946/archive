@@ -32,11 +32,7 @@
                       <div class="col-lg-3">
                         <div class="form-group">
                           <label for="exampleInputEmail2">个人档案1：</label>
-                          <select class="form-control">
-                            <option selected="selected">--请选择--</option>
-                            <option>男</option>
-                            <option>女</option>
-                          </select>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
                         </div>
                       </div>
                       <div class="col-lg-3">
@@ -128,11 +124,7 @@
                       <div class="col-lg-3">
                         <div class="form-group">
                           <label for="exampleInputEmail2">例行谈话1：</label>
-                          <select class="form-control">
-                            <option selected="selected">--请选择--</option>
-                            <option>男</option>
-                            <option>女</option>
-                          </select>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
                         </div>
                       </div>
                       <div class="col-lg-3">
@@ -224,11 +216,7 @@
                       <div class="col-lg-3">
                         <div class="form-group">
                           <label for="exampleInputEmail2">问题线索1：</label>
-                          <select class="form-control">
-                            <option selected="selected">--请选择--</option>
-                            <option>男</option>
-                            <option>女</option>
-                          </select>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
                         </div>
                       </div>
                       <div class="col-lg-3">
@@ -320,11 +308,7 @@
                       <div class="col-lg-3">
                         <div class="form-group">
                           <label for="exampleInputEmail2">述责述廉1：</label>
-                          <select class="form-control">
-                            <option selected="selected">--请选择--</option>
-                            <option>男</option>
-                            <option>女</option>
-                          </select>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
                         </div>
                       </div>
                       <div class="col-lg-3">
@@ -416,11 +400,7 @@
                       <div class="col-lg-3">
                         <div class="form-group">
                           <label for="exampleInputEmail2">处置问责1：</label>
-                          <select class="form-control">
-                            <option selected="selected">--请选择--</option>
-                            <option>男</option>
-                            <option>女</option>
-                          </select>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
                         </div>
                       </div>
                       <div class="col-lg-3">
@@ -512,11 +492,7 @@
                       <div class="col-lg-3">
                         <div class="form-group">
                           <label for="exampleInputEmail2">重大事项1：</label>
-                          <select class="form-control">
-                            <option selected="selected">--请选择--</option>
-                            <option>男</option>
-                            <option>女</option>
-                          </select>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
                         </div>
                       </div>
                       <div class="col-lg-3">
@@ -608,11 +584,7 @@
                       <div class="col-lg-3">
                         <div class="form-group">
                           <label for="exampleInputEmail2">立案处理1：</label>
-                          <select class="form-control">
-                            <option selected="selected">--请选择--</option>
-                            <option>男</option>
-                            <option>女</option>
-                          </select>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
                         </div>
                       </div>
                       <div class="col-lg-3">
