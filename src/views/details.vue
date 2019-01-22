@@ -16,89 +16,7 @@
               </b-tab>
 
               <b-tab title="个人事项" :title-link-class="linkClass(1)">
-                <div class="base-padding-20 base-bg-fff">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人事项：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputEmail2">个人事项1：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">个人事项2：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人事项3：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人事项4：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人事项5：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">个人事项6：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">个人事项7：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="exampleInputName2">个人事项备注：</label>
-                      <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">个人事项状况表：</label>
-                          </div>
-                          <button type="submit" class="btn btn-default">扫描文件</button>
-                          <div style="margin-top:10px;">
-                            <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <personal v-if="tabIndex === 1"></personal>
               </b-tab>
               
               <b-tab title="个人档案" :title-link-class="linkClass(2)">
@@ -758,9 +676,11 @@
 
 <script>
 import jbqk from './jbqk/index.vue';
+import personal from './jbqkDetail/personal.vue';
 export default {
   components: {
     jbqk,
+    personal,
   },
   data() {
     return {

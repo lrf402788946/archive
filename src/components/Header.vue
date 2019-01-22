@@ -4,7 +4,7 @@
         <div class="base-header-left" id="menuHead"></div>
         <div class="base-nav" id="base-nav">
           <ul class="top-nav-ul">
-            <li><a href="#">首 &nbsp;&nbsp; 页</a></li>
+            <li><a @click="$router.push('/')">首 &nbsp;&nbsp; 页</a></li>
           </ul>
           <div id="base-user">
             <a href="#" class="user-name" @mouseover="mopen('m1')" @mouseout="mclose()">Admin<span class="button-down fa fa-caret-down"></span></a>
