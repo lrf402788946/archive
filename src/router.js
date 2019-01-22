@@ -4,6 +4,7 @@ import Index from './views/index.vue';
 import LoginPage from './views/loginPage.vue';
 import profession from './views/profession/index.vue';
 import details from './views/details.vue';
+import add from './views/add.vue';
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/details',
       name: 'details',
       component: details,
+    },
+    {
+      path: '/add',
+      name: 'add',
+      component: add,
     },
   ],
 });
