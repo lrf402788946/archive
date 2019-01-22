@@ -2,7 +2,7 @@
   <div id="app">
     <body>
       <div class="base-wrapper">
-        <Header></Header><p>test</p>
+        <Header></Header>
         <div class="base-main" id="base-main">
           <sideMenu style="float:left;"></sideMenu>
           <div id="base-main-right" class="base-main-right" style="overflow-y: scroll;">
