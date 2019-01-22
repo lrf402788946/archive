@@ -9,7 +9,7 @@
             </li>
             <ul class="submenu">
               <div class="expand-triangle"></div>
-              <li><router-link :to="{name:'index'}"><span>干部信息</span></router-link></li>
+              <router-link :to="{name:'index'}"><li><span>干部信息</span></li></router-link>
 
             </ul>
             <li>
@@ -26,8 +26,8 @@
             </li>
             <ul class="submenu">
               <div class="expand-triangle"></div>
-              <li><router-link :to="{name:'DeptList'}"><span> 部门管理</span></router-link></li>
-              <li><span>数据管理</span></li>
+              <router-link :to="{name:'DeptIndex'}"><li><span> 部门管理</span></li></router-link>
+              <router-link :to="{name:'UserIndex'}"><li><span> 用户管理</span></li></router-link>
 
             </ul>
 

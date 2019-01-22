@@ -2,7 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Index from './views/index.vue';
 import LoginPage from './views/loginPage.vue';
-import DeptList from './views/dept/DeptList.vue';
+import DeptIndex from './views/dept/Index.vue';
+import UserIndex from './views/user/Index.vue';
 import Details from './views/Details.vue';
 
 Vue.use(Router);
@@ -21,14 +22,19 @@ export default new Router({
       component: LoginPage,
     },
     {
-      path: '/DeptList',
-      name: 'DeptList',
-      component: DeptList,
+      path: '/DeptIndex',
+      name: 'DeptIndex',
+      component: DeptIndex,
     },
     {
       path: '/Details',
       name: 'Details',
       component: Details,
+    },
+    {
+      path: '/UserIndex',
+      name: 'UserIndex',
+      component: UserIndex,
     },
   ],
 });
