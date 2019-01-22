@@ -5,7 +5,7 @@
         <Header></Header>
         <div class="base-main" id="base-main">
           <sideMenu style="float:left;"></sideMenu>
-          <div id="base-main-right" class="base-main-right" style="overflow-y: scroll;">
+          <div id="base-main-right" class="base-main-right">
             <router-view/>
           </div>
         </div>

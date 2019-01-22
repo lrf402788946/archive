@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <body style="overflow-y: scroll;">
-      <div class="base-main-right">
+  
+   
+      <div>
         <b-breadcrumb>
           <b-breadcrumb-item>线路维护</b-breadcrumb-item>
           <b-breadcrumb-item>线路管理</b-breadcrumb-item>
@@ -128,11 +128,13 @@
               </b-tab>
             </b-tabs>
           </b-card>
+          <!-- <div style="width:100%; height:80px; background:#e9ecef;"></div> -->
         </div>
+        
       </div>
-    </body>
+   
 
-  </div>
+ 
 </template>
 
 
@@ -202,6 +204,12 @@ body {
 .textLight {
   color: #fff !important;
 }
+a{
+  color: #7ba0bb !important;
+}
+.router-link-active{
+text-decoration: none !important;
+}
 a.textLight:hover,
 a.textLight:focus {
   color: #fff !important;
@@ -235,8 +243,8 @@ a.bgLight:hover {
 .base-form-title {
   font-weight: bold !important;
   display: block !important;
-  line-height: 50px !important;
-  font-size: 18px !important;
+  line-height: 40px !important;
+  font-size: 16px !important;
   color: #46687f !important;
   letter-spacing: 1px !important;
   text-align: left !important;
@@ -244,6 +252,7 @@ a.bgLight:hover {
 }
 .card {
   border: none !important;
+  border-radius: 0rem !important;
 }
 
 .card-header-tabs {
@@ -388,9 +397,9 @@ label {
 /* .row {
   display: block !important;
 } */
-.base-main-right {
+/* .base-main-right {
   height: auto !important;
-}
+} */
 .btn-info {
   color: #fff !important;
   background-color: #5bc0de !important;
@@ -408,7 +417,7 @@ label {
   height: 180px;
 }
 .tab-content {
-  padding-bottom: 50px;
+  padding-bottom: 10px;
 }
 </style>
 

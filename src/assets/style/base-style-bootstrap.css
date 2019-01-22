@@ -305,7 +305,7 @@ body {
 	height: 10px;
 	width: 240px;
 	content: " ";
-	margin-left: -40px;
+	margin-left:0;
 }
 
 /*------------ Sub Menu ------------*/
@@ -321,7 +321,7 @@ body {
 	line-height: 20px;
 	height: 40px;
 	padding-top: 11px;
-	margin-left: -40px;
+	margin-left: 0px;
 	background-color: #161e25;
 	border-left: solid 6px #161e25;
 	transition: border-left 220ms ease-in;

@@ -17,7 +17,7 @@
             </li>
             <ul class="submenu">
               <div class="expand-triangle"></div>
-              <li><span>监测预警</span></li>
+              <router-link :to="{name:'Details'}"><li><span>监测预警1</span></li></router-link>
               <li><span>统计分析</span></li>
 
             </ul>

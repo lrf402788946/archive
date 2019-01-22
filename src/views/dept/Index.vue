@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="base-padding-20 base-bg-fff">
-          <div class="base-align-right">
+          <div class="base-align-right" style="margin-bottom:20px;">
             <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" title="" role="button" v-b-modal="'toAdd'">
               <i class="base-margin-right-5 fa fa-plus-square"></i>添加部门    
             </a>
@@ -31,8 +31,8 @@
                 <td><b-form-input v-model="item.dept_duty" ></b-form-input></td>
                 <td><b-form-input v-model="item.dept_tell" ></b-form-input></td>
                 <td>
-                  <b-button variant="primary" style="color:white;" @click="toUpdate(index)">修改</b-button>
-                  <b-button variant="danger" @click="openDeleteAlert(item.id)">删除</b-button>
+                  <b-button variant="primary" style="color:white; margin-right:5px;" @click="toUpdate(index)">修改</b-button>
+                  <b-button variant="danger" style="color:white;"  @click="openDeleteAlert(item.id)">删除</b-button>
                   <!-- <a class="btn btn-xs btn-info base-margin-2" data-toggle="tooltip" @click="toUpdate(index)"
                     title="" role="button">保&nbsp;&nbsp;存</a>&nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="btn btn-xs btn-info base-margin-2" data-toggle="tooltip" @click="toDelete(index)"
@@ -45,7 +45,7 @@
             部门名称:<b-form-input v-model="form.dept_name"></b-form-input>
             部门职责:<b-form-input v-model="form.dept_duty"></b-form-input>
             部门电话:<b-form-input v-model="form.dept_tell"></b-form-input>
-            <b-button variant="secondary" @click="form={}" >重置</b-button><b-button variant="primary" @click="toAdd()" >保存</b-button>
+            <b-button variant="secondary" style="margin:20px;" @click="form={}" >重置</b-button><b-button style="margin:20px;" variant="primary" @click="toAdd()" >保存</b-button>
           </b-modal>
 
           <b-modal id="deleteAlert" title="确认删除" ref="deleteAlert" hide-footer> 
@@ -113,9 +113,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+body{
+  background-color: #ecedf0 !important;
+}
 .btn-primary {
-  background-color: #5bc0de;
+  background-color: #5bc0de !important;
 }
 .breadcrumb {
   padding: 14px 18px;
@@ -138,7 +141,7 @@ export default {
   font-weight: bold;
   display: block;
   line-height: 50px;
-  font-size: 18px;
+  font-size: 16px;
   color: #46687f;
   letter-spacing: 1px;
   text-align: left;
@@ -250,7 +253,7 @@ button {
   border: 1px solid #ddd;
 }
 .table {
-  font-size: 18px;
+  font-size: 16px;
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
@@ -324,7 +327,7 @@ table {
 }
 .base-header {
   min-width: 1024px;
-  height: 75px;
+  height: 60px;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -333,8 +336,8 @@ table {
 .base-header-left {
   float: left;
   width: 240px;
-  height: 75px;
-  line-height: 75px;
+  height: 60px;
+  line-height: 60px;
   background-color: #1c2b36;
   border-bottom: 1px #161e25 solid;
   background-image: url(/img/logo.8640fb78.png);
@@ -385,6 +388,7 @@ li {
   margin: 0px 4px;
   font-size: 12px;
 }
+
 </style>
 
 

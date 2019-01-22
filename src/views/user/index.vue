@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="base-padding-20 base-bg-fff">
-        <div class="base-align-right">
+        <div class="base-align-right" style="margin-bottom:20px;">
           <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" title="" role="button" v-b-modal="'toAdd'">
             <i class="base-margin-right-5 fa fa-plus-square"></i>添加用户    
           </a>
@@ -102,7 +102,7 @@ export default {
   font-weight: bold;
   display: block;
   line-height: 50px;
-  font-size: 18px;
+  font-size: 16px;
   color: #46687f;
   letter-spacing: 1px;
   text-align: left;
@@ -214,7 +214,7 @@ button {
   border: 1px solid #ddd;
 }
 .table {
-  font-size: 18px;
+  font-size: 16px;
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
@@ -288,7 +288,7 @@ table {
 }
 .base-header {
   min-width: 1024px;
-  height: 75px;
+  height: 60px;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -297,8 +297,8 @@ table {
 .base-header-left {
   float: left;
   width: 240px;
-  height: 75px;
-  line-height: 75px;
+  height: 60px;
+  line-height: 60px;
   background-color: #1c2b36;
   border-bottom: 1px #161e25 solid;
   background-image: url(/img/logo.8640fb78.png);

@@ -31,10 +31,7 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- 栅格 end -->
-      <!-- 表格 begin -->
-      <div class="base-form">
+        <div style="margin-top: 20px;">
         <div class="form-inline">
           <div class="base-form-title" style="width:100%;"><a class="base-margin-left-20">干部信息列表</a>
             <div class="button-table">
@@ -42,7 +39,7 @@
           </div>
         </div>
         <div class="base-padding-20 base-bg-fff">
-          <div class="base-align-right">
+          <div class="base-align-right" style="margin-bottom: 20px;">
             <a class="btn btn-info base-margin-bottom" href="http://localhost:8001/page-tables.html#/add" data-toggle="tooltip" title=""
               role="button"><i class="base-margin-right-5 fa fa-plus-square"></i>添加人员</a>
             <!--  <button type="submit" class="btn btn-info base-margin-bottom"><a href="#" data-toggle="tooltip" title="导出">导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></button> -->
@@ -88,6 +85,10 @@
           <!-- 分页 -->
         </div>
       </div>
+      </div>
+      <!-- 栅格 end -->
+      <!-- 表格 begin -->
+      
     </div>
 </template>
 <script>
@@ -202,8 +203,8 @@ export default {
 .base-form-title {
   font-weight: bold;
   display: block;
-  line-height: 50px;
-  font-size: 18px;
+  line-height: 40px;
+  font-size: 16px;
   color: #46687f;
   letter-spacing: 1px;
   text-align: left;
@@ -315,7 +316,7 @@ button {
   border: 1px solid #ddd;
 }
 .table {
-  font-size: 18px;
+  font-size: 16px;
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
@@ -389,7 +390,7 @@ table {
 }
 .base-header {
   min-width: 1024px;
-  height: 75px;
+  height: 60px;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -398,8 +399,8 @@ table {
 .base-header-left {
   float: left;
   width: 240px;
-  height: 75px;
-  line-height: 75px;
+  height: 60px;
+  line-height: 60px;
   background-color: #1c2b36;
   border-bottom: 1px #161e25 solid;
   background-image: url(/img/logo.8640fb78.png);

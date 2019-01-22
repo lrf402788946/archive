@@ -52,6 +52,7 @@
 	padding: 0;
 	margin: 0;
 	background-color:#ecedf0;
+	overflow-y: auto !important;
 	}
 
 /* 表单 div */	
