@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Index from './views/index.vue';
+import Index from './views/Index.vue';
 import LoginPage from './views/loginPage.vue';
 import DeptIndex from './views/dept/Index.vue';
 import UserIndex from './views/user/Index.vue';
