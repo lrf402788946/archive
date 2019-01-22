@@ -16,652 +16,115 @@
               </b-tab>
 
               <b-tab title="个人事项" :title-link-class="linkClass(1)">
-                <personal v-if="tabIndex === 1"></personal>
+                <div class="base-padding-20 base-bg-fff">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="col-lg-3">
+                        <div class=" form-group">
+                          <label for="exampleInputName2">个人事项：</label>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label for="exampleInputEmail2">个人事项1：</label>
+                          <select class="form-control">
+                            <option selected="selected">--请选择--</option>
+                            <option>男</option>
+                            <option>女</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label for="exampleInputName2">个人事项2：</label>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class=" form-group">
+                          <label for="exampleInputName2">个人事项3：</label>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+                        </div>
+                      </div>
+
+                      <div class="col-lg-3">
+                        <div class=" form-group">
+                          <label for="exampleInputName2">个人事项4：</label>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+                        </div>
+                      </div>
+
+                      <div class="col-lg-3">
+                        <div class=" form-group">
+                          <label for="exampleInputName2">个人事项5：</label>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label for="exampleInputName2">个人事项6：</label>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label for="exampleInputName2">个人事项7：</label>
+                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label for="exampleInputName2">个人事项备注：</label>
+                      <textarea class="form-control" rows="4"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="col-lg-6">
+                        <div class="base-margin-right-40 form-group">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">个人事项状况表：</label>
+                          </div>
+                          <button type="submit" class="btn btn-default">扫描文件</button>
+                          <div style="margin-top:10px;">
+                            <p class="help-block">请扫面文件并上传.</p>
+                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </b-tab>
               
               <b-tab title="个人档案" :title-link-class="linkClass(2)">
-                <div class="base-padding-20 base-bg-fff">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人档案：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputEmail2">个人档案1：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">个人档案2：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人档案3：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人档案4：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人档案5：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">个人档案6：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">个人档案7：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="exampleInputName2">个人档案备注：</label>
-                      <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">个人档案状况表：</label>
-                          </div>
-                          <button type="submit" class="btn btn-default">扫描文件</button>
-                          <div style="margin-top:10px;">
-                            <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="base-padding-20 base-bg-fff" style="clear:both;">
-                  <div class="base-margin-top-10 base-align-right">
-                    <a class="btn btn-info" href="page-tables.html" data-toggle="tooltip" title="" role="button"><i
-                         class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                  </div>
-                </div>
+                <PersonDocument v-if="tabIndex === 2"></PersonDocument>
               </b-tab>
               <b-tab title="例行谈话" :title-link-class="linkClass(3)">
-                <div class="base-padding-20 base-bg-fff">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">例行谈话：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputEmail2">例行谈话1：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">例行谈话2：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">例行谈话3：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">例行谈话4：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">例行谈话5：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">例行谈话6：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">例行谈话7：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="exampleInputName2">例行谈话备注：</label>
-                      <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">个例行谈话状况表：</label>
-                          </div>
-                          <button type="submit" class="btn btn-default">扫描文件</button>
-                          <div style="margin-top:10px;">
-                            <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="base-padding-20 base-bg-fff" style="clear:both;">
-                  <div class="base-margin-top-10 base-align-right">
-                    <a class="btn btn-info" href="page-tables.html" data-toggle="tooltip" title="" role="button"><i
-                         class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                  </div>
-                </div>
+                <RoutineConversation v-if="tabIndex === 3"></RoutineConversation>
               </b-tab>
               <b-tab title="问题线索" :title-link-class="linkClass(4)">
-                <div class="base-padding-20 base-bg-fff">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">问题线索：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputEmail2">问题线索1：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">问题线索2：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">问题线索3：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">问题线索4：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">问题线索5：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">问题线索6：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">问题线索7：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="exampleInputName2">问题线索备注：</label>
-                      <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">问题线索状况表：</label>
-                          </div>
-                          <button type="submit" class="btn btn-default">扫描文件</button>
-                          <div style="margin-top:10px;">
-                            <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="base-padding-20 base-bg-fff" style="clear:both;">
-                  <div class="base-margin-top-10 base-align-right">
-                    <a class="btn btn-info" href="page-tables.html" data-toggle="tooltip" title="" role="button"><i
-                         class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                  </div>
-                </div>
+                <ProblemClue v-if="tabIndex === 4"></ProblemClue>
               </b-tab>
               <b-tab title="述责述廉" :title-link-class="linkClass(5)">
-                <div class="base-padding-20 base-bg-fff">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">述责述廉：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputEmail2">述责述廉1：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">述责述廉2：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">述责述廉3：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">述责述廉4：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">述责述廉5：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">述责述廉6：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">述责述廉7：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="exampleInputName2">述责述廉备注：</label>
-                      <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">述责述廉状况表：</label>
-                          </div>
-                          <button type="submit" class="btn btn-default">扫描文件</button>
-                          <div style="margin-top:10px;">
-                            <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="base-padding-20 base-bg-fff" style="clear:both;">
-                  <div class="base-margin-top-10 base-align-right">
-                    <a class="btn btn-info" href="page-tables.html" data-toggle="tooltip" title="" role="button"><i
-                         class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                  </div>
-                </div>
+                <SpeakWithHonesty v-if="tabIndex === 5"></SpeakWithHonesty>
               </b-tab>
               <b-tab title="处置问责" :title-link-class="linkClass(6)">
-                <div class="base-padding-20 base-bg-fff">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">处置问责：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputEmail2">处置问责1：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">处置问责2：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">处置问责3：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">处置问责4：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">处置问责5：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">处置问责6：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">处置问责7：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="exampleInputName2">处置问责备注：</label>
-                      <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">处置问责状况表：</label>
-                          </div>
-                          <button type="submit" class="btn btn-default">扫描文件</button>
-                          <div style="margin-top:10px;">
-                            <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="base-padding-20 base-bg-fff" style="clear:both;">
-                  <div class="base-margin-top-10 base-align-right">
-                    <a class="btn btn-info" href="page-tables.html" data-toggle="tooltip" title="" role="button"><i
-                         class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                  </div>
-                </div>
+                <AccountabilityForDisposal v-if="tabIndex === 6"></AccountabilityForDisposal>
               </b-tab>
               <b-tab title="重大事项" :title-link-class="linkClass(7)">
-                <div class="base-padding-20 base-bg-fff">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">重大事项：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputEmail2">重大事项1：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">重大事项2：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">重大事项3：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">重大事项4：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">重大事项5：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">重大事项6：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">重大事项7：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="exampleInputName2">重大事项备注：</label>
-                      <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">重大事项状况表：</label>
-                          </div>
-                          <button type="submit" class="btn btn-default">扫描文件</button>
-                          <div style="margin-top:10px;">
-                            <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="base-padding-20 base-bg-fff" style="clear:both;">
-                  <div class="base-margin-top-10 base-align-right">
-                    <a class="btn btn-info" href="page-tables.html" data-toggle="tooltip" title="" role="button"><i
-                         class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                  </div>
-                </div>
+                <MajorIssues v-if="tabIndex === 7"></MajorIssues>
               </b-tab>
               <b-tab title="立案处理" :title-link-class="linkClass(8)">
-                <div class="base-padding-20 base-bg-fff">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">立案处理：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputEmail2">立案处理1：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">立案处理2：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">立案处理3：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">立案处理4：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">立案处理5：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">立案处理6：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">立案处理7：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="exampleInputName2">立案处理备注：</label>
-                      <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">立案处理状况表：</label>
-                          </div>
-                          <button type="submit" class="btn btn-default">扫描文件</button>
-                          <div style="margin-top:10px;">
-                            <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="base-padding-20 base-bg-fff" style="clear:both;">
-                  <div class="base-margin-top-10 base-align-right">
-                    <a class="btn btn-info" href="page-tables.html" data-toggle="tooltip" title="" role="button"><i
-                         class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                  </div>
-                </div>
+                <CaseFiling v-if="tabIndex === 8"></CaseFiling>
               </b-tab>
             </b-tabs>
           </b-card>
@@ -676,77 +139,35 @@
 
 <script>
 import jbqk from './jbqk/index.vue';
-import personal from './jbqkDetail/personal.vue';
+import PersonDocument from './jbqkDetail/PersonDocument.vue';
+import RoutineConversation from './jbqkDetail/RoutineConversation.vue';
+import ProblemClue from './jbqkDetail/ProblemClue.vue';
+import SpeakWithHonesty from './jbqkDetail/SpeakWithHonesty.vue';
+import AccountabilityForDisposal from './jbqkDetail/AccountabilityForDisposal.vue';
+import MajorIssues from './jbqkDetail/MajorIssues.vue';
+import CaseFiling from './jbqkDetail/CaseFiling.vue';
 export default {
   components: {
     jbqk,
-    personal,
+    PersonDocument,
+    RoutineConversation,
+    ProblemClue,
+    SpeakWithHonesty,
+    AccountabilityForDisposal,
+    MajorIssues,
+    CaseFiling,
   },
   data() {
     return {
       avatar: require('@/assets/img/8082.jpg'),
       tabIndex: 0,
+      form: {},
     };
   },
-  mounted() {
-    // $('#begindate').datetimepicker({
-    //   language: 'zh-CN',
-    //   autoclose: true,
-    //   todayBtn: true,
-    //   minView: 2,
-    //   weekStart: 1,
-    //   linked: true,
-    // });
-    // $('#theTimeBegin').datetimepicker({
-    //   language: 'zh-CN',
-    //   autoclose: true,
-    //   todayBtn: true,
-    //   minView: 2,
-    //   weekStart: 1,
-    //   linked: true,
-    // });
-    // $('#theTimeEnd').datetimepicker({
-    //   language: 'zh-CN',
-    //   autoclose: true,
-    //   todayBtn: true,
-    //   minView: 2,
-    //   weekStart: 1,
-    //   linked: true,
-    // });
-    // $('#creationTime').datetimepicker({
-    //   language: 'zh-CN',
-    //   autoclose: true,
-    //   todayBtn: true,
-    //   minView: 2,
-    //   weekStart: 1,
-    //   linked: true,
-    // });
-    // $('#partyTime').datetimepicker({
-    //   language: 'zh-CN',
-    //   autoclose: true,
-    //   todayBtn: true,
-    //   minView: 2,
-    //   weekStart: 1,
-    //   linked: true,
-    // });
-    // $('#begindateT').datetimepicker({
-    //   language: 'zh-CN',
-    //   autoclose: true,
-    //   todayBtn: true,
-    //   minView: 2,
-    //   weekStart: 1,
-    //   linked: true,
-    // });
-    // $('#enddate').datetimepicker({
-    //   language: 'zh-CN',
-    //   autoclose: true,
-    //   todayBtn: true,
-    //   minView: 2,
-    //   weekStart: 1,
-    //   linked: true,
-    // });
-  },
   methods: {
+    async aaa() {
+      var result = await this.$axios.post('http://10.16.11.186:8080/jbqk/jbqk_save', { data: this.form });
+    },
     linkClass(idx) {
       if (this.tabIndex === idx) {
         return ['bgPrimary', 'textLight'];
@@ -985,6 +406,9 @@ label {
 .rz-picter img {
   width: 180px;
   height: 180px;
+}
+.tab-content {
+  padding-bottom: 50px;
 }
 </style>
 
