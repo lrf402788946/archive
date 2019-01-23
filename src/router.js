@@ -5,6 +5,8 @@ import LoginPage from './views/loginPage.vue';
 import DeptIndex from './views/dept/Index.vue';
 import UserIndex from './views/user/Index.vue';
 import Details from './views/Details.vue';
+import RoleIndex from './views/role/Index.vue';
+import UserRoleIndex from './views/userRole/Index.vue';
 
 Vue.use(Router);
 
@@ -35,6 +37,16 @@ export default new Router({
       path: '/UserIndex',
       name: 'UserIndex',
       component: UserIndex,
+    },
+    {
+      path: '/RoleIndex',
+      name: 'RoleIndex',
+      component: RoleIndex,
+    },
+    {
+      path: '/UserRoleIndex',
+      name: 'UserRoleIndex',
+      component: UserRoleIndex,
     },
   ],
 });
