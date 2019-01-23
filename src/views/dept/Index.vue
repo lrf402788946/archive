@@ -15,7 +15,7 @@
         <div class="base-padding-20 base-bg-fff">
           <div class="base-align-right" style="margin-bottom:20px;">
             <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" title="" role="button" v-b-modal="'toAdd'">
-              <i class="base-margin-right-5 fa fa-plus-square"></i>添加部门    
+              <i class="base-margin-right-5 fa fa-plus-square"></i>添加部门
             </a>
           </div>
           <table class="table table-bordered table-striped ">
@@ -41,10 +41,13 @@
               </tr>
             </tbody>
           </table>
-          <b-modal id="toAdd" title="添加部门" ref="toAdd" hide-footer> 
-            部门名称:<b-form-input v-model="form.dept_name"></b-form-input>
-            部门职责:<b-form-input v-model="form.dept_duty"></b-form-input>
-            部门电话:<b-form-input v-model="form.dept_tell"></b-form-input>
+          <b-modal id="toAdd" title="添加部门" ref="toAdd" hide-footer>
+            <div style="margin-bottom: 7px;">部门名称:</div>
+            <b-form-input v-model="form.dept_name"></b-form-input>
+            <div style="margin-top:7px; margin-bottom:7px;">部门职责:</div>
+            <b-form-input v-model="form.dept_duty"></b-form-input>
+            <div style="margin-top:7px; margin-bottom:7px;">部门电话:</div>
+            <b-form-input v-model="form.dept_tell"></b-form-input>
             <b-button variant="secondary" style="margin:20px;" @click="form={}" >重置</b-button><b-button style="margin:20px;" variant="primary" @click="toAdd()" >保存</b-button>
           </b-modal>
 
@@ -387,6 +390,10 @@ li {
   color: #d44950;
   margin: 0px 4px;
   font-size: 12px;
+}
+.cssInput{
+  border: none !important;
+  box-shadow: none;
 }
 
 </style>

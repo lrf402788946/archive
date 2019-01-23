@@ -1,43 +1,40 @@
  <template>
     <div>
-      <!-- 位置导航 begin  -->
+    
       <b-breadcrumb>
         <b-breadcrumb-item>系统管理</b-breadcrumb-item>
         <b-breadcrumb-item>功能管理</b-breadcrumb-item>
       </b-breadcrumb>
-      <!-- 栅格 begin -->
+      
       <div class="base-form">
         <div class="base-form-title"><a class="base-margin-left-20">查询条件</a></div>
         <div class="base-padding-20 base-bg-fff">
           <div class="row" style="margin-top:15px;">
-            <div class="col-lg-3">
+            <div class="col-lg-4">
               <div class="base-margin-right-40 form-group">
-
                 <input type="text" v-model="dagl_user.dept_name" class="form-control" id="exampleInputName2" placeholder="请输入姓名">
               </div>
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
               <div class="base-margin-right-40 form-group">
-
                 <input type="text" v-model="dagl_user.id_number" class="form-control" id="exampleInputName2" placeholder="请输入身份证号">
               </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-4">
               <div class="base-margin-right-40 form-group">
-
                 <a class="btn btn-info" @click="query()" data-toggle="tooltip" title="" role="button"><i class="base-margin-right-5 fa fa-search "></i>查&nbsp;&nbsp;&nbsp;询</a>
               </div>
             </div>
           </div>
         </div>
         <div style="margin-top: 20px;">
-        <div class="form-inline">
-          <div class="base-form-title" style="width:100%;"><a class="base-margin-left-20">干部信息列表</a>
-            <div class="button-table">
+          <div class="form-inline">
+            <div class="base-form-title" style="width:100%;"><a class="base-margin-left-20">干部信息列表</a>
+              <div class="button-table">
+              </div>
             </div>
           </div>
-        </div>
         <div class="base-padding-20 base-bg-fff">
           <div class="base-align-right" style="margin-bottom: 20px;">
             <a class="btn btn-info base-margin-bottom" href="http://localhost:8001/page-tables.html#/add" data-toggle="tooltip" title=""
@@ -85,10 +82,9 @@
           <!-- 分页 -->
         </div>
       </div>
-      </div>
-      <!-- 栅格 end -->
-      <!-- 表格 begin -->
-      
+    </div>
+     
+    
     </div>
 </template>
 <script>
@@ -351,14 +347,14 @@ table {
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5;
 }
 .pagination > li > a,
 .pagination > li > span {
   position: relative;
   float: left;
-  padding: 6px 12px;
+  padding: 6px 10px;
   margin-left: -1px;
   line-height: 1.42857143;
   color: #337ab7;
@@ -369,14 +365,14 @@ table {
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5;
 }
 .pagination > li > a,
 .pagination > li > span {
   position: relative;
   float: left;
-  padding: 6px 12px;
+  padding: 6px 10px;
   margin-left: -1px;
   line-height: 1.42857143;
   color: #337ab7;
@@ -409,7 +405,10 @@ table {
   background-size: 100%;
 }
 .page-bar {
-  margin: 40px;
+  margin-top: 20px !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  text-align: right;
 }
 ul,
 li {
@@ -427,7 +426,7 @@ li {
   text-decoration: none;
   position: relative;
   float: left;
-  padding: 6px 12px;
+  padding: 6px 10px;
   margin-left: -1px;
   line-height: 1.42857143;
   color: #337ab7;
@@ -440,16 +439,19 @@ li {
   cursor: not-allowed;
 }
 .page-bar .active a {
-  color: #fff;
+  color: #fff !important;
   cursor: default;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color:#5bc0de !important;
+  border-color: #5bc0de !important;
 }
 .page-bar i {
   font-style: normal;
   color: #d44950;
   margin: 0px 4px;
   font-size: 12px;
+}
+.router-link-active{
+text-decoration: none !important;
 }
 </style>
 

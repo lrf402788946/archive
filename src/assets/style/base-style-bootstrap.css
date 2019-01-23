@@ -267,10 +267,6 @@ body {
 .mainmenu > li:first-child {
 	border-top: 0;
 }
-
-.mainmenu > li:last-child {
-}
-
 .mainmenu > li span {
 	display:block;
 	line-height: 48px;

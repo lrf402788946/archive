@@ -47,5 +47,22 @@ export default {
 </script>
 
 <style lang='css' scoped>
-
+.base-nav ul.top-nav-ul li a {
+    color: #4f5151 !important;
+}
+.base-nav ul.top-nav-ul li a:hover {
+    color: #fff !important;
+}
+#base-user a.user-name {
+    color: #4f5151 !important;
+}
+#base-user a.user-name:hover {
+    color: #5bc0de !important;
+}
+#base-user div a {
+    color: #4f5151 !important;
+}
+#base-user div a:hover {
+    color: #fff !important;
+}
 </style>

@@ -17,7 +17,7 @@
             </li>
             <ul class="submenu">
               <div class="expand-triangle"></div>
-              <router-link :to="{name:'Details'}"><li><span>监测预警1</span></li></router-link>
+              <router-link :to="{name:'Details'}"><li><span>监测预警</span></li></router-link>
               <li><span>统计分析</span></li>
 
             </ul>
@@ -99,5 +99,9 @@ export default {
   bottom: 0;
   letter-spacing: 1px;
   z-index: 999;
+}
+
+a:hover{
+  text-decoration: none !important;
 }
 </style>
