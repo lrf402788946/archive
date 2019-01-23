@@ -43,7 +43,7 @@
         </div>
         <div class="base-padding-20 base-bg-fff">
           <div class="base-align-right">
-            <a class="btn btn-info base-margin-bottom" href="http://localhost:8001/page-tables.html#/add" data-toggle="tooltip" title=""
+            <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" title="" @click="$router.push({ name: 'Details', query: { type: 'add' } })"
               role="button"><i class="base-margin-right-5 fa fa-plus-square"></i>添加人员</a>
             <!--  <button type="submit" class="btn btn-info base-margin-bottom"><a href="#" data-toggle="tooltip" title="导出">导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></button> -->
           </div>
