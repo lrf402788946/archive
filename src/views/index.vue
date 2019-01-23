@@ -1,6 +1,6 @@
  <template>
     <div>
-      <!-- 位置导航 begin  -->
+      <!-- 位置导航 begin  --> 
       <b-breadcrumb>
         <b-breadcrumb-item>系统管理</b-breadcrumb-item>
         <b-breadcrumb-item>功能管理</b-breadcrumb-item>
