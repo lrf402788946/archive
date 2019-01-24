@@ -21,13 +21,11 @@
           <table class="table table-bordered table-striped ">
             <tbody>
               <tr>
-                <th>父类</th>
                 <th>角色code</th>
                 <th>角色名称</th>
                 <th>操作</th>
               </tr>
               <tr v-for="(item,index) in list" :key="index"><!--美化下input 可以看情况使用-->
-                <td><b-form-input v-model="item.p_id" ></b-form-input></td>
                 <td><b-form-input v-model="item.role_code" ></b-form-input></td>
                 <td><b-form-input v-model="item.role_name" ></b-form-input></td>
                 <td>
@@ -43,14 +41,21 @@
             </tbody>
           </table>
           <b-modal id="toAdd" title="添加角色" ref="toAdd" hide-footer> 
-            父类:<b-form-input v-model="form.p_id"></b-form-input>
+            <!--需要计算,如果是父类,正常显示,不是的话就缩进-->
+            所属角色:<b-form-select v-model="form.p_id" class="mb-3" >
+              <option :value="0">厅长</option>
+              <option v-for="(item,index) in list" :key="index" :value="item.id">{{item.role_name}}</option>
+            </b-form-select>
             角色code:<b-form-input v-model="form.role_code"></b-form-input>
             角色名称:<b-form-input v-model="form.role_name"></b-form-input>
             <b-button variant="secondary" @click="form={}" >重置</b-button><b-button variant="primary" @click="toAdd()" >保存</b-button>
           </b-modal>
 
           <b-modal id="Edit" title="修改角色" ref="Edit" hide-footer> 
-            父类:<b-form-input v-model="form.p_id"></b-form-input>
+            所属角色:<b-form-select v-model="form.p_id" class="mb-3" >
+              <option :value="0">厅长</option>
+              <option v-for="(item,index) in list" :key="index" :value="item.id">{{item.role_name}}</option>
+            </b-form-select>
             角色code:<b-form-input v-model="form.role_code"></b-form-input>
             角色名称:<b-form-input v-model="form.role_name"></b-form-input>
             <b-button variant="secondary" @click="form={}" >重置</b-button><b-button variant="primary" @click="toUpdate()" >修改</b-button>
@@ -76,7 +81,9 @@ export default {
   data() {
     return {
       list: [],
-      form: {},
+      form: {
+        p_id: 0,
+      },
       deleteItem: '',
     };
   },
@@ -111,14 +118,15 @@ export default {
     },
     //打开修改提示框
     openUpdateAlert(index) {
-      console.log('1');
       this.$refs.Edit.show();
       this.form = this.list[index];
     },
     //修改
-    async toUpdate(index) {
-      let data = this.list[index];
+    async toUpdate() {
+      let data = this.form;
       let result = await this.$axios.post('/jszx/role/role_edit', { data: data });
+      console.log(result);
+      this.search();
     },
   },
 };
