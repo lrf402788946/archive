@@ -4,7 +4,7 @@ import Index from './views/Index.vue';
 import LoginPage from './views/LoginPage.vue';
 import DeptIndex from './views/dept/Index.vue';
 import UserIndex from './views/user/Index.vue';
-import Details from './views/details.vue';
+import Details from './views/Details.vue';
 import RoleIndex from './views/role/Index.vue';
 import UserRoleIndex from './views/userRole/Index.vue';
 import UpdatePW from './views/user/UpdatePW.vue';
