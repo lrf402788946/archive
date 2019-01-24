@@ -23,9 +23,9 @@ export default {
     sideMenu,
   },
   mounted() {
-    $('#base-main').height($(window).height() - 75);
+    $('#base-main').height($(window).height() - 60);
     $(window).resize(function() {
-      $('#base-main').height($(window).height() - 75);
+      $('#base-main').height($(window).height() - 60);
     });
     $('#base-main-right').width($(window).width() - 241);
     $(window).resize(function() {
