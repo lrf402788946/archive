@@ -24,7 +24,7 @@
               <tr v-for="(item,index) in userList" :key="index"><!--美化下input 可以看情况使用-->
                 <td>{{item.user_name}}</td>
                 <td>
-                  <b-button variant="primary" style="color:white;" @click="openUpdateAlert(item.id)">修改</b-button>
+                  <b-button variant="primary" style="color:white;" @click="openUpdateAlert(item.id)">修&nbsp;&nbsp;改</b-button>
                   <!-- <a class="btn btn-xs btn-info base-margin-2" data-toggle="tooltip" @click="toUpdate(index)"
                     title="" role="button">保&nbsp;&nbsp;存</a>&nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="btn btn-xs btn-info base-margin-2" data-toggle="tooltip" @click="toDelete(index)"
@@ -33,12 +33,13 @@
               </tr>
             </tbody>
           </table>
-          <b-modal id="updateAlert" title="添加" ref="updateAlert" hide-footer> 
+          <b-modal id="updateAlert" title="修改权限" ref="updateAlert" hide-footer> 
               <b-form-group label="请选择权限">
                 <b-form-checkbox-group id="checkboxes1" name="flavour1" v-model="form.id" :options="roleList">
                 </b-form-checkbox-group>
               </b-form-group>
-              <b-button variant="secondary" @click="$refs.updateAlert.hide();" >返回</b-button><b-button variant="primary" @click="toSave()" >保存</b-button>
+              <b-button variant="secondary"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" @click="$refs.updateAlert.hide();" >返&nbsp;&nbsp;回</b-button>
+              <b-button variant="primary"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" @click="toSave()" >保&nbsp;&nbsp;存</b-button>
             <!-- <b-button variant="secondary" @click="form={}" >重置</b-button><b-button variant="primary" @click="toAdd()" >保存</b-button> -->
           </b-modal>
 
@@ -66,8 +67,6 @@ export default {
   computed: {},
   created() {
     this.search();
-    this.form['test'] = 'text';
-    console.log(this.form);
   },
   methods: {
     async search() {

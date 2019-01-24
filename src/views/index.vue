@@ -26,7 +26,7 @@
             <div class="col-lg-3">
               <div class="base-margin-right-40 form-group">
 
-                <a class="btn btn-info" @click="query()" data-toggle="tooltip" title="" role="button"><i class="base-margin-right-5 fa fa-search "></i>查&nbsp;&nbsp;&nbsp;询</a>
+                <a class="btn btn-info" @click="query()" data-toggle="tooltip" title="" style="font-size:14px !important;padding: 6px 12px !important;" role="button"><i class="base-margin-right-5 fa fa-search "></i>查&nbsp;&nbsp;&nbsp;询</a>
               </div>
             </div>
           </div>
@@ -42,8 +42,8 @@
           </div>
         </div>
         <div class="base-padding-20 base-bg-fff">
-          <div class="base-align-right">
-            <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" title="" @click="$router.push({ name: 'Details', query: { type: 'add' } })"
+          <div class="base-align-right" style="margin-bottom:20px;">
+            <a class="btn btn-info base-margin-bottom" style="font-size:14px !important;padding: 6px 12px !important;" data-toggle="tooltip" title="" @click="$router.push({ name: 'Details', query: { type: 'add' } })"
               role="button"><i class="base-margin-right-5 fa fa-plus-square"></i>添加人员</a>
             <!--  <button type="submit" class="btn btn-info base-margin-bottom"><a href="#" data-toggle="tooltip" title="导出">导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></button> -->
           </div>
@@ -272,23 +272,20 @@ button {
   border-color: #46b8da;
 }
 .btn {
-  width: auto !important;
-  height: auto !important;
-  margin-left: 0;
-  display: inline-block;
-  padding: 9px 12px;
-  margin-bottom: 0;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1.42857143;
-  text-align: center;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
+    margin-left: 0 !important;
+    padding: 2px 5px !important;
+    margin-bottom: 0 !important;
+    margin-right: 10px !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+    line-height: 1.42857143 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    width: auto !important;
+    border: 1px solid transparent !important;
+    border-radius: 3px !important;
+    height: auto !important;
 }
 .base-margin-2 {
   margin: 2px 0;
@@ -315,7 +312,7 @@ button {
   border: 1px solid #ddd;
 }
 .table {
-  font-size: 18px;
+  font-size: 14px;
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
@@ -350,7 +347,7 @@ table {
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5;
 }
 .pagination > li > a,
@@ -368,7 +365,7 @@ table {
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5;
 }
 .pagination > li > a,
@@ -408,7 +405,9 @@ table {
   background-size: 100%;
 }
 .page-bar {
-  margin: 40px;
+  margin-top: 40px;
+  margin-right: 0;
+  text-align: right;
 }
 ul,
 li {
@@ -434,15 +433,23 @@ li {
 }
 .page-bar a:hover {
   background-color: #eee;
+  border-color: #eee;
+  cursor: pointer;
 }
 .page-bar a.banclick {
   cursor: not-allowed;
 }
 .page-bar .active a {
-  color: #fff;
   cursor: default;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #5bc0de;
+  border-color: #5bc0de;
+  color: #fff !important;
+}
+.page-bar .active a:hover {
+  background-color: #eee;
+  border-color: #eee;
+  cursor: pointer;
+  color: #337ab7 !important;
 }
 .page-bar i {
   font-style: normal;

@@ -77,7 +77,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">重大事项状况表：</label>
                             </div>
-                            <button type="submit" class="btn btn-default">扫描文件</button>
+                            <button type="submit" class="scanningBtn">扫描文件</button>
                             <div style="margin-top:10px;">
                                 <p class="help-block">请扫面文件并上传.</p>
                                 <img src="../../assets/img/8082.jpg" alt="..." class="img-rounded">
@@ -97,3 +97,31 @@
         </div>
     </div>
 </template>
+
+<style lang='css'>
+.scanningBtn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+}
+.scanningBtn:hover{
+    background: #ccc;
+}
+</style>

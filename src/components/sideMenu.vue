@@ -28,6 +28,8 @@
               <div class="expand-triangle"></div>
               <router-link :to="{name:'DeptIndex'}"><li><span> 部门管理</span></li></router-link>
               <router-link :to="{name:'UserIndex'}"><li><span> 用户管理</span></li></router-link>
+              <router-link :to="{name:'RoleIndex'}"><li><span> 角色管理</span></li></router-link>
+              <router-link :to="{name:'UserRoleIndex'}"><li><span> 权限分配</span></li></router-link>
 
             </ul>
 

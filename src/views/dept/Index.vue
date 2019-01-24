@@ -14,7 +14,7 @@
         </div>
         <div class="base-padding-20 base-bg-fff">
           <div class="base-align-right" style="margin-bottom:20px;">
-            <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" title="" role="button" v-b-modal="'toAdd'">
+            <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" style="font-size:14px !important;padding: 6px 12px !important;" title="" role="button" v-b-modal="'toAdd'">
               <i class="base-margin-right-5 fa fa-plus-square"></i>添加部门
             </a>
           </div>
@@ -27,12 +27,12 @@
                 <th>操作</th>
               </tr>
               <tr v-for="(item,index) in list" :key="index"><!--美化下input 可以看情况使用-->
-                <td><b-form-input v-model="item.dept_name" ></b-form-input></td>
-                <td><b-form-input v-model="item.dept_duty" ></b-form-input></td>
-                <td><b-form-input v-model="item.dept_tell" ></b-form-input></td>
+                <td>{{item.dept_name}}</td>
+                <td>{{item.dept_duty}}</td>
+                <td>{{item.dept_tell}}</td>
                 <td>
-                  <b-button variant="primary" style="color:white; margin-right:5px;" @click="toUpdate(index)">修改</b-button>
-                  <b-button variant="danger" style="color:white;"  @click="openDeleteAlert(item.id)">删除</b-button>
+                  <b-button variant="primary" style="color:white; margin-right:5px;" @click="openAlert('update',index)" >修&nbsp;&nbsp;改</b-button>
+                  <b-button variant="danger" style="color:white;"  @click="openDeleteAlert(item.id)">删&nbsp;&nbsp;除</b-button>
                   <!-- <a class="btn btn-xs btn-info base-margin-2" data-toggle="tooltip" @click="toUpdate(index)"
                     title="" role="button">保&nbsp;&nbsp;存</a>&nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="btn btn-xs btn-info base-margin-2" data-toggle="tooltip" @click="toDelete(index)"
@@ -48,16 +48,42 @@
             <b-form-input v-model="form.dept_duty"></b-form-input>
             <div style="margin-top:7px; margin-bottom:7px;">部门电话:</div>
             <b-form-input v-model="form.dept_tell"></b-form-input>
-            <b-button variant="secondary" style="margin:20px;" @click="form={}" >重置</b-button><b-button style="margin:20px;" variant="primary" @click="toAdd()" >保存</b-button>
+            <b-button variant="secondary" style="font-size:14px !important; margin-top:20px; padding:4px 8px !important;"  @click="form={}" >重&nbsp;&nbsp;置</b-button>
+            <b-button style="font-size:14px !important; margin-top:20px; padding:4px 8px !important;"  variant="primary" @click="toAdd()" >保&nbsp;&nbsp;存</b-button>
           </b-modal>
 
           <b-modal id="deleteAlert" title="确认删除" ref="deleteAlert" hide-footer> 
             <div class="d-block text-center">
               <b-alert variant="danger" show>删除部门可能会影响您的管理,确认删除吗?</b-alert>
             </div>
-           <b-button variant="outline-danger"  style="float:right;" @click="toDelete()">删除</b-button>
-           <b-button variant="primary" style="color:white;" @click="$refs.deleteAlert.hide(),deleteItem=''">返回</b-button>
+           <b-button variant="danger"  style="font-size:14px !important; margin-top:20px; padding:4px 8px !important;"  @click="toDelete()">删&nbsp;&nbsp;除</b-button>
+           <b-button variant="primary"  style="font-size:14px !important; margin-top:20px; padding:4px 8px !important;"  @click="$refs.deleteAlert.hide(),deleteItem=''">返&nbsp;&nbsp;回</b-button>
           </b-modal>
+
+          <!-- jkjkjkjk -->
+          <b-modal id="updateAlert" title="修改信息" ref="updateAlert" hide-footer>
+            <div class="d-block">
+              <div class="row">
+                <div class="col-lg-12 marginBot4">
+                    <p class="marginBot4">部门名称</p>
+                    <b-form-input v-model="updateForm.dept_name"></b-form-input>
+                </div>
+                <div class="col-lg-12 marginBot4">
+                    <p class="marginBot4">部门职责</p>
+                    <b-form-input v-model="updateForm.dept_duty"></b-form-input>
+                </div>
+                <div class="col-lg-12 marginBot">
+                    <p class="marginBot4">部门电话</p>
+                    <b-form-input v-model="updateForm.dept_tell"></b-form-input>
+                </div>
+                <div class="col-lg-12 marginBot4">
+                  <b-button variant="secondary" @click="closeAlert('update')" class="resetButton" style="font-size:14px !important; padding:4px 8px !important;" >返&nbsp;&nbsp;回</b-button>
+                  <b-button variant="primary" @click="toUpdate()" class="resetButton"  style="font-size:14px !important; padding:4px 8px !important;">保&nbsp;&nbsp;存</b-button>
+                </div>
+              </div>
+            </div>
+          </b-modal>
+          <!-- klklklkl -->
           
         </div>
       </div>
@@ -74,6 +100,10 @@ export default {
       list: [],
       form: {},
       deleteItem: '',
+      updateForm: {
+        gender: -1,
+        dept_id: 'default',
+      },
     };
   },
   computed: {},
@@ -89,9 +119,16 @@ export default {
       this.$set(this, 'list', result.data.deptList);
     },
     //修改
-    async toUpdate(index) {
-      let data = this.list[index];
-      let result = await this.$axios.post('/jszx/dept/dept_edit', { data: data });
+    // async toUpdate(index) {
+    //   let data = this.list[index];
+    //   let result = await this.$axios.post('/jszx/dept/dept_edit', { data: data });
+    // },
+    async toUpdate() {
+     
+      let result = await this.$axios.post('/jszx/dept/dept_edit', { data: this.updateForm });
+      this.closeAlert('update');
+      this.updateForm = {};
+      this.search();
     },
     //打开删除提示框
     openDeleteAlert(id) {
@@ -112,11 +149,35 @@ export default {
       this.search();
       this.$refs.toAdd.hide();
     },
+    openAlert(type, id) {
+      if (type === 'update') {
+        this.$refs.updateAlert.show();
+        this.updateForm = this.list[id];
+      } else if (type === 'delete') {
+        this.$refs.deleteAlert.show();
+        this.operateId = id;
+      }
+    },
+    closeAlert(type) {
+      if (type === 'update') {
+        this.$refs.updateAlert.hide();
+      } else if (type === 'delete') {
+        this.$refs.deleteAlert.hide();
+      }
+      this.operateId = '';
+      this.updateForm = {};
+    },
   },
 };
 </script>
 
 <style>
+.marginBot4{
+  margin-bottom: 4px;
+}
+.marginBot{
+  margin-bottom: 15px;
+}
 body{
   background-color: #ecedf0 !important;
 }
@@ -212,32 +273,14 @@ button {
   background-color: #5bc0de;
   border-color: #46b8da;
 }
-.btn {
-  width: auto !important;
-  height: auto !important;
-  margin-left: 0;
-  display: inline-block;
-  padding: 9px 12px;
-  margin-bottom: 0;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1.42857143;
-  text-align: center;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
+
 .base-margin-2 {
   margin: 2px 0;
 }
-.btn-xs,
+/* .btn-xs,
 .btn-group-xs > .btn {
   padding: 3px 8px;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   border-radius: 5px;
 }
@@ -245,7 +288,7 @@ button {
   color: #fff;
   background-color: #5bc0de;
   border-color: #46b8da;
-}
+} */
 .base-margin-right-5 {
   margin-right: 5px;
 }
@@ -256,7 +299,7 @@ button {
   border: 1px solid #ddd;
 }
 .table {
-  font-size: 16px;
+  font-size: 14px;
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
@@ -348,9 +391,7 @@ table {
   cursor: pointer;
   background-size: 100%;
 }
-.page-bar {
-  margin: 40px;
-}
+
 ul,
 li {
   margin: 0px;
@@ -359,41 +400,30 @@ li {
 li {
   list-style: none;
 }
-.page-bar li:first-child > a {
-  margin-left: 0px;
-}
-.page-bar a {
-  border: 1px solid #ddd;
-  text-decoration: none;
-  position: relative;
-  float: left;
-  padding: 6px 12px;
-  margin-left: -1px;
-  line-height: 1.42857143;
-  color: #337ab7;
-  cursor: pointer;
-}
-.page-bar a:hover {
-  background-color: #eee;
-}
-.page-bar a.banclick {
-  cursor: not-allowed;
-}
-.page-bar .active a {
-  color: #fff;
-  cursor: default;
-  background-color: #337ab7;
-  border-color: #337ab7;
-}
-.page-bar i {
-  font-style: normal;
-  color: #d44950;
-  margin: 0px 4px;
-  font-size: 12px;
-}
+
+
 .cssInput{
   border: none !important;
   box-shadow: none;
+}
+.table th, .table td {
+    padding: 0.5rem !important;
+}
+.btn {
+    margin-left: 0 !important;
+    padding: 2px 5px !important;
+    margin-bottom: 0 !important;
+    margin-right: 10px !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+    line-height: 1.42857143 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    width: auto !important;
+    border: 1px solid transparent !important;
+    border-radius: 3px !important;
+    height: auto !important;
 }
 
 </style>

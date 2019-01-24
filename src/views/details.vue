@@ -140,7 +140,7 @@
 
 
 <script>
-import jbqk from './jbqk/index.vue';
+import jbqk from './jbqk/Index.vue';
 import PersonDocument from './jbqkDetail/PersonDocument.vue';
 import RoutineConversation from './jbqkDetail/RoutineConversation.vue';
 import ProblemClue from './jbqkDetail/ProblemClue.vue';
@@ -375,19 +375,20 @@ label {
   border-radius: 4px !important;
 }
 .btn {
-  margin-left: 0 !important;
-  padding: 6px 12px !important;
-  margin-bottom: 0 !important;
-  font-size: 14px !important;
-  font-weight: normal !important;
-  line-height: 1.42857143 !important;
-  text-align: center !important;
-  white-space: nowrap !important;
-  vertical-align: middle !important;
-  width: auto !important;
-  border: 1px solid #ccc !important;
-  border-radius: 4px !important;
-  height: auto !important;
+    margin-left: 0 !important;
+    padding: 2px 5px !important;
+    margin-bottom: 0 !important;
+    margin-right: 10px !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+    line-height: 1.42857143 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    width: auto !important;
+    border: 1px solid transparent !important;
+    border-radius: 3px !important;
+    height: auto !important;
 }
 .btn-default:hover {
   color: #333;
