@@ -1,43 +1,49 @@
  <template>
     <div>
-    
+      <!-- 位置导航 begin  --> 
       <b-breadcrumb>
         <b-breadcrumb-item>系统管理</b-breadcrumb-item>
         <b-breadcrumb-item>功能管理</b-breadcrumb-item>
       </b-breadcrumb>
-      
+      <!-- 栅格 begin -->
       <div class="base-form">
         <div class="base-form-title"><a class="base-margin-left-20">查询条件</a></div>
         <div class="base-padding-20 base-bg-fff">
           <div class="row" style="margin-top:15px;">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <div class="base-margin-right-40 form-group">
+
                 <input type="text" v-model="dagl_user.dept_name" class="form-control" id="exampleInputName2" placeholder="请输入姓名">
               </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <div class="base-margin-right-40 form-group">
+
                 <input type="text" v-model="dagl_user.id_number" class="form-control" id="exampleInputName2" placeholder="请输入身份证号">
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <div class="base-margin-right-40 form-group">
+
                 <a class="btn btn-info" @click="query()" data-toggle="tooltip" title="" role="button"><i class="base-margin-right-5 fa fa-search "></i>查&nbsp;&nbsp;&nbsp;询</a>
               </div>
             </div>
           </div>
         </div>
-        <div style="margin-top: 20px;">
-          <div class="form-inline">
-            <div class="base-form-title" style="width:100%;"><a class="base-margin-left-20">干部信息列表</a>
-              <div class="button-table">
-              </div>
+      </div>
+      <!-- 栅格 end -->
+      <!-- 表格 begin -->
+      <div class="base-form">
+        <div class="form-inline">
+          <div class="base-form-title" style="width:100%;"><a class="base-margin-left-20">干部信息列表</a>
+            <div class="button-table">
             </div>
           </div>
+        </div>
         <div class="base-padding-20 base-bg-fff">
-          <div class="base-align-right" style="margin-bottom: 20px;">
-            <a class="btn btn-info base-margin-bottom" href="http://localhost:8001/page-tables.html#/add" data-toggle="tooltip" title=""
+          <div class="base-align-right">
+            <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" title="" @click="$router.push({ name: 'Details', query: { type: 'add' } })"
               role="button"><i class="base-margin-right-5 fa fa-plus-square"></i>添加人员</a>
             <!--  <button type="submit" class="btn btn-info base-margin-bottom"><a href="#" data-toggle="tooltip" title="导出">导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></button> -->
           </div>
@@ -82,9 +88,6 @@
           <!-- 分页 -->
         </div>
       </div>
-    </div>
-     
-    
     </div>
 </template>
 <script>
@@ -199,8 +202,8 @@ export default {
 .base-form-title {
   font-weight: bold;
   display: block;
-  line-height: 40px;
-  font-size: 16px;
+  line-height: 50px;
+  font-size: 18px;
   color: #46687f;
   letter-spacing: 1px;
   text-align: left;
@@ -312,7 +315,7 @@ button {
   border: 1px solid #ddd;
 }
 .table {
-  font-size: 16px;
+  font-size: 18px;
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
@@ -347,14 +350,14 @@ table {
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.5;
 }
 .pagination > li > a,
 .pagination > li > span {
   position: relative;
   float: left;
-  padding: 6px 10px;
+  padding: 6px 12px;
   margin-left: -1px;
   line-height: 1.42857143;
   color: #337ab7;
@@ -365,14 +368,14 @@ table {
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.5;
 }
 .pagination > li > a,
 .pagination > li > span {
   position: relative;
   float: left;
-  padding: 6px 10px;
+  padding: 6px 12px;
   margin-left: -1px;
   line-height: 1.42857143;
   color: #337ab7;
@@ -386,7 +389,7 @@ table {
 }
 .base-header {
   min-width: 1024px;
-  height: 60px;
+  height: 75px;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -395,8 +398,8 @@ table {
 .base-header-left {
   float: left;
   width: 240px;
-  height: 60px;
-  line-height: 60px;
+  height: 75px;
+  line-height: 75px;
   background-color: #1c2b36;
   border-bottom: 1px #161e25 solid;
   background-image: url(/img/logo.8640fb78.png);
@@ -405,10 +408,7 @@ table {
   background-size: 100%;
 }
 .page-bar {
-  margin-top: 20px !important;
-  margin-right: 0 !important;
-  margin-bottom: 0 !important;
-  text-align: right;
+  margin: 40px;
 }
 ul,
 li {
@@ -426,7 +426,7 @@ li {
   text-decoration: none;
   position: relative;
   float: left;
-  padding: 6px 10px;
+  padding: 6px 12px;
   margin-left: -1px;
   line-height: 1.42857143;
   color: #337ab7;
@@ -439,19 +439,16 @@ li {
   cursor: not-allowed;
 }
 .page-bar .active a {
-  color: #fff !important;
+  color: #fff;
   cursor: default;
-  background-color:#5bc0de !important;
-  border-color: #5bc0de !important;
+  background-color: #337ab7;
+  border-color: #337ab7;
 }
 .page-bar i {
   font-style: normal;
   color: #d44950;
   margin: 0px 4px;
   font-size: 12px;
-}
-.router-link-active{
-text-decoration: none !important;
 }
 </style>
 
