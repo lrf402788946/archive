@@ -6,149 +6,150 @@
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">姓名：</label>
-                <input v-model="details.user_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.user_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly" @click="test()">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputEmail2">性别：</label>
-                <select class="form-control" v-model="details.gender" :disabled="is_readonly">
-                  <option selected="selected">--请选择--</option>
-                  <option>男</option>
-                  <option>女</option>
+                <select class="form-control" v-model='cadreInformation.gender' :disabled="is_readonly"><!--返回0和1，0是女，1是男-->
+                  <option value="" disabled>请选择：</option>
+                  <option v-for="(a,index) in genders" :key="index" v-bind:value="a.text">
+                    {{ a.value }}
+                  </option>
                 </select>
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">民族：</label>
-                <input v-model="details.mz" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.mz" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">婚姻状况：</label>
-                <input v-model="details.hyzk" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.hyzk" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">文化程度：</label>
-                <input v-model="details.whcd" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.whcd" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">政治面貌：</label>
-                <input v-model="details.zzmm" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.zzmm" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">办公室电话：</label>
-                <input v-model="details.office_tell" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.office_tell" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">个人电话：</label>
-                <input v-model="details.phone_no" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.phone_no" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <!--需要关联出部门表然后进行查询以显示部门名称-->
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">单位：</label>
-                <input v-model="details.dept_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.dept_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">单位性质：</label>
-                <input v-model="details.dept_type" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.dept_type" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">职务：</label>
-                <input v-model="details.post" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.post" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">级别：</label>
-                <input v-model="details.level" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.level" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">职称：</label>
-                <input v-model="details.title" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.title" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">分管工作：</label>
-                <input v-model="details.work_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.work_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">家庭住址：</label>
-                <input v-model="details.home_address" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.home_address" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">电子信箱：</label>
-                <input v-model="details.emaill" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.emaill" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">身份证号：</label>
-                <input v-model="details.id_number" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.id_number" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">卡号：</label>
-                <input v-model="details.card_no" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.card_no" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             
             <!-- <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">填报人：</label>
-                <input v-model="details.login_id" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.login_id" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div> -->
             
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">出生日期：</label>
-                <input v-model="details.birthday" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
+                <input v-model="cadreInformation.birthday" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
                       :disabled="is_readonly" />
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">入党时间：</label>
-                <input v-model="details.rdsj" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
+                <input v-model="cadreInformation.rdsj" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
                       :disabled="is_readonly" />
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">任职时间：</label>
-                <input v-model="details.rzsj" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
+                <input v-model="cadreInformation.rzsj" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
                       :disabled="is_readonly" />
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">参加工作时间：</label>
-                <input v-model="details.cgsj" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
+                <input v-model="cadreInformation.cgsj" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
                       :disabled="is_readonly" />
               </div>
             </div>
@@ -175,7 +176,7 @@
         <div class="col-lg-10">
           <div class="form-group">
             <label for="exampleInputName2">备注：</label>
-            <textarea v-model="details.remark" class="form-control" rows="4" :readonly="is_readonly"></textarea>
+            <textarea v-model="cadreInformation.remark" class="form-control" rows="4" :disabled="is_readonly"></textarea>
           </div>
         </div>
         <div class="col-lg-6">
@@ -200,11 +201,23 @@
       </div>
 
       <div class="base-padding-20 base-bg-fff" style="clear:both;">
-        <div class="base-margin-top-10 base-align-right">
+        <div class="base-margin-top-10 base-align-right" v-if="startAdd()">
           <a class="btn btn-info" @click="$router.go(-1)" data-toggle="tooltip" title="" role="button"><i
               class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-          <a class="btn btn-info" data-toggle="tooltip" title="" role="button" v-if="!is_readonly"><i
+          <a id="preservation" class="btn btn-info" data-toggle="tooltip" title="" role="button" @click='toAdd()'><i
               class="base-margin-right-5 fa fa-hand-o-left "></i>保&nbsp;&nbsp;存</a>
+        </div>
+        <div class="base-margin-top-10 base-align-right" v-if="startUpdate()">
+          <a class="btn btn-info" @click="returnQuery()" data-toggle="tooltip" title="" role="button"><i
+              class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
+          <a class="btn btn-info" @click="update()" data-toggle="tooltip" title="" role="button"><i
+              class="base-margin-right-5 fa fa-hand-o-left "></i>保&nbsp;&nbsp;存</a>
+        </div>
+        <div class="base-margin-top-10 base-align-right" v-if="startBrowse()">
+          <a class="btn btn-info" @click="$router.push('/')" data-toggle="tooltip" title="" role="button"><i
+              class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
+          <a class="btn btn-info" @click="toupdate()" data-toggle="tooltip" title="" role="button"><i
+              class="base-margin-right-5 fa fa-hand-o-left "></i>修&nbsp;&nbsp;改</a>
         </div>
       </div>
   </div>
@@ -212,13 +225,18 @@
 
 <script>
 export default {
-  name: 'index',
-  components: {},
+  props: {
+    type: { type: Number, default: 0 },
+  },
   data() {
     return {
       avatar: require('@/assets/img/8082.jpg'),
       is_readonly: true,
-      details: {},
+      cadreInformation: {
+        gender: '',
+      },
+      id: -1,
+      genders: [{ text: '1', value: '男' }, { text: '0', value: '女' }],
     };
   },
   mounted() {
@@ -279,8 +297,40 @@ export default {
       linked: true,
     });
   },
-  computed: {},
+  created() {
+    if (this.$route.query.id) {
+      this.query();
+    }
+  },
   methods: {
+    startAdd() {
+      if (this.$route.query.type == 'add' && this.type === 0) {
+        this.is_readonly = false;
+        return true;
+      } else {
+        return false;
+      }
+    },
+    startUpdate() {
+      if (this.$route.query.type == 'update') {
+        this.is_readonly = false;
+        return true;
+      } else {
+        return false;
+      }
+    },
+    startBrowse() {
+      if (this.$route.query.id) {
+        this.is_readonly = true;
+        return true;
+      } else {
+        return false;
+      }
+    },
+    toupdate() {
+      this.id = this.$route.query.id;
+      this.$router.push({ name: 'Details', query: { type: 'update' } });
+    },
     changeImage(e) {
       var file = e.target.files[0];
       var reader = new FileReader();
@@ -289,6 +339,28 @@ export default {
       reader.onload = function(e) {
         that.avatar = this.result;
       };
+    },
+    async toAdd() {
+      let result = await this.$axios.post('jszx/jbqk/jbqk_save', { data: this.cadreInformation });
+      this.cadreInformation = {};
+      this.$router.push('/');
+    },
+    async returnQuery() {
+      this.$router.push({ name: 'Details', query: { id: this.id } });
+      let result = await this.$axios.get(`/jszx/jbqk/jbqk_info?id=${this.id}`);
+      this.$set(this, 'cadreInformation', result.data.data);
+      this.id = -1;
+    },
+    //查看
+    async query() {
+      let result = await this.$axios.get(`/jszx/jbqk/jbqk_info?id=${this.$route.query.id}`);
+      this.$set(this, 'cadreInformation', result.data.data);
+    },
+    //修改
+    async update(index) {
+      // let data = this.list[index];
+      // let result = await this.$axios.post('/jszx/dept/dept_edit', { data: data });
+      // this.query();
     },
   },
 };

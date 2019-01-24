@@ -12,33 +12,31 @@
           <b-card no-body>
             <b-tabs card v-model="tabIndex">
               <b-tab title="基本情况" :title-link-class="linkClass(0)">
-                <jbqk v-if="tabIndex === 0" :type="type"></jbqk>
+                <jbqk v-show="tabIndex === 0" :type="type" @changeToAdd="changeToAdd"></jbqk>
               </b-tab>
-
               <b-tab title="个人事项" :title-link-class="linkClass(1)">
-                <Personal v-if="tabIndex === 1"></Personal>
+                <Personal v-show="tabIndex === 1" :type="type" @changeToAdd="changeToAdd"></Personal>
               </b-tab>
-              
               <b-tab title="个人档案" :title-link-class="linkClass(2)">
-                <PersonDocument v-if="tabIndex === 2"></PersonDocument>
+                <PersonDocument v-show="tabIndex === 2" :type="type" @changeToAdd="changeToAdd"></PersonDocument>
               </b-tab>
               <b-tab title="例行谈话" :title-link-class="linkClass(3)">
-                <RoutineConversation v-if="tabIndex === 3"></RoutineConversation>
+                <RoutineConversation v-show="tabIndex === 3" :type="type" @changeToAdd="changeToAdd"></RoutineConversation>
               </b-tab>
-              <b-tab title="问题线索" :title-link-class="linkClass(4)">
-                <ProblemClue v-if="tabIndex === 4"></ProblemClue>
+              <b-tab title="述责述廉" :title-link-class="linkClass(4)">
+                <SpeakWithHonesty v-show="tabIndex === 4" :type="type" @changeToAdd="changeToAdd"></SpeakWithHonesty>
               </b-tab>
-              <b-tab title="述责述廉" :title-link-class="linkClass(5)">
-                <SpeakWithHonesty v-if="tabIndex === 5"></SpeakWithHonesty>
+              <b-tab title="重大事项" :title-link-class="linkClass(5)">
+                <MajorIssues v-show="tabIndex === 5" :type="type" @changeToAdd="changeToAdd"></MajorIssues>
               </b-tab>
-              <b-tab title="处置问责" :title-link-class="linkClass(6)">
-                <AccountabilityForDisposal v-if="tabIndex === 6"></AccountabilityForDisposal>
+              <b-tab title="问题线索" :title-link-class="linkClass(6)">
+                <ProblemClue v-show="tabIndex === 6" :type="type" @changeToAdd="changeToAdd"></ProblemClue>
               </b-tab>
-              <b-tab title="重大事项" :title-link-class="linkClass(7)">
-                <MajorIssues v-if="tabIndex === 7"></MajorIssues>
+              <b-tab title="处置问责" :title-link-class="linkClass(7)">
+                <AccountabilityForDisposal v-show="tabIndex === 7" :type="type" @changeToAdd="changeToAdd"></AccountabilityForDisposal>
               </b-tab>
               <b-tab title="立案处理" :title-link-class="linkClass(8)">
-                <CaseFiling v-if="tabIndex === 8"></CaseFiling>
+                <CaseFiling v-show="tabIndex === 8" :type="type" @changeToAdd="changeToAdd"></CaseFiling>
               </b-tab>
             </b-tabs>
           </b-card>
@@ -61,6 +59,7 @@ import SpeakWithHonesty from './jbqkDetail/SpeakWithHonesty.vue';
 import AccountabilityForDisposal from './jbqkDetail/AccountabilityForDisposal.vue';
 import MajorIssues from './jbqkDetail/MajorIssues.vue';
 import CaseFiling from './jbqkDetail/CaseFiling.vue';
+
 export default {
   components: {
     jbqk,
@@ -78,7 +77,7 @@ export default {
       avatar: require('@/assets/img/8082.jpg'),
       tabIndex: 0,
       form: {},
-      type: this.$route.query.type,
+      type: 0,
     };
   },
   created() {
@@ -94,6 +93,10 @@ export default {
       } else {
         return ['bgLight', 'textLight'];
       }
+    },
+    changeToAdd(type) {
+      console.log(type);
+      this.type = type;
     },
     changeImage(e) {
       var file = e.target.files[0];
