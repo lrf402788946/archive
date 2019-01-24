@@ -9,7 +9,7 @@
             </li>
             <ul class="submenu">
               <div class="expand-triangle"></div>
-              <router-link :to="{name:'index'}"><li><span>干部信息</span></li></router-link>
+              <router-link :to="{name:'Index'}"><li><span>干部信息</span></li></router-link>
 
             </ul>
             <li>

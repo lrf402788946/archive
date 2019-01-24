@@ -110,7 +110,7 @@ export default {
     };
   },
   created() {
-    this.query();
+    // this.query();
   },
   methods: {
     async query(i) {

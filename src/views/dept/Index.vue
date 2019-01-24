@@ -82,7 +82,7 @@ export default {
     //查询
     async search() {
       //查询方法
-      let result = await this.$axios.get('/jszx/dept/dept_list');
+      let result = await this.$axios.get('dept/dept_list');
       this.$set(this, 'list', result.data.deptList);
     },
     //修改

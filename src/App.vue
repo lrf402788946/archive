@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <body>
-      <div class="base-wrapper">
+      <div v-show="isLogin()">
+        <router-view/>
+      </div>
+      <div class="base-wrapper" v-show="!isLogin()">
         <Header></Header>
         <div class="base-main" id="base-main">
           <sideMenu style="float:left;"></sideMenu>
@@ -31,6 +34,16 @@ export default {
     $(window).resize(function() {
       $('#base-main-right').width($(window).width() - 241);
     });
+  },
+  methods: {
+    isLogin() {
+      let routerPath = this.$route.name;
+      if (routerPath.includes('Login')) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
 };
 </script>
