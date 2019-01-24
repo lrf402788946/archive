@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  publicPath: './',
+  publicPath: process.env.NODE_ENV === 'production' ? '/archive/' : './',
   configureWebpack: config => {
     Object.assign(config, {
       // 开发生产共同配置

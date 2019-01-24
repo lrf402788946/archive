@@ -11,7 +11,8 @@ import UserRoleIndex from './views/userRole/Index.vue';
 Vue.use(Router);
 
 export default new Router({
-  base: process.env.PUBLIC_PATH,
+  // base: '/archive/',
+  // mode: 'history',
   routes: [
     {
       path: '/',

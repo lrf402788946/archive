@@ -35,7 +35,7 @@
           </table>
           <b-modal id="updateAlert" title="添加" ref="updateAlert" hide-footer> 
               <b-form-group label="请选择权限">
-                <b-form-checkbox-group id="checkboxes1" name="flavour1" v-model="form.id" :options="roleList">
+                <b-form-checkbox-group id="checkboxes1" name="flavour1" v-model="form.role_id" :options="roleList">
                 </b-form-checkbox-group>
               </b-form-group>
               <b-button variant="secondary" @click="$refs.updateAlert.hide();" >返回</b-button><b-button variant="primary" @click="toSave()" >保存</b-button>
@@ -54,10 +54,7 @@ export default {
   components: {},
   data() {
     return {
-      list: [],
-      form: {
-        id: [1001, 2],
-      },
+      form: {},
       userList: [],
       roleList: [],
       operateId: '',
@@ -66,8 +63,6 @@ export default {
   computed: {},
   created() {
     this.search();
-    this.form['test'] = 'text';
-    console.log(this.form);
   },
   methods: {
     async search() {
@@ -86,14 +81,19 @@ export default {
     async openUpdateAlert(id) {
       this.$refs.updateAlert.show();
       this.operateId = id;
-      let result = await this.$axios.get(`jszx/userRole/userRole_detail?id=${id}`);
-      console.log(result);
+      let result = await this.$axios.get(`jszx/user/user_role_sel?id=${id}`);
+      let newArray = [];
+      for (const item of result.data.userRoleList) {
+        newArray.push(item.role_id);
+      }
+      this.$set(this.form, 'role_id', newArray);
+      this.$set(this.form, 'id', result.data.user.id);
     },
     //修改
     async toSave() {
       console.log(this.form);
-      // let result = await this.$axios.post('/jszx/userRole/userRole_save', { data: this.form });
-      // this.form = {};
+      let result = await this.$axios.post('/jszx/user/user_role', { data: this.form });
+      this.form = {};
       this.search();
       this.$refs.updateAlert.hide();
     },
