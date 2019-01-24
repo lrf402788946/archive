@@ -12,119 +12,31 @@
           <b-card no-body>
             <b-tabs card v-model="tabIndex">
               <b-tab title="基本情况" :title-link-class="linkClass(0)">
-                <jbqk v-if="tabIndex === 0"></jbqk>
+                <jbqk v-show="tabIndex === 0" :type="type" @changeToAdd="changeToAdd"></jbqk>
               </b-tab>
-
               <b-tab title="个人事项" :title-link-class="linkClass(1)">
-                <div class="base-padding-20 base-bg-fff">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人事项：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputEmail2">个人事项1：</label>
-                          <select class="form-control">
-                            <option selected="selected">--请选择--</option>
-                            <option>男</option>
-                            <option>女</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">个人事项2：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人事项3：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人事项4：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class=" form-group">
-                          <label for="exampleInputName2">个人事项5：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">个人事项6：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="form-group">
-                          <label for="exampleInputName2">个人事项7：</label>
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="exampleInputName2">个人事项备注：</label>
-                      <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">个人事项状况表：</label>
-                          </div>
-                          <button type="submit" class="btn btn-default">扫描文件</button>
-                          <div style="margin-top:10px;">
-                            <p class="help-block">请扫面文件并上传.</p>
-                            <img src="../assets/img/8082.jpg" alt="..." class="img-rounded">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <PersonDocument v-show="tabIndex === 1" :type="type" @changeToAdd="changeToAdd"></PersonDocument>
               </b-tab>
-              
               <b-tab title="个人档案" :title-link-class="linkClass(2)">
-                <PersonDocument v-if="tabIndex === 2"></PersonDocument>
+                <PersonDocument v-show="tabIndex === 2" :type="type" @changeToAdd="changeToAdd"></PersonDocument>
               </b-tab>
               <b-tab title="例行谈话" :title-link-class="linkClass(3)">
-                <RoutineConversation v-if="tabIndex === 3"></RoutineConversation>
+                <RoutineConversation v-show="tabIndex === 3" :type="type" @changeToAdd="changeToAdd"></RoutineConversation>
               </b-tab>
-              <b-tab title="问题线索" :title-link-class="linkClass(4)">
-                <ProblemClue v-if="tabIndex === 4"></ProblemClue>
+              <b-tab title="述责述廉" :title-link-class="linkClass(4)">
+                <SpeakWithHonesty v-show="tabIndex === 4" :type="type" @changeToAdd="changeToAdd"></SpeakWithHonesty>
               </b-tab>
-              <b-tab title="述责述廉" :title-link-class="linkClass(5)">
-                <SpeakWithHonesty v-if="tabIndex === 5"></SpeakWithHonesty>
+              <b-tab title="重大事项" :title-link-class="linkClass(5)">
+                <MajorIssues v-show="tabIndex === 5" :type="type" @changeToAdd="changeToAdd"></MajorIssues>
               </b-tab>
-              <b-tab title="处置问责" :title-link-class="linkClass(6)">
-                <AccountabilityForDisposal v-if="tabIndex === 6"></AccountabilityForDisposal>
+              <b-tab title="问题线索" :title-link-class="linkClass(6)">
+                <ProblemClue v-show="tabIndex === 6" :type="type" @changeToAdd="changeToAdd"></ProblemClue>
               </b-tab>
-              <b-tab title="重大事项" :title-link-class="linkClass(7)">
-                <MajorIssues v-if="tabIndex === 7"></MajorIssues>
+              <b-tab title="处置问责" :title-link-class="linkClass(7)">
+                <AccountabilityForDisposal v-show="tabIndex === 7" :type="type" @changeToAdd="changeToAdd"></AccountabilityForDisposal>
               </b-tab>
               <b-tab title="立案处理" :title-link-class="linkClass(8)">
-                <CaseFiling v-if="tabIndex === 8"></CaseFiling>
+                <CaseFiling v-show="tabIndex === 8" :type="type" @changeToAdd="changeToAdd"></CaseFiling>
               </b-tab>
             </b-tabs>
           </b-card>
@@ -142,10 +54,12 @@ import jbqk from './jbqk/index.vue';
 import PersonDocument from './jbqkDetail/PersonDocument.vue';
 import RoutineConversation from './jbqkDetail/RoutineConversation.vue';
 import ProblemClue from './jbqkDetail/ProblemClue.vue';
+import Personal from './jbqkDetail/Personal.vue';
 import SpeakWithHonesty from './jbqkDetail/SpeakWithHonesty.vue';
 import AccountabilityForDisposal from './jbqkDetail/AccountabilityForDisposal.vue';
 import MajorIssues from './jbqkDetail/MajorIssues.vue';
 import CaseFiling from './jbqkDetail/CaseFiling.vue';
+
 export default {
   components: {
     jbqk,
@@ -162,6 +76,7 @@ export default {
       avatar: require('@/assets/img/8082.jpg'),
       tabIndex: 0,
       form: {},
+      type: 0,
     };
   },
   methods: {
@@ -174,6 +89,10 @@ export default {
       } else {
         return ['bgLight', 'textLight'];
       }
+    },
+    changeToAdd(type) {
+      console.log(type);
+      this.type = type;
     },
     changeImage(e) {
       var file = e.target.files[0];
