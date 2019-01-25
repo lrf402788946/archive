@@ -35,7 +35,7 @@
           </table>
           <b-modal id="updateAlert" title="修改权限" ref="updateAlert" hide-footer>
             <label>请选择权限</label> 
-            <el-checkbox-group v-model="form.id">
+            <el-checkbox-group v-model="form.role_id">
               <el-checkbox v-for="(item,index) in roleList" :key="index" :label="item.value">{{item.text}}</el-checkbox>
             </el-checkbox-group>
               <!-- <b-form-group label="请选择权限">
@@ -61,7 +61,7 @@ export default {
     return {
       list: [],
       form: {
-        id: [1001, 2],
+        role_id: [],
       },
       userList: [],
       roleList: [],
@@ -89,13 +89,17 @@ export default {
     async openUpdateAlert(id) {
       this.$refs.updateAlert.show();
       this.operateId = id;
-      let result = await this.$axios.get(`userRole/userRole_detail?id=${id}`);
-      console.log(result);
+      let result = await this.$axios.get(`user/user_role_sel?id=${id}`);
+      let newList = [];
+      for (const item of result.data.userRoleList) {
+        newList.push(item.role_id);
+      }
+      this.$set(this.form, 'role_id', newList);
     },
     //修改
     async toSave() {
-      console.log(this.form);
-      let result = await this.$axios.post('userRole/userRole_save', { data: this.form });
+      this.form['id'] = this.operateId;
+      let result = await this.$axios.post('user/user_role', { data: this.form });
       this.form = {};
       this.search();
       this.$refs.updateAlert.hide();

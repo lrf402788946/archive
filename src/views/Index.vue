@@ -54,7 +54,7 @@
               <th>姓名</th>
               <th>职务</th>
               <th>身份证号</th>
-              <th>入档时间</th>
+              <th>个人电话</th>
               <th>操作</th>
             </tr>
             <tr v-for="(item,index) in cadreInformation" :key="index">
@@ -62,7 +62,7 @@
               <td>{{item.user_name}}</td>
               <td>{{item.post}}</td>
               <td>{{item.id_number}}</td>
-              <td>{{item.create_date}}</td>
+              <td>{{item.phone_no}}</td>
               <td>
                 <a class="btn btn-xs btn-info base-margin-2" @click="openDeleteAlert(item.id)" data-toggle="tooltip"
                    title="" role="button">删&nbsp;&nbsp;除</a>&nbsp;&nbsp;

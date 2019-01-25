@@ -134,6 +134,7 @@ export default {
       let data = this.form;
       let result = await this.$axios.post('role/role_edit', { data: data });
       console.log(result);
+      this.$refs.Edit.hide();
       this.search();
     },
   },
