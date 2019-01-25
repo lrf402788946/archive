@@ -11,8 +11,8 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-axios.defaults.baseURL = 'http://10.16.11.186:8080'; //http://localhost:8080合并项目用本地
-axios.defaults.headers.post = 'multipart/form-data';
+// axios.defaults.baseURL = 'http://10.16.11.186:8080'; //http://localhost:8080合并项目用本地
+axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
 Vue.prototype.$axios = axios;
 Vue.prototype.qs = Qs;
 Vue.use(BootstrapVue);

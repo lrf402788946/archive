@@ -10,19 +10,19 @@
           <form style="margin:20px auto; width:300px;">
             <div style="text-align:left;" class="form-group">
               <label for="exampleInputuser1">用户名：</label>
-              <input type="text" v-model="form.login_id" class="form-control" id="exampleInputuser1" placeholder="">
+              <input type="text" v-model="form.login_id" class="form-control" placeholder="">
             </div>
             <div style="text-align:left;" class="form-group">
               <label for="exampleInputPassword1">密&nbsp;&nbsp;&nbsp;码：</label>
-              <input type="password" v-model="form.password" class="form-control" id="exampleInputPassword1" placeholder="">
+              <input type="password" v-model="form.password" class="form-control" placeholder="">
             </div>
             <div class="form-group">
               <div class="row">
                 <div class="col-lg-6">
-                  <b-button variant="primary" @click="login()" style=" margin-top:10px;" class="btn btn-info btn-lg btn-block" >登&nbsp;&nbsp;录</b-button>
+                  <button variant="primary" @click.prevent="login()" style=" margin-top:10px;" class="dengBtn">登&nbsp;&nbsp;录</button>
                 </div>
                 <div class="col-lg-6">
-                  <b-button variant="primary" @click="form={}" style=" margin-top:10px;" class="btn btn-info btn-lg btn-block" >重&nbsp;&nbsp;置</b-button>
+                  <button variant="primary" @click="form={}" style=" margin-top:10px;" class="dengBtn">重&nbsp;&nbsp;置</button>
                 </div>
               </div>
             </div>
@@ -44,11 +44,15 @@ export default {
   methods: {
     async login() {
       if (this.form.login_id && this.form.password) {
-        // let result = await this.$axios.post('/user/login', { data: this.form });
-        // console.log(result);
+        let result = await this.$axios.post('/jszx/user/login', { data: this.form }, {});
+        console.log(result);
+        if (result.data.rescode === '0') {
+          sessionStorage.setItem('userInfo', this.form.login_id);
+        } else {
+          alert(result.data.msg);
+        }
         //存入sessionStorage
-        // sessionStorage.setItem('userInfo', JSON.stringify(result.data.data));
-        sessionStorage.setItem('userInfo', JSON.stringify(this.form));
+        // sessionStorage.setItem('userInfo', JSON.stringify(this.form));
         this.$router.push('/');
       }
     },
@@ -63,6 +67,21 @@ body {
   font-size: 14px;
   overflow: hidden;
   height: 100vh;
+}
+.dengBtn {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+  background-color: #5bc0de;
+  border: none;
+  color: #fff;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.dengBtn:hover {
+  cursor: pointer;
 }
 h1 .h1 {
   font-size: 36px !important;

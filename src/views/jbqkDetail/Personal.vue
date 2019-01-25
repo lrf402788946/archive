@@ -59,15 +59,15 @@
 
         <div class="base-padding-20 base-bg-fff" style="clear:both;">
             <div class="base-margin-top-10 base-align-right" v-if="changeShow()">
-                <a class="btn btn-info" @click="goToBack()" data-toggle="tooltip" title="" role="button"><i
+                <a class="btn btn-info" @click="goToBack()" data-toggle="tooltip" title="" role="button" style="padding: 4px 9px !important;"><i
                     class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                <a id="preservation" class="btn btn-info" data-toggle="tooltip" title="" role="button" @click='toAdd()'><i
+                <a id="preservation" class="btn btn-info" data-toggle="tooltip" title="" role="button" @click='toAdd()' style="padding: 4px 9px !important;"><i
                     class="base-margin-right-5 fa fa-hand-o-left "></i>保&nbsp;&nbsp;存</a>
             </div>
             <div class="base-margin-top-10 base-align-right" v-else>
-                <a class="btn btn-info" @click="$router.go(-1)" data-toggle="tooltip" title="" role="button"><i
+                <a class="btn btn-info" @click="$router.go(-1)" data-toggle="tooltip" title="" role="button" style="padding: 4px 9px !important;"><i
                     class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                <a class="btn btn-info" @click="goToAdd()" data-toggle="tooltip" title="" role="button"><i
+                <a class="btn btn-info" @click="goToAdd()" data-toggle="tooltip" title="" role="button" style="padding: 4px 9px !important;"><i
                     class="base-margin-right-5 fa fa-hand-o-left "></i>添&nbsp;&nbsp;加</a>
             </div>
         </div>

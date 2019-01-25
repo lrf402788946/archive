@@ -48,16 +48,16 @@
             <b-form-input v-model="form.dept_duty"></b-form-input>
             <div style="margin-top:7px; margin-bottom:7px;">部门电话:</div>
             <b-form-input v-model="form.dept_tell"></b-form-input>
-            <b-button variant="secondary" style="font-size:14px !important; margin-top:20px; padding:4px 8px !important;"  @click="form={}" >重&nbsp;&nbsp;置</b-button>
-            <b-button style="font-size:14px !important; margin-top:20px; padding:4px 8px !important;"  variant="primary" @click="toAdd()" >保&nbsp;&nbsp;存</b-button>
+            <b-button variant="secondary" style="font-size:16px !important; margin-top:35px; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"  @click="form={}" >重&nbsp;&nbsp;置</b-button>
+            <b-button  style="font-size:16px !important; margin-top:35px; float:right; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"   variant="primary" @click="toAdd()" >保&nbsp;&nbsp;存</b-button>
           </b-modal>
 
           <b-modal id="deleteAlert" title="确认删除" ref="deleteAlert" hide-footer> 
             <div class="d-block text-center">
               <b-alert variant="danger" show>删除部门可能会影响您的管理,确认删除吗?</b-alert>
             </div>
-           <b-button variant="danger"  style="font-size:14px !important; margin-top:20px; padding:4px 8px !important;"  @click="toDelete()">删&nbsp;&nbsp;除</b-button>
-           <b-button variant="primary"  style="font-size:14px !important; margin-top:20px; padding:4px 8px !important;"  @click="$refs.deleteAlert.hide(),deleteItem=''">返&nbsp;&nbsp;回</b-button>
+           <b-button variant="danger"   style="font-size:16px !important; margin-top:35px; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"   @click="toDelete()">删&nbsp;&nbsp;除</b-button>
+           <b-button variant="primary"   style="font-size:16px !important; margin-top:35px; float:right; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"   @click="$refs.deleteAlert.hide(),deleteItem=''">返&nbsp;&nbsp;回</b-button>
           </b-modal>
 
           <!-- jkjkjkjk -->
@@ -77,8 +77,8 @@
                     <b-form-input v-model="updateForm.dept_tell"></b-form-input>
                 </div>
                 <div class="col-lg-12 marginBot4">
-                  <b-button variant="secondary" @click="closeAlert('update')" class="resetButton" style="font-size:14px !important; padding:4px 8px !important;" >返&nbsp;&nbsp;回</b-button>
-                  <b-button variant="primary" @click="toUpdate()" class="resetButton"  style="font-size:14px !important; padding:4px 8px !important;">保&nbsp;&nbsp;存</b-button>
+                  <b-button variant="secondary" @click="closeAlert('update')" class="resetButton" style="font-size:16px !important; margin-top:35px; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"  >返&nbsp;&nbsp;回</b-button>
+                  <b-button variant="primary" @click="toUpdate()" class="resetButton"  style="font-size:16px !important; margin-top:35px; float:right; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;" >保&nbsp;&nbsp;存</b-button>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default {
     //查询
     async search() {
       //查询方法
-      let result = await this.$axios.get('dept/dept_list');
+      let result = await this.$axios.get('/jszx/dept/dept_list');
       this.$set(this, 'list', result.data.deptList);
     },
     async toUpdate() {
