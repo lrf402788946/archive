@@ -281,7 +281,7 @@ export default {
     },
     async toAdd() {
       console.log(this.cadreInformation);
-      let result = await this.$axios.post('/jszx/jbqk/jbqk_save', { data: this.cadreInformation });
+      let result = await this.$axios.post('jbqk/jbqk_save', { data: this.cadreInformation });
       this.cadreInformation = {};
       this.$router.push('/');
     },
