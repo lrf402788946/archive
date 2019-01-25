@@ -13,8 +13,8 @@
         </div>
       </div>
       <div class="base-padding-20 base-bg-fff">
-        <div class="base-align-right">
-          <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" title="" role="button" v-b-modal="'addAlert'">
+        <div class="base-align-right" style="margin-bottom: 20px;">
+          <a class="btn btn-info base-margin-bottom" style="font-size:14px !important;padding: 6px 12px !important;" data-toggle="tooltip" title="" role="button" v-b-modal="'addAlert'">
             <i class="base-margin-right-5 fa fa-plus-square"></i>添加用户    
           </a>
         </div>
@@ -41,8 +41,8 @@
               <td>{{{data:deptList,searchItem:'dept_name',value:item.dept_id,label:'text'}|getName}}</td>
               <td>{{item.level}}</td>
               <td>
-                <b-button variant="primary" style="color:white;" @click="openAlert('update',index)">修改</b-button>
-                <b-button variant="danger" @click="openAlert('delete',item.id)">删除</b-button>
+                <b-button variant="primary" style="color:white; margin-right:5px;" @click="openAlert('update',index)">修&nbsp;&nbsp;改</b-button>
+                <b-button variant="danger" style="color:white;"  @click="openAlert('delete',item.id)">删&nbsp;&nbsp;除</b-button>
               </td>
             </tr>
           </tbody>
@@ -52,54 +52,118 @@
       <!--添加弹框-->
         <b-modal id="addAlert" title="添加用户" ref="addAlert" hide-footer> 
           <div class="d-block text-center">
-            <b-form-input v-model="addForm.user_name" placeholder="姓名"></b-form-input><br/>
-            <b-form-input v-model="addForm.login_id" placeholder="登录账号"></b-form-input><br/>
-            <b-form-input v-model="addForm.password" placeholder="密码"></b-form-input><br/>
-            <b-form-select v-model="addForm.gender" :options="gender" /><br/>
-                <!-- <b-form-group label="性别">
-                  <b-form-radio-group  v-model="form.gender" :options="gender" name="radioInline">
-                  </b-form-radio-group>
-                </b-form-group> -->
-            <b-form-input v-model="addForm.office_tell" placeholder="办公室电话"></b-form-input><br/>
-            <b-form-input v-model="addForm.phone_no" placeholder="个人电话"></b-form-input><br/>
-            <b-form-input v-model="addForm.home_address" placeholder="家庭住址"></b-form-input><br/>
-            <b-form-input v-model="addForm.emaill" placeholder="电子信箱"></b-form-input><br/>
-            <b-form-input v-model="addForm.birthday" placeholder="出生日期" type="text" class="form-control tyx-cursor" id="birthday" data-date-format="yyyy-mm-dd"></b-form-input><br/>
-            <b-form-input v-model="addForm.id_number" placeholder="身份证号"></b-form-input><br/>
-            <b-form-input v-model="addForm.card_no" placeholder="卡号"></b-form-input><br/>
-            <b-form-select v-model="addForm.dept_id"  :options="deptList" /><br/>
-            <b-form-input v-model="addForm.level" placeholder="职务"></b-form-input><br/>
-            <textarea v-model="addForm.remark" class="form-control" rows="4" placeholder="备注"></textarea><br/>
+            <div class="row">
+              <div class="col-lg-6">
+                  <b-form-input v-model="addForm.user_name" placeholder="姓名" class="marginBot"></b-form-input>
+              </div>
+              <div class="col-lg-6">
+                  <b-form-input v-model="addForm.login_id" placeholder="登录账号" class="marginBot"></b-form-input>
+              </div>
+              <div class="col-lg-6">
+                  <b-form-input v-model="addForm.password" placeholder="密码" class="marginBot"></b-form-input>
+              </div>
+              <div class="col-lg-6">
+                  <b-form-select v-model="addForm.gender" :options="gender" class="marginBot" />
+              </div>
+              <div class="col-lg-6">
+                  <b-form-input v-model="addForm.office_tell" placeholder="办公室电话" class="marginBot"></b-form-input>
+              </div>
+              <div class="col-lg-6">
+                  <b-form-input v-model="addForm.phone_no" placeholder="个人电话" class="marginBot"></b-form-input>
+              </div>
+              <div class="col-lg-6">
+                  <b-form-input v-model="addForm.emaill" placeholder="电子信箱" class="marginBot"></b-form-input>
+              </div>
+              <div class="col-lg-6">
+                  <b-form-input v-model="addForm.birthday" placeholder="出生日期" type="text" class="form-control tyx-cursor marginBot" id="birthday" data-date-format="yyyy-mm-dd"></b-form-input>
+              </div>
+              <div class="col-lg-6">
+                   <b-form-input v-model="addForm.id_number" placeholder="身份证号" class="marginBot"></b-form-input>
+              </div>
+              <div class="col-lg-6">
+                  <b-form-input v-model="addForm.card_no" placeholder="卡号" class="marginBot"></b-form-input>
+              </div>
+              <div class="col-lg-6">
+                    <b-form-select v-model="addForm.dept_id"  :options="deptList" class="marginBot" />
+              </div>
+              <div class="col-lg-6">
+                 <b-form-input v-model="addForm.level" placeholder="职务" class="marginBot"></b-form-input>
+              </div>
+            </div>
+            <b-form-input v-model="addForm.home_address" placeholder="家庭住址" class="marginBot"></b-form-input>
+            <textarea v-model="addForm.remark" class="form-control" rows="3" style="height: 100px !important;" placeholder="备注"></textarea><br/>
           </div>
-         <b-button variant="secondary" @click="form={gender: -1}" >重置</b-button><b-button variant="primary" @click="toAdd()" style="float:right;" >保存</b-button>
-         </b-modal>
+          <b-button variant="secondary" @click="form={gender: -1}" class="resetButton" style="font-size:14px !important; padding:4px 8px !important;">重&nbsp;&nbsp;置</b-button>
+          <b-button variant="primary" @click="toAdd()" class="resetButton" style="font-size:14px !important; padding:4px 8px !important;" >保&nbsp;&nbsp;存</b-button>
+        </b-modal>
       <!--修改弹框-->
         <b-modal id="updateAlert" title="修改信息" ref="updateAlert" hide-footer> 
-          <div class="d-block text-center">
-            姓名:<b-form-input v-model="updateForm.user_name"></b-form-input>
+          <div class="d-block">
+            <div class="row">
+              <div class="col-lg-6 marginBot4">
+                  <p class="marginBot4">姓名</p>
+                  <b-form-input v-model="updateForm.user_name"></b-form-input>
+              </div>
+              <div class="col-lg-6 marginBot4">
+                  <p class="marginBot4">性别</p>
+                  <b-form-select v-model="updateForm.gender" :options="gender" />
+              </div>
+              <div class="col-lg-6 marginBot4">
+                  <p class="marginBot4">办公室电话</p>
+                  <b-form-input v-model="updateForm.office_tell"></b-form-input>
+              </div>
+              <div class="col-lg-6 marginBot4">
+                  <p class="marginBot4">个人电话</p>
+                  <b-form-input v-model="updateForm.phone_no"></b-form-input>
+              </div>
+              <div class="col-lg-6 marginBot4">
+                  <p class="marginBot4">电子信箱</p>
+                  <b-form-input v-model="updateForm.emaill"></b-form-input>
+              </div>
+              <div class="col-lg-6 marginBot4">
+                  <p class="marginBot4">出生日期</p>
+                  <input v-model="updateForm.birthday" type="text" class="form-control tyx-cursor" id="updateBirthday" data-date-format="yyyy-mm-dd"/>
+              </div>
+              <div class="col-lg-6 marginBot4">
+                  <p class="marginBot4">身份证号</p>
+                  <b-form-input v-model="updateForm.id_number"></b-form-input>
+              </div>
+              <div class="col-lg-6 marginBot4">
+                  <p class="marginBot4">卡号</p>
+                  <b-form-input v-model="updateForm.card_no"></b-form-input>
+              </div>
+              <div class="col-lg-6 marginBot4">
+                  <p class="marginBot4">部门</p>
+                  <b-form-select v-model="updateForm.dept_id"  :options="deptList" />
+              </div>
+              <div class="col-lg-6 marginBot4">
+                  <p class="marginBot4">职务</p>
+                  <b-form-input v-model="updateForm.level"></b-form-input>
+              </div>
+              <div class="col-lg-12 marginBot4">
+                  <p class="marginBot4">家庭住址</p>
+                  <b-form-input v-model="updateForm.home_address"></b-form-input>
+              </div>
+              <div class="col-lg-12 marginBot">
+                  <p class="marginBot4">备注</p>
+                  <textarea v-model="updateForm.remark" class="form-control"  style="height: 100px !important;"  rows="4"></textarea>
+              </div>
+            </div>
             <!-- 登录账号:<b-form-input v-model="form.login_id" ></b-form-input>
             密码:<b-form-input v-model="form.password"></b-form-input> -->
-            性别:<b-form-select v-model="updateForm.gender" :options="gender" />
-            办公室电话:<b-form-input v-model="updateForm.office_tell"></b-form-input>
-            个人电话:<b-form-input v-model="updateForm.phone_no"></b-form-input>
-            家庭住址:<b-form-input v-model="updateForm.home_address"></b-form-input>
-            电子信箱:<b-form-input v-model="updateForm.emaill"></b-form-input>
-            出生日期:<input v-model="updateForm.birthday" type="text" class="form-control tyx-cursor" id="updateBirthday" data-date-format="yyyy-mm-dd"/>
-            身份证号:<b-form-input v-model="updateForm.id_number"></b-form-input>
-            卡号:<b-form-input v-model="updateForm.card_no"></b-form-input>
-            部门:<b-form-select v-model="updateForm.dept_id"  :options="deptList" />
-            职务:<b-form-input v-model="updateForm.level"></b-form-input>
-            备注:<textarea v-model="updateForm.remark" class="form-control" rows="4"></textarea>
           </div>
-         <b-button variant="secondary" @click="closeAlert('update')" >返回</b-button><b-button variant="primary" @click="toUpdate()" >保存</b-button>
+          <b-button variant="secondary" @click="closeAlert('update')" class="resetButton" style="font-size:14px !important; padding:4px 8px !important;" >返&nbsp;&nbsp;回</b-button>
+          <b-button variant="primary" @click="toUpdate()" class="resetButton"  style="font-size:14px !important; padding:4px 8px !important;">保&nbsp;&nbsp;存</b-button>
          </b-modal>
       <!--删除弹框-->
         <b-modal id="deleteAlert" title="确认删除" ref="deleteAlert" hide-footer> 
           <div class="d-block text-center">
             <b-alert variant="danger" show>删除部门可能会影响您的管理,确认删除吗?</b-alert>
           </div>
-          <b-button variant="outline-danger"  style="float:right;" @click="toDelete()">删除</b-button>
-          <b-button variant="primary" style="color:white;" @click="closeAlert('delete'),$refs.deleteAlert.hide(),deleteItem=''">返回</b-button>
+          <b-button variant="danger"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" @click="toDelete()">删&nbsp;&nbsp;除</b-button>
+          <b-button variant="primary"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" class="resetButton"  @click="closeAlert('delete'),$refs.deleteAlert.hide(),deleteItem=''">返&nbsp;&nbsp;回</b-button>
+          
+          
         </b-modal>
   </div>
 </template>
@@ -126,10 +190,9 @@ export default {
       deptList: [],
     };
   },
-  async created() {
-    // console.log(this.$md5('test'));
-    await this.search();
-    await this.getDeptList();
+  created() {
+    this.search();
+    this.getDeptList();
   },
   mounted() {
     $('#birthday').datetimepicker({
@@ -214,6 +277,35 @@ export default {
 </script>
 
 <style scoped>
+.marginBot4{
+  margin-bottom: 4px;
+}
+.marginBot{
+  margin-bottom: 15px;
+}
+.resetButton{
+  color:#fff;
+  margin-right:20px;
+}
+.table th, .table td {
+    padding: 0.5rem;
+}
+.btn {
+    margin-left: 0 !important;
+    padding: 2px 5px !important;
+    margin-bottom: 0 !important;
+    margin-right: 10px !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+    line-height: 1.42857143 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    width: auto !important;
+    border: 1px solid transparent !important;
+    border-radius: 3px !important;
+    height: auto !important;
+}
 .btn-primary {
   background-color: #5bc0de;
 }
@@ -233,7 +325,6 @@ export default {
   color: #999;
   display: inline-block;
 }
-
 .base-form-title {
   font-weight: bold;
   display: block;
@@ -306,25 +397,6 @@ button {
   background-color: #5bc0de;
   border-color: #46b8da;
 }
-.btn {
-  width: auto !important;
-  height: auto !important;
-  margin-left: 0;
-  display: inline-block;
-  padding: 9px 12px;
-  margin-bottom: 0;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1.42857143;
-  text-align: center;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
 .base-margin-2 {
   margin: 2px 0;
 }
@@ -350,7 +422,7 @@ button {
   border: 1px solid #ddd;
 }
 .table {
-  font-size: 18px;
+  font-size: 14px;
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
@@ -382,9 +454,6 @@ table {
   cursor: pointer;
   background-size: 100%;
 }
-.page-bar {
-  margin: 40px;
-}
 ul,
 li {
   margin: 0px;
@@ -393,37 +462,16 @@ li {
 li {
   list-style: none;
 }
-.page-bar li:first-child > a {
-  margin-left: 0px;
+.modal.show .modal-dialog {
+    -webkit-transform: none;
+    transform: none;
+    max-width: 700px !important;
 }
-.page-bar a {
-  border: 1px solid #ddd;
-  text-decoration: none;
-  position: relative;
-  float: left;
-  padding: 6px 12px;
-  margin-left: -1px;
-  line-height: 1.42857143;
-  color: #337ab7;
-  cursor: pointer;
-}
-.page-bar a:hover {
-  background-color: #eee;
-}
-.page-bar a.banclick {
-  cursor: not-allowed;
-}
-.page-bar .active a {
-  color: #fff;
-  cursor: default;
-  background-color: #337ab7;
-  border-color: #337ab7;
-}
-.page-bar i {
-  font-style: normal;
-  color: #d44950;
-  margin: 0px 4px;
-  font-size: 12px;
+@media (min-width: 576px){
+ .modal-dialog {
+    max-width: 700px !important;
+    margin: 1.75rem auto;
+ }
 }
 </style>
 
