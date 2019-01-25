@@ -13,7 +13,7 @@
             <div class="col-lg-3">
               <div class="base-margin-right-40 form-group">
 
-                <input type="text" v-model="dagl_user.user_name" class="form-control" id="exampleInputName2" placeholder="请输入姓名">
+                <input type="text" v-model="dagl_user.dept_name" class="form-control" id="exampleInputName2" placeholder="请输入姓名">
               </div>
             </div>
 
@@ -59,14 +59,12 @@
               </tr>
               <tr v-for="(item,index) in cadreInformation" :key="index">
                 <td>{{index+1}}</td>
-                <td>{{item.user_name}}</td>
+                <td>{{item.dept_name}}</td>
                 <td>{{item.post}}</td>
                 <td>{{item.id_number}}</td>
                 <td>{{item.create_date}}</td>
                 <td>
-                  <a class="btn btn-xs btn-info base-margin-2" @click="openDeleteAlert(item.id)" data-toggle="tooltip"
-                    title="" role="button">删&nbsp;&nbsp;除</a>&nbsp;&nbsp;
-                  <a class="btn btn-xs btn-info base-margin-2" @click="$router.push({ name: 'Details', query: { id: item.id } })" data-toggle="tooltip"
+                  <a class="btn btn-xs btn-info base-margin-2" href="page-tables-details.html" data-toggle="tooltip"
                     title="" role="button">查&nbsp;&nbsp;看</a>
                 </td>
               </tr>
@@ -90,70 +88,50 @@
           <!-- 分页 -->
         </div>
       </div>
-      <b-modal id="deleteAlert" title="确认删除" ref="deleteAlert" hide-footer> 
-        <div class="d-block text-center">
-          <b-alert variant="danger" show>删除之后可能会有严重影响,确认删除吗?</b-alert>
-        </div>
-        <b-button variant="outline-danger"  style="float:right;" @click="deleted(deleteItem)">删除</b-button>
-        <b-button variant="primary" style="color:white;" @click="$refs.deleteAlert.hide(),deleteItem=''">返回</b-button>
-      </b-modal>
     </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      id: 'gf',
-      deleteItem: '',
       cadreInformation: [],
       dagl_user: {
-        user_name: '',
+        dept_name: '',
         id_number: '',
       },
       skip: 0,
       limit: 1, //每页信息数量
       timeout: 500,
       closetimer: 0,
+      ddmenuitem: 0,
       totalRow: 0, //词条数量
       pageNumber: 1, //页码数量
       cur: 1, //当前页码
     };
   },
   created() {
-    // this.query();
+    this.query();
   },
   methods: {
-    openDeleteAlert(id) {
-      this.$refs.deleteAlert.show();
-      this.deleteItem = id;
-    },
-    async deleted(id) {
-      let result = await this.$axios.post('/jszx/jbqk/jbqk_delete', {data:{id:this.deleteItem}});//id传不出去
-      this.$refs.deleteAlert.hide();
-      this.deleteItem = '';
-    },
     async query(i) {
       if (i == null) {
-        if (this.dagl_user.lengh == 0) {
-          let result = await this.$axios.get(`/jszx/jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}`);
-          this.totalRow = result.data.totalRow;
-          this.pageNumber = Math.ceil(this.totalRow / this.limit);
-          this.$set(this, 'cadreInformation', result.data.jbqkList);
-        } else {
-          let result = await this.$axios.get(
-            `/jszx/jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}&user_name=${this.dagl_user.user_name}&id_number=${this.dagl_user.id_number}`
-          );
-          this.totalRow = result.data.totalRow;
-          this.pageNumber = Math.ceil(this.totalRow / this.limit);
-          this.$set(this, 'cadreInformation', result.data.jbqkList);
-        }
+        let result = await this.$axios.get(
+          // '/ceshi/jbqk/jbqk_list?skip='+ (this.skip + i * this.limit) +'&limit=' + this.limit + '&dept_name=' + this.dagl_user.dept_name + '&id_number=' + this.dagl_user.id_number
+          `/ceshi/jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}&dept_name=${this.dagl_user.dept_name}&id_number=${this.dagl_user.id_number}`
+        );
+        this.totalRow = result.data.totalRow;
+        this.pageNumber = Math.ceil(this.totalRow / this.limit);
+        // this.cadreInformation = result.data.jbqkList;
+        this.$set(this, 'cadreInformation', result.data.jbqkList);
       } else if (i != null) {
         let result = await this.$axios.get(
-          `/jszx/jbqk/jbqk_list?skip=${this.skip + this.limit * (i - 1)}&limit=${this.limit}&user_name=${this.dagl_user.user_name}
+          // '/ceshi/jbqk/jbqk_list?skip='+ (this.skip + i * this.limit) +'&limit=' + this.limit + '&dept_name=' + this.dagl_user.dept_name + '&id_number=' + this.dagl_user.id_number
+          `/ceshi/jbqk/jbqk_list?skip=${this.skip + this.limit * (i - 1)}&limit=${this.limit}&dept_name=${this.dagl_user.dept_name}
 &id_number=${this.dagl_user.id_number}`
         );
         this.totalRow = result.data.totalRow;
         this.pageNumber = Math.ceil(this.totalRow / this.limit);
+        // this.cadreInformation = result.data.jbqkList;
         this.$set(this, 'cadreInformation', result.data.jbqkList);
       }
     },
