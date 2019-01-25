@@ -42,8 +42,8 @@
                 <b-form-checkbox-group id="checkboxes1" name="role" v-model="form.id" :options="roleList">
                 </b-form-checkbox-group>
               </b-form-group> -->
-              <b-button variant="secondary"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" @click="$refs.updateAlert.hide();" >返&nbsp;&nbsp;回</b-button>
-              <b-button variant="primary"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" @click="toSave()" >保&nbsp;&nbsp;存</b-button>
+              <b-button variant="secondary"  style="font-size:16px !important; margin-top:35px; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"  @click="$refs.updateAlert.hide();" >返&nbsp;&nbsp;回</b-button>
+              <b-button variant="primary"  style="font-size:16px !important; margin-top:35px; float:right; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"  @click="toSave()" >保&nbsp;&nbsp;存</b-button>
             <!-- <b-button variant="secondary" @click="form={}" >重置</b-button><b-button variant="primary" @click="toAdd()" >保存</b-button> -->
           </b-modal>
 

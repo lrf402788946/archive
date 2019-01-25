@@ -1,7 +1,9 @@
 <template lang='html'>
   <div id="Header">
       <div class="base-header">
-        <div class="base-header-left" id="menuHead"></div>
+        <div class="base-header-left" id="menuHead">
+          <img src="../assets/img/logo.png" alt="..." class="img-rounded">
+        </div>
         <div class="base-nav" id="base-nav">
           <ul class="top-nav-ul">
             <li><a @click="$router.push('/')">首 &nbsp;&nbsp; 页</a></li>
@@ -23,7 +25,9 @@ export default {
   name: 'Header',
   components: {},
   data() {
-    return {};
+    return {
+      avatar: require('@/assets/img/8082.jpg'),
+    };
   },
   computed: {},
   mounted() {

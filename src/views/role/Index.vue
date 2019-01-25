@@ -51,8 +51,8 @@
             <b-form-input v-model="form.role_code" class="marginBot8"></b-form-input>
             <p class="marginBot5">角色名称</p>
             <b-form-input v-model="form.role_name" class="marginBot20"></b-form-input>
-            <b-button variant="secondary" @click="form={}" style="font-size:14px !important; padding:4px 8px !important;" >重&nbsp;&nbsp;置</b-button>
-            <b-button variant="primary" @click="toAdd()" style="font-size:14px !important; padding:4px 8px !important;" >保&nbsp;&nbsp;存</b-button>
+            <b-button variant="secondary" @click="form={}" style="font-size:16px !important; margin-top:25px; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"  >重&nbsp;&nbsp;置</b-button>
+            <b-button variant="primary" @click="toAdd()"  style="font-size:16px !important; margin-top:25px; float:right; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"  >保&nbsp;&nbsp;存</b-button>
           </b-modal>
 
           <b-modal id="Edit" title="修改角色" ref="Edit" hide-footer> 
@@ -65,16 +65,17 @@
             <b-form-input v-model="form.role_code"  class="marginBot8"></b-form-input>
             <p class="marginBot5">角色名称</p>
             <b-form-input v-model="form.role_name"  class="marginBot20"></b-form-input>
-            <b-button variant="secondary" @click="form={}" style="font-size:14px !important; padding:4px 8px !important;">重&nbsp;&nbsp;置</b-button>
-            <b-button variant="primary" @click="toUpdate()" style="font-size:14px !important; padding:4px 8px !important;" >修&nbsp;&nbsp;改</b-button>
+            <b-button variant="secondary" @click="$refs.Edit.hide();"  style="font-size:16px !important; margin-top:25px; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;" >返&nbsp;&nbsp;回</b-button>
+            <b-button variant="primary" @click="toUpdate()"  style="font-size:16px !important; margin-top:25px; float:right; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"  >修&nbsp;&nbsp;改</b-button>
           </b-modal>
 
           <b-modal id="deleteAlert" title="确认删除" ref="deleteAlert" hide-footer> 
             <div class="d-block text-center">
               <b-alert variant="danger" show>确定删除该角色?</b-alert>
             </div>
-           <b-button variant="danger"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" @click="toDelete()">删&nbsp;&nbsp;除</b-button>
-           <b-button variant="primary"  style="font-size:14px !important; padding:4px 8px !important;" @click="$refs.deleteAlert.hide(),deleteItem=''">返&nbsp;&nbsp;回</b-button>
+           <b-button variant="danger"  style="font-size:16px !important; margin-top:25px; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"  @click="toDelete()">删&nbsp;&nbsp;除</b-button>
+           <b-button variant="primary"  style="font-size:16px !important; margin-top:25px; float:right; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;" 
+            @click="$refs.deleteAlert.hide(),deleteItem=''">返&nbsp;&nbsp;回</b-button>
           </b-modal>
           
         </div>

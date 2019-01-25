@@ -201,7 +201,7 @@ body {
 .base-form-title {
   font-weight: bold;
   display: block;
-  line-height: 50px;
+  line-height: 40px;
   font-size: 16px;
   color: #46687f;
   letter-spacing: 1px;
@@ -380,7 +380,6 @@ table {
   float: left;
   width: 240px;
   height: 60px;
-  line-height: 60px;
   background-color: #1c2b36;
   border-bottom: 1px #161e25 solid;
   background-image: url(/img/logo.8640fb78.png);

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <body style="overflow-y: scroll;">
-      <div class="base-main-right">
+    
+      
         <b-breadcrumb>
           <b-breadcrumb-item :to="{name:'Index'}">干部信息</b-breadcrumb-item>
           <b-breadcrumb-item>信息详情</b-breadcrumb-item>
@@ -40,8 +40,7 @@
             </b-tabs>
           </b-card>
         </div>
-      </div>
-    </body>
+
 
   </div>
 </template>
@@ -153,8 +152,8 @@ a.bgLight:hover {
 .base-form-title {
   font-weight: bold !important;
   display: block !important;
-  line-height: 50px !important;
-  font-size: 18px !important;
+  line-height: 40px !important;
+  font-size: 16px !important;
   color: #46687f !important;
   letter-spacing: 1px !important;
   text-align: left !important;
@@ -285,17 +284,18 @@ label {
 }
 .btn {
   margin-left: 0 !important;
-  padding: 6px 12px !important;
+  padding: 2px 5px !important;
   margin-bottom: 0 !important;
-  font-size: 14px !important;
+  margin-right: 10px !important;
+  font-size: 12px !important;
   font-weight: normal !important;
   line-height: 1.42857143 !important;
   text-align: center !important;
   white-space: nowrap !important;
   vertical-align: middle !important;
   width: auto !important;
-  border: 1px solid #ccc !important;
-  border-radius: 4px !important;
+  border: 1px solid transparent !important;
+  border-radius: 3px !important;
   height: auto !important;
 }
 .btn-default:hover {
@@ -325,6 +325,14 @@ label {
 }
 .tab-content {
   padding-bottom: 50px;
+}
+.base-main-rightOne {
+  float: left;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #ecedf0;
 }
 </style>
 

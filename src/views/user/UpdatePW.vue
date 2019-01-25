@@ -80,7 +80,7 @@ export default {
     color: #fff;
     /* padding: 5px 40px;
     border-radius: 5px; */
-    padding: 10px 25px;
+    padding: 8px 25px;
     font-size: 18px;
     line-height: 1.3333333;
     border-radius: 6px;

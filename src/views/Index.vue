@@ -26,7 +26,7 @@
           <div class="col-lg-3">
             <div class="base-margin-right-40 form-group">
 
-              <a class="btn btn-info" @click="query()" data-toggle="tooltip" title="" role="button"><i class="base-margin-right-5 fa fa-search "></i>查&nbsp;&nbsp;&nbsp;询</a>
+              <a class="btn btn-info" style="font-size:14px !important;padding: 6px 12px !important;"  @click="query()" data-toggle="tooltip" title="" role="button"><i class="base-margin-right-5 fa fa-search "></i>查&nbsp;&nbsp;&nbsp;询</a>
             </div>
           </div>
         </div>
@@ -42,8 +42,8 @@
         </div>
       </div>
       <div class="base-padding-20 base-bg-fff">
-        <div class="base-align-right">
-          <a class="btn btn-info base-margin-bottom" @click="$router.push({ name: 'Details', query: { type: 'add' } })"
+        <div class="base-align-right" style="margin-bottom:20px;">
+          <a class="btn btn-info base-margin-bottom" style="font-size:14px !important;padding: 6px 12px !important;"  @click="$router.push({ name: 'Details', query: { type: 'add' } })"
              data-toggle="tooltip" title="" role="button"><i class="base-margin-right-5 fa fa-plus-square"></i>添加人员</a>
           <!--  <button type="submit" class="btn btn-info base-margin-bottom"><a href="#" data-toggle="tooltip" title="导出">导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></button> -->
         </div>
@@ -65,9 +65,9 @@
               <td>{{item.phone_no}}</td>
               <td>
                 <a class="btn btn-xs btn-info base-margin-2" @click="openDeleteAlert(item.id)" data-toggle="tooltip"
-                   title="" role="button">删&nbsp;&nbsp;除</a>&nbsp;&nbsp;
+                   title="" role="button" style="background-color: #dc3545 !important; border:none !important; ">删&nbsp;&nbsp;除</a>
                 <a class="btn btn-xs btn-info base-margin-2" @click="$router.push({ name: 'Details', query: { id: item.id } })"
-                   data-toggle="tooltip" title="" role="button">查&nbsp;&nbsp;看</a>
+                   data-toggle="tooltip" title=""  style=" border:none !important; " role="button">查&nbsp;&nbsp;看</a>
               </td>
             </tr>
 
@@ -94,8 +94,9 @@
       <div class="d-block text-center">
         <b-alert variant="danger" show>删除之后可能会有严重影响,确认删除吗?</b-alert>
       </div>
-      <b-button variant="outline-danger" style="float:right;" @click="deleted(deleteItem)">删除</b-button>
-      <b-button variant="primary" style="color:white;" @click="$refs.deleteAlert.hide(),deleteItem=''">返回</b-button>
+      <b-button variant="danger" style="float:right;font-size:16px !important; color:white; margin-top:35px; padding:6px 80px !important;margin-bottom:30px !important; rgb(220, 53, 69) !important; margin-right:0 !important;" 
+      @click="deleted(deleteItem)">删除</b-button>
+      <b-button variant="primary" style="color:white;font-size:16px !important; margin-top:35px;  padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;" @click="$refs.deleteAlert.hide(),deleteItem=''">返回</b-button>
     </b-modal>
   </div>
 </template>
@@ -128,9 +129,10 @@ export default {
       this.deleteItem = id;
     },
     async deleted(id) {
-      let result = await this.$axios.post('jbqk/jbqk_delete', { data: { id: this.deleteItem } }); //id传不出去
+      let result = await this.$axios.get(`jbqk/jbqk_delete?id=${this.deleteItem}`);
       this.$refs.deleteAlert.hide();
       this.deleteItem = '';
+      this.query();
     },
     async query(i) {
       if (i == null) {
@@ -224,8 +226,8 @@ export default {
 .base-form-title {
   font-weight: bold;
   display: block;
-  line-height: 50px;
-  font-size: 18px;
+  line-height: 40px;
+  font-size: 16px;
   color: #46687f;
   letter-spacing: 1px;
   text-align: left;
@@ -300,7 +302,7 @@ button {
   display: inline-block;
   padding: 9px 12px;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: normal;
   line-height: 1.42857143;
   text-align: center;
@@ -318,7 +320,7 @@ button {
 .btn-xs,
 .btn-group-xs > .btn {
   padding: 3px 8px;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   border-radius: 5px;
 }
@@ -337,13 +339,14 @@ button {
   border: 1px solid #ddd;
 }
 .table {
-  font-size: 18px;
+  font-size: 14px;
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
 }
 table {
   background-color: transparent;
+  font-size: 14px;
 }
 table {
   border-spacing: 0;
@@ -372,7 +375,7 @@ table {
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5;
 }
 .pagination > li > a,
@@ -390,7 +393,7 @@ table {
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5;
 }
 .pagination > li > a,
@@ -420,17 +423,26 @@ table {
 .base-header-left {
   float: left;
   width: 240px;
-  height: 75px;
-  line-height: 75px;
+  height: 60px;
   background-color: #1c2b36;
   border-bottom: 1px #161e25 solid;
-  background-image: url(/img/logo.8640fb78.png);
   color: #a6a6a6;
   cursor: pointer;
   background-size: 100%;
 }
+
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+}
+li {
+  list-style: none;
+}
 .page-bar {
-  margin: 40px;
+  margin-top: 40px;
+  margin-right: 0;
+  text-align: right;
 }
 ul,
 li {
@@ -444,33 +456,41 @@ li {
   margin-left: 0px;
 }
 .page-bar a {
-  border: 1px solid #ddd !important;
-  text-decoration: none !important;
-  position: relative !important;
-  float: left !important;
-  padding: 6px 12px !important;
-  margin-left: -1px !important;
-  line-height: 1.42857143 !important;
-  color: #337ab7 !important;
-  cursor: pointer !important;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  cursor: pointer;
 }
 .page-bar a:hover {
-  background-color: #eee !important;
+  background-color: #eee;
+  border-color: #eee;
+  cursor: pointer;
 }
 .page-bar a.banclick {
-  cursor: not-allowed !important;
+  cursor: not-allowed;
 }
 .page-bar .active a {
+  cursor: default;
+  background-color: #5bc0de;
+  border-color: #5bc0de;
   color: #fff !important;
-  cursor: default !important;
-  background-color: #337ab7 !important;
-  border-color: #337ab7 !important;
+}
+.page-bar .active a:hover {
+  background-color: #eee;
+  border-color: #eee;
+  cursor: pointer;
+  color: #337ab7 !important;
 }
 .page-bar i {
-  font-style: normal !important;
-  color: #d44950 !important;
-  margin: 0px 4px !important;
-  font-size: 12px !important;
+  font-style: normal;
+  color: #d44950;
+  margin: 0px 4px;
+  font-size: 12px;
 }
 </style>
 

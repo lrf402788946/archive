@@ -93,8 +93,9 @@
             <b-form-input v-model="addForm.home_address" placeholder="家庭住址" class="marginBot"></b-form-input>
             <textarea v-model="addForm.remark" class="form-control" rows="3" style="height: 100px !important;" placeholder="备注"></textarea><br/>
           </div>
-          <b-button variant="secondary" @click="form={gender: -1}" class="resetButton" style="font-size:14px !important; padding:4px 8px !important;">重&nbsp;&nbsp;置</b-button>
-          <b-button variant="primary" @click="toAdd()" class="resetButton" style="font-size:14px !important; padding:4px 8px !important;" >保&nbsp;&nbsp;存</b-button>
+          <b-button variant="secondary" @click="form={gender: -1}" class="resetButton" style="font-size:16px !important; margin-top:25px; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;">重&nbsp;&nbsp;置</b-button>
+          <b-button variant="primary" @click="toAdd()" class="resetButton" style="font-size:16px !important; margin-top:25px; float:right; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"
+           >保&nbsp;&nbsp;存</b-button>
         </b-modal>
       <!--修改弹框-->
         <b-modal id="updateAlert" title="修改信息" ref="updateAlert" hide-footer> 
@@ -153,16 +154,19 @@
             <!-- 登录账号:<b-form-input v-model="form.login_id" ></b-form-input>
             密码:<b-form-input v-model="form.password"></b-form-input> -->
           </div>
-          <b-button variant="secondary" @click="closeAlert('update')" class="resetButton" style="font-size:14px !important; padding:4px 8px !important;" >返&nbsp;&nbsp;回</b-button>
-          <b-button variant="primary" @click="toUpdate()" class="resetButton"  style="font-size:14px !important; padding:4px 8px !important;">保&nbsp;&nbsp;存</b-button>
+          <b-button variant="secondary" @click="closeAlert('update')" class="resetButton" style="font-size:16px !important; margin-top:25px;  padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;" 
+          >返&nbsp;&nbsp;回</b-button>
+          <b-button variant="primary" @click="toUpdate()" class="resetButton"  style="font-size:16px !important; margin-top:25px; float:right; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"
+          >保&nbsp;&nbsp;存</b-button>
          </b-modal>
       <!--删除弹框-->
         <b-modal id="deleteAlert" title="确认删除" ref="deleteAlert" hide-footer> 
           <div class="d-block text-center">
             <b-alert variant="danger" show>删除部门可能会影响您的管理,确认删除吗?</b-alert>
           </div>
-          <b-button variant="danger"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" @click="toDelete()">删&nbsp;&nbsp;除</b-button>
-          <b-button variant="primary"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" class="resetButton"  @click="closeAlert('delete'),$refs.deleteAlert.hide(),deleteItem=''">返&nbsp;&nbsp;回</b-button>
+          <b-button variant="danger"  style="font-size:16px !important; margin-top:25px; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;" @click="toDelete()">删&nbsp;&nbsp;除</b-button>
+          <b-button variant="primary" style="font-size:16px !important; margin-top:25px; float:right; padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;" class="resetButton"  
+          @click="closeAlert('delete'),$refs.deleteAlert.hide(),deleteItem=''">返&nbsp;&nbsp;回</b-button>
           
           
         </b-modal>
@@ -310,8 +314,8 @@ export default {
 .base-form-title {
   font-weight: bold;
   display: block;
-  line-height: 50px;
-  font-size: 18px;
+  line-height: 40px;
+  font-size: 16px;
   color: #46687f;
   letter-spacing: 1px;
   text-align: left;
@@ -427,11 +431,8 @@ table {
 .base-header-left {
   float: left;
   width: 240px;
-  height: 75px;
-  line-height: 75px;
-  background-color: #1c2b36;
+  height: 60px;
   border-bottom: 1px #161e25 solid;
-  background-image: url(/img/logo.8640fb78.png);
   color: #a6a6a6;
   cursor: pointer;
   background-size: 100%;

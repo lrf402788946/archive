@@ -82,7 +82,7 @@ export default {
 
 <style lang='css'>
 a {
-    color: #ffff !important;
+    color: #7ba0bb !important;
 }
 .base-main-left {
   float: left;
