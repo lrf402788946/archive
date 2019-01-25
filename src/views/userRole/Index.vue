@@ -71,8 +71,8 @@ export default {
   methods: {
     async search() {
       //查询方法
-      let result = await this.$axios.get('/jszx/role/role_list');
-      let result2 = await this.$axios.get('/jszx/user/user_list');
+      let result = await this.$axios.get('role/role_list');
+      let result2 = await this.$axios.get('user/user_list');
       this.userList = result2.data.userList;
       let newList = result.data.roleList.map(item => {
         let newObject = { text: item.role_name, value: item.id };
@@ -91,7 +91,7 @@ export default {
     //修改
     async toSave() {
       console.log(this.form);
-      // let result = await this.$axios.post('/jszx/userRole/userRole_save', { data: this.form });
+      // let result = await this.$axios.post('userRole/userRole_save', { data: this.form });
       // this.form = {};
       this.search();
       this.$refs.updateAlert.hide();

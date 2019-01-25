@@ -118,13 +118,8 @@ export default {
       let result = await this.$axios.get('dept/dept_list');
       this.$set(this, 'list', result.data.deptList);
     },
-    //修改
-    // async toUpdate(index) {
-    //   let data = this.list[index];
-    //   let result = await this.$axios.post('/jszx/dept/dept_edit', { data: data });
-    // },
     async toUpdate() {
-      let result = await this.$axios.post('/jszx/dept/dept_edit', { data: this.updateForm });
+      let result = await this.$axios.post('dept/dept_edit', { data: this.updateForm });
       this.closeAlert('update');
       this.updateForm = {};
       this.search();
@@ -136,14 +131,14 @@ export default {
     },
     //删除
     async toDelete() {
-      let result = await this.$axios.post('/jszx/dept/dept_delete', { data: { id: this.deleteItem } });
+      let result = await this.$axios.post('dept/dept_delete', { data: { id: this.deleteItem } });
       this.search();
       this.deleteItem = '';
       this.$refs.deleteAlert.hide();
     },
     //添加
     async toAdd() {
-      let result = await this.$axios.post('/jszx/dept/dept_save', { data: this.form });
+      let result = await this.$axios.post('dept/dept_save', { data: this.form });
       this.form = {};
       this.search();
       this.$refs.toAdd.hide();

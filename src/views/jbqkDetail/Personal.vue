@@ -123,13 +123,13 @@ export default {
       this.detailsList['jbqk_id'] = this.ID;
       this.detailsList['type'] = '1';
       console.log(this.detailsList);
-      let result = await this.$axios.post('jszx/jbqk/jbqk_detail_save', { data: this.detailsList });
+      let result = await this.$axios.post('jbqk/jbqk_detail_save', { data: this.detailsList });
       this.detailsList = {};
       this.$router.push('/');
     },
     async query() {
       console.log(this.$route.query.id);
-      let result = await this.$axios.get(`/jszx/jbqk/jbqk_detail?id=${this.$route.query.id}&type=1`);
+      let result = await this.$axios.get(`jbqk/jbqk_detail?id=${this.$route.query.id}&type=1`);
       console.log(result.data);
       this.$set(this, 'detailsList', result.data.data);
     },

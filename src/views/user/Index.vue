@@ -217,13 +217,13 @@ export default {
     //查询
     async search() {
       let skip = (this.currentPage - 1) * this.limit;
-      let result = await this.$axios.get(`/jszx/user/user_list?skip=${skip}&limit=${this.limit}`);
+      let result = await this.$axios.get(`user/user_list?skip=${skip}&limit=${this.limit}`);
       this.$set(this, 'list', result.data.userList);
     },
     //添加
     async toAdd() {
       this.addForm.birthday = document.getElementById('birthday').value;
-      let result = await this.$axios.post('/jszx/user/user_save', { data: this.addForm });
+      let result = await this.$axios.post('user/user_save', { data: this.addForm });
       this.currentPage = 1;
       this.$refs.addAlert.hide();
       this.addForm = {};
@@ -232,20 +232,20 @@ export default {
     //修改
     async toUpdate() {
       this.updateForm.birthday = document.getElementById('updateBirthday').value;
-      let result = await this.$axios.post('/jszx/user/user_edit', { data: this.updateForm });
+      let result = await this.$axios.post('user/user_edit', { data: this.updateForm });
       this.closeAlert('update');
       this.updateForm = {};
       this.search();
     },
     //删除
     async toDelete() {
-      let result = await this.$axios.post('/jszx/user/user_delete', { data: { id: this.operateId } });
+      let result = await this.$axios.post('user/user_delete', { data: { id: this.operateId } });
       this.closeAlert('delete');
       this.search();
     },
     //请求部门表
     async getDeptList() {
-      let result = await this.$axios.get('/jszx/dept/dept_list');
+      let result = await this.$axios.get('dept/dept_list');
       this.deptList = result.data.deptList.map(item => {
         let newObject = { text: item.dept_name, value: item.id };
         return newObject;
