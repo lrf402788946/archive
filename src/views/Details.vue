@@ -308,9 +308,7 @@ label {
 /* .row {
   display: block !important;
 } */
-.base-main-right {
-  height: auto !important;
-}
+
 .btn-info {
   color: #fff !important;
   background-color: #5bc0de !important;

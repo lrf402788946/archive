@@ -81,6 +81,9 @@ export default {
 </script>
 
 <style lang='css'>
+a {
+    color: #ffff !important;
+}
 .base-main-left {
   float: left;
   height: 100%;

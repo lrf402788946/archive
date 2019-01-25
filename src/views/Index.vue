@@ -102,7 +102,7 @@ export default {
         id_number: '',
       },
       skip: 0,
-      limit: 1, //每页信息数量
+      limit: 10, //每页信息数量
       timeout: 500,
       closetimer: 0,
       ddmenuitem: 0,
@@ -119,7 +119,7 @@ export default {
       if (i == null) {
         let result = await this.$axios.get(
           // '/ceshi/jbqk/jbqk_list?skip='+ (this.skip + i * this.limit) +'&limit=' + this.limit + '&dept_name=' + this.dagl_user.dept_name + '&id_number=' + this.dagl_user.id_number
-          `jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}&dept_name=${this.dagl_user.dept_name}&id_number=${this.dagl_user.id_number}`
+          `/jszx/jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}&dept_name=${this.dagl_user.dept_name}&id_number=${this.dagl_user.id_number}`
         );
         this.totalRow = result.data.totalRow;
         this.pageNumber = Math.ceil(this.totalRow / this.limit);
@@ -128,7 +128,7 @@ export default {
       } else if (i != null) {
         let result = await this.$axios.get(
           // '/ceshi/jbqk/jbqk_list?skip='+ (this.skip + i * this.limit) +'&limit=' + this.limit + '&dept_name=' + this.dagl_user.dept_name + '&id_number=' + this.dagl_user.id_number
-          `jbqk/jbqk_list?skip=${this.skip + this.limit * (i - 1)}&limit=${this.limit}&dept_name=${this.dagl_user.dept_name}
+          `/jszx/jbqk/jbqk_list?skip=${this.skip + this.limit * (i - 1)}&limit=${this.limit}&dept_name=${this.dagl_user.dept_name}
 &id_number=${this.dagl_user.id_number}`
         );
         this.totalRow = result.data.totalRow;

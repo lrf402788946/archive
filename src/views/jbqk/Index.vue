@@ -6,7 +6,7 @@
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">姓名：</label>
-                <input v-model="cadreInformation.user_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly" @click="test()">
+                <input v-model="cadreInformation.user_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
             <div class="col-lg-3">
@@ -110,46 +110,31 @@
                 <label for="exampleInputName2">身份证号：</label>
                 <input v-model="cadreInformation.id_number" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
-            </div>
-            <div class="col-lg-3">
-              <div class=" form-group">
-                <label for="exampleInputName2">卡号：</label>
-                <input v-model="cadreInformation.card_no" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
-              </div>
-            </div>
-            
-            <!-- <div class="col-lg-3">
-              <div class=" form-group">
-                <label for="exampleInputName2">填报人：</label>
-                <input v-model="cadreInformation.login_id" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
-              </div>
-            </div> -->
-            
+            </div>          
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">出生日期：</label>
-                <input v-model="cadreInformation.birthday" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
+                <input v-model="cadreInformation.birthday" type="text" class="form-control tyx-cursor" id="birthdaydate" data-date-format="yyyy-mm-dd"
                       :disabled="is_readonly" />
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">入党时间：</label>
-                <input v-model="cadreInformation.rdsj" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
+                <input v-model="cadreInformation.rdsj" type="text" class="form-control tyx-cursor" id="rdsjdate" data-date-format="yyyy-mm-dd"
                       :disabled="is_readonly" />
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">任职时间：</label>
-                <input v-model="cadreInformation.rzsj" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
-                      :disabled="is_readonly" />
+                <input v-model="cadreInformation.rzsj" type="text" class="form-control tyx-cursor" :disabled="is_readonly" />
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">参加工作时间：</label>
-                <input v-model="cadreInformation.cgsj" type="text" class="form-control tyx-cursor" id="enddate" data-date-format="yyyy-mm-dd"
+                <input v-model="cadreInformation.cgsj" type="text" class="form-control tyx-cursor" id="cgsjdate" data-date-format="yyyy-mm-dd"
                       :disabled="is_readonly" />
               </div>
             </div>
@@ -169,7 +154,7 @@
                       @change="changeImage($event)" ref="avatarInput" class="uppic">
                 <p class="help-block">提示语.</p>
               </div>
-              <button type="submit" class="btn btn-default" v-if="!is_readonly">上传</button>
+              <button type="submit" class="btn btn-default" @click="uploadPhotos($event)" v-if="!is_readonly" >上传</button>
             </div>
           </div>
         </div>
@@ -288,7 +273,23 @@ export default {
       weekStart: 1,
       linked: true,
     });
-    $('#enddate').datetimepicker({
+    $('#birthdaydate').datetimepicker({
+      language: 'zh-CN',
+      autoclose: true,
+      todayBtn: true,
+      minView: 2,
+      weekStart: 1,
+      linked: true,
+    });
+    $('#rdsjdate').datetimepicker({
+      language: 'zh-CN',
+      autoclose: true,
+      todayBtn: true,
+      minView: 2,
+      weekStart: 1,
+      linked: true,
+    });
+    $('#cgsjdate').datetimepicker({
       language: 'zh-CN',
       autoclose: true,
       todayBtn: true,
@@ -333,6 +334,10 @@ export default {
     },
     changeImage(e) {
       var file = e.target.files[0];
+      if (file.size > 2 * 1000000) {
+        alert('上传相片过大');
+        return;
+      }
       var reader = new FileReader();
       var that = this;
       reader.readAsDataURL(file);
@@ -340,27 +345,36 @@ export default {
         that.avatar = this.result;
       };
     },
+    async uploadPhotos($event) {
+      // let result = await this.$axios.post('jszx/jbqk/？？？？？', { data: this.cadreInformation });
+    },
     async toAdd() {
-      let result = await this.$axios.post('jbqk/jbqk_save', { data: this.cadreInformation });
+      this.cadreInformation.birthday = document.getElementById('birthdaydate').value;
+      this.cadreInformation.rdsj = document.getElementById('rdsjdate').value;
+      this.cadreInformation.cgsj = document.getElementById('cgsjdate').value;
+      let result = await this.$axios.post('jszx/jbqk/jbqk_save', { data: this.cadreInformation });
       this.cadreInformation = {};
       this.$router.push('/');
     },
     async returnQuery() {
       this.$router.push({ name: 'Details', query: { id: this.id } });
-      let result = await this.$axios.get(`jbqk/jbqk_info?id=${this.id}`);
+      let result = await this.$axios.get(`/jszx/jbqk/jbqk_info?id=${this.id}`);
       this.$set(this, 'cadreInformation', result.data.data);
       this.id = -1;
     },
     //查看
     async query() {
-      let result = await this.$axios.get(`jbqk/jbqk_info?id=${this.$route.query.id}`);
+      let result = await this.$axios.get(`/jszx/jbqk/jbqk_info?id=${this.$route.query.id}`);
       this.$set(this, 'cadreInformation', result.data.data);
     },
     //修改
     async update(index) {
-      // let data = this.list[index];
-      // let result = await this.$axios.post('/jszx/dept/dept_edit', { data: data });
-      // this.query();
+      this.cadreInformation.birthday = document.getElementById('birthdaydate').value;
+      this.cadreInformation.rdsj = document.getElementById('rdsjdate').value;
+      this.cadreInformation.cgsj = document.getElementById('cgsjdate').value;
+      console.log(this.cadreInformation);
+      let result = await this.$axios.post('/jszx/jbqk/jbqk_edit', { data: this.cadreInformation });
+      this.$router.push('/');
     },
   },
 };
