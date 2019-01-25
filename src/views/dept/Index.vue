@@ -124,7 +124,6 @@ export default {
     //   let result = await this.$axios.post('/jszx/dept/dept_edit', { data: data });
     // },
     async toUpdate() {
-     
       let result = await this.$axios.post('/jszx/dept/dept_edit', { data: this.updateForm });
       this.closeAlert('update');
       this.updateForm = {};
@@ -172,13 +171,13 @@ export default {
 </script>
 
 <style>
-.marginBot4{
+.marginBot4 {
   margin-bottom: 4px;
 }
-.marginBot{
+.marginBot {
   margin-bottom: 15px;
 }
-body{
+body {
   background-color: #ecedf0 !important;
 }
 .btn-primary {
@@ -401,31 +400,30 @@ li {
   list-style: none;
 }
 
-
-.cssInput{
+.cssInput {
   border: none !important;
   box-shadow: none;
 }
-.table th, .table td {
-    padding: 0.5rem !important;
+.table th,
+.table td {
+  padding: 0.5rem !important;
 }
 .btn {
-    margin-left: 0 !important;
-    padding: 2px 5px !important;
-    margin-bottom: 0 !important;
-    margin-right: 10px !important;
-    font-size: 12px !important;
-    font-weight: normal !important;
-    line-height: 1.42857143 !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-    vertical-align: middle !important;
-    width: auto !important;
-    border: 1px solid transparent !important;
-    border-radius: 3px !important;
-    height: auto !important;
+  margin-left: 0 !important;
+  padding: 2px 5px !important;
+  margin-bottom: 0 !important;
+  margin-right: 10px !important;
+  font-size: 12px !important;
+  font-weight: normal !important;
+  line-height: 1.42857143 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+  width: auto !important;
+  border: 1px solid transparent !important;
+  border-radius: 3px !important;
+  height: auto !important;
 }
-
 </style>
 
 

@@ -145,39 +145,39 @@ export default {
 </script>
 
 <style>
-.tab-content{
-    padding-bottom: 50px;
+.tab-content {
+  padding-bottom: 50px;
 }
-.col-lg-3{
-    float: left;
+.col-lg-3 {
+  float: left;
 }
-textarea.form-control{
-    height: 120px !important;
+textarea.form-control {
+  height: 120px !important;
 }
 
-.scanningBtn{
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #fff;
+.scanningBtn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
 }
-.scanningBtn:hover{
-    background: #ccc;
+.scanningBtn:hover {
+  background: #ccc;
 }
 </style>
