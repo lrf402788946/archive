@@ -111,7 +111,7 @@ export default {
         id_number: '',
       },
       skip: 0,
-      limit: 1, //每页信息数量
+      limit: 5, //每页信息数量
       timeout: 500,
       closetimer: 0,
       totalRow: 0, //词条数量
@@ -128,7 +128,7 @@ export default {
       this.deleteItem = id;
     },
     async deleted(id) {
-      let result = await this.$axios.post('/ /jbqk/jbqk_delete', { data: { id: this.deleteItem } }); //id传不出去
+      let result = await this.$axios.post('jbqk/jbqk_delete', { data: { id: this.deleteItem } }); //id传不出去
       this.$refs.deleteAlert.hide();
       this.deleteItem = '';
     },
