@@ -15,7 +15,7 @@
                 <jbqk v-show="tabIndex === 0" :type="type" @changeToAdd="changeToAdd"></jbqk>
               </b-tab>
               <b-tab title="个人事项" :title-link-class="linkClass(1)">
-                <PersonDocument v-show="tabIndex === 1" :type="type" @changeToAdd="changeToAdd"></PersonDocument>
+                <Personal v-show="tabIndex === 1" :type="type" @changeToAdd="changeToAdd"></Personal>
               </b-tab>
               <b-tab title="个人档案" :title-link-class="linkClass(2)">
                 <PersonDocument v-show="tabIndex === 2" :type="type" @changeToAdd="changeToAdd"></PersonDocument>
@@ -63,6 +63,7 @@ import CaseFiling from './jbqkDetail/CaseFiling.vue';
 export default {
   components: {
     jbqk,
+    Personal,
     PersonDocument,
     RoutineConversation,
     ProblemClue,
