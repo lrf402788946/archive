@@ -351,28 +351,28 @@ export default {
       };
     },
     async uploadPhotos($event) {
-      // let result = await this.$axios.post('jszx/jbqk/？？？？？', { data: this.cadreInformation });
+      // let result = await this.$axios.post('jbqk/？？？？？', { data: this.cadreInformation });
     },
     async toAdd() {
-      let result = await this.$axios.post('jszx/jbqk/jbqk_save', { data: this.cadreInformation });
+      let result = await this.$axios.post('jbqk/jbqk_save', { data: this.cadreInformation });
       this.cadreInformation = {};
       this.$router.push('/');
     },
     async returnQuery() {
       this.$router.push({ name: 'Details', query: { id: this.id } });
-      let result = await this.$axios.get(`/jszx/jbqk/jbqk_info?id=${this.id}`);
+      let result = await this.$axios.get(`jbqk/jbqk_info?id=${this.id}`);
       this.$set(this, 'cadreInformation', result.data.data);
       this.id = -1;
     },
     //查看
     async query() {
-      let result = await this.$axios.get(`/jszx/jbqk/jbqk_info?id=${this.$route.query.id}`);
+      let result = await this.$axios.get(`jbqk/jbqk_info?id=${this.$route.query.id}`);
       this.$set(this, 'cadreInformation', result.data.data);
     },
     //修改
     async update(index) {
       console.log(this.cadreInformation);
-      let result = await this.$axios.post('/jszx/jbqk/jbqk_edit', { data: this.cadreInformation });
+      let result = await this.$axios.post('jbqk/jbqk_edit', { data: this.cadreInformation });
       this.$router.push('/');
     },
   },

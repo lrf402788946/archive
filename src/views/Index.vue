@@ -128,20 +128,20 @@ export default {
       this.deleteItem = id;
     },
     async deleted(id) {
-      let result = await this.$axios.post('/jszx/jbqk/jbqk_delete', { data: { id: this.deleteItem } }); //id传不出去
+      let result = await this.$axios.post('/ /jbqk/jbqk_delete', { data: { id: this.deleteItem } }); //id传不出去
       this.$refs.deleteAlert.hide();
       this.deleteItem = '';
     },
     async query(i) {
       if (i == null) {
         if (this.dagl_user.lengh == 0) {
-          let result = await this.$axios.get(`/jszx/jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}`);
+          let result = await this.$axios.get(`jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}`);
           this.totalRow = result.data.totalRow;
           this.pageNumber = Math.ceil(this.totalRow / this.limit);
           this.$set(this, 'cadreInformation', result.data.jbqkList);
         } else {
           let result = await this.$axios.get(
-            `/jszx/jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}&user_name=${this.dagl_user.user_name}&id_number=${this.dagl_user.id_number}`
+            `jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}&user_name=${this.dagl_user.user_name}&id_number=${this.dagl_user.id_number}`
           );
           this.totalRow = result.data.totalRow;
           this.pageNumber = Math.ceil(this.totalRow / this.limit);
@@ -149,7 +149,7 @@ export default {
         }
       } else if (i != null) {
         let result = await this.$axios.get(
-          `/jszx/jbqk/jbqk_list?skip=${this.skip + this.limit * (i - 1)}&limit=${this.limit}&user_name=${this.dagl_user.user_name}
+          `jbqk/jbqk_list?skip=${this.skip + this.limit * (i - 1)}&limit=${this.limit}&user_name=${this.dagl_user.user_name}
 &id_number=${this.dagl_user.id_number}`
         );
         this.totalRow = result.data.totalRow;

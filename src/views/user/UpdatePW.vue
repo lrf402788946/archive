@@ -58,7 +58,7 @@ export default {
     toSave() {
       if (this.comfirm === this.form.passwordNew) {
         this.form['login_id'] = sessionStorage.getItem('userInfo');
-        let result = this.$axios.post('/jszx/user/pwd_edit', { data: this.form });
+        let result = this.$axios.post('user/pwd_edit', { data: this.form });
         console.log(result);
         if (result.data.rescode === '0') {
           console.log('添加成功');

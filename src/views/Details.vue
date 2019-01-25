@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     async aaa() {
-      var result = await this.$axios.post('http://10.16.11.186:8080/jbqk/jbqk_save', { data: this.form });
+      var result = await this.$axios.post('jbqk/jbqk_save', { data: this.form });
     },
     linkClass(idx) {
       if (this.tabIndex === idx) {

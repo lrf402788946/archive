@@ -85,7 +85,7 @@ export default {
     async openUpdateAlert(id) {
       this.$refs.updateAlert.show();
       this.operateId = id;
-      let result = await this.$axios.get(`jszx/userRole/userRole_detail?id=${id}`);
+      let result = await this.$axios.get(`userRole/userRole_detail?id=${id}`);
       console.log(result);
     },
     //修改
