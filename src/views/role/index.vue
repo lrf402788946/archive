@@ -13,8 +13,8 @@
           </div>
         </div>
         <div class="base-padding-20 base-bg-fff">
-          <div class="base-align-right" style="margin-bottom:20px;">
-            <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" style="font-size:14px !important;padding: 6px 12px !important;" title="" role="button" v-b-modal="'toAdd'">
+          <div class="base-align-right">
+            <a class="btn btn-info base-margin-bottom" data-toggle="tooltip" title="" role="button" v-b-modal="'toAdd'">
               <i class="base-margin-right-5 fa fa-plus-square"></i>添加角色    
             </a>
           </div>
@@ -26,12 +26,12 @@
                 <th>操作</th>
               </tr>
               <tr v-for="(item,index) in list" :key="index"><!--美化下input 可以看情况使用-->
-                <td>{{item.role_code}}</td>
-                <td>{{item.role_name}}</td>
+                <td><b-form-input v-model="item.role_code" ></b-form-input></td>
+                <td><b-form-input v-model="item.role_name" ></b-form-input></td>
                 <td>
                   <!-- <b-button variant="primary" style="color:white;" @click="Edit(index)">修改</b-button> -->
-                  <b-button variant="primary" style="color:white;" @click="openUpdateAlert(index)">修&nbsp;&nbsp;改</b-button>
-                  <b-button variant="danger" @click="openDeleteAlert(item.id)">删&nbsp;&nbsp;除</b-button>
+                  <b-button variant="primary" style="color:white;" @click="openUpdateAlert(index)">修改</b-button>
+                  <b-button variant="danger" @click="openDeleteAlert(item.id)">删除</b-button>
                   <!-- <a class="btn btn-xs btn-info base-margin-2" data-toggle="tooltip" @click="toUpdate(index)"
                     title="" role="button">保&nbsp;&nbsp;存</a>&nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="btn btn-xs btn-info base-margin-2" data-toggle="tooltip" @click="toDelete(index)"
@@ -42,39 +42,31 @@
           </table>
           <b-modal id="toAdd" title="添加角色" ref="toAdd" hide-footer> 
             <!--需要计算,如果是父类,正常显示,不是的话就缩进-->
-            <p class="marginBot5">所属角色</p>
-            <b-form-select v-model="form.p_id" class="marginBot8">
+            所属角色:<b-form-select v-model="form.p_id" class="mb-3" >
               <option :value="0">厅长</option>
               <option v-for="(item,index) in list" :key="index" :value="item.id">{{item.role_name}}</option>
             </b-form-select>
-            <p class="marginBot5">角色code</p>
-            <b-form-input v-model="form.role_code" class="marginBot8"></b-form-input>
-            <p class="marginBot5">角色名称</p>
-            <b-form-input v-model="form.role_name" class="marginBot20"></b-form-input>
-            <b-button variant="secondary" @click="form={}" style="font-size:14px !important; padding:4px 8px !important;" >重&nbsp;&nbsp;置</b-button>
-            <b-button variant="primary" @click="toAdd()" style="font-size:14px !important; padding:4px 8px !important;" >保&nbsp;&nbsp;存</b-button>
+            角色code:<b-form-input v-model="form.role_code"></b-form-input>
+            角色名称:<b-form-input v-model="form.role_name"></b-form-input>
+            <b-button variant="secondary" @click="form={}" >重置</b-button><b-button variant="primary" @click="toAdd()" >保存</b-button>
           </b-modal>
 
           <b-modal id="Edit" title="修改角色" ref="Edit" hide-footer> 
-            <p class="marginBot5">所属角色</p>
-            <b-form-select v-model="form.p_id"  class="marginBot8">
+            所属角色:<b-form-select v-model="form.p_id" class="mb-3" >
               <option :value="0">厅长</option>
               <option v-for="(item,index) in list" :key="index" :value="item.id">{{item.role_name}}</option>
             </b-form-select>
-            <p class="marginBot5">角色code</p>
-            <b-form-input v-model="form.role_code"  class="marginBot8"></b-form-input>
-            <p class="marginBot5">角色名称</p>
-            <b-form-input v-model="form.role_name"  class="marginBot20"></b-form-input>
-            <b-button variant="secondary" @click="form={}" style="font-size:14px !important; padding:4px 8px !important;">重&nbsp;&nbsp;置</b-button>
-            <b-button variant="primary" @click="toUpdate()" style="font-size:14px !important; padding:4px 8px !important;" >修&nbsp;&nbsp;改</b-button>
+            角色code:<b-form-input v-model="form.role_code"></b-form-input>
+            角色名称:<b-form-input v-model="form.role_name"></b-form-input>
+            <b-button variant="secondary" @click="form={}" >重置</b-button><b-button variant="primary" @click="toUpdate()" >修改</b-button>
           </b-modal>
 
           <b-modal id="deleteAlert" title="确认删除" ref="deleteAlert" hide-footer> 
             <div class="d-block text-center">
               <b-alert variant="danger" show>确定删除该角色?</b-alert>
             </div>
-           <b-button variant="danger"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" @click="toDelete()">删&nbsp;&nbsp;除</b-button>
-           <b-button variant="primary"  style="font-size:14px !important; padding:4px 8px !important;" @click="$refs.deleteAlert.hide(),deleteItem=''">返&nbsp;&nbsp;回</b-button>
+           <b-button variant="outline-danger"  style="float:right;" @click="toDelete()">删除</b-button>
+           <b-button variant="primary" style="color:white;" @click="$refs.deleteAlert.hide(),deleteItem=''">返回</b-button>
           </b-modal>
           
         </div>
@@ -141,39 +133,5 @@ export default {
 </script>
 
 <style lang='css' scoped>
-.marginBot5{
-  margin-bottom: 5px;
-}
-.marginBot8{
-  margin-bottom: 8px;
-}
-.marginBot20{
-  margin-bottom: 20px;
-}
-.resetButton{
-  color:#fff;
-  margin-right:20px;
-}
-.table th, .table td {
-    padding: 0.5rem;
-}
-.btn {
-    margin-left: 0 !important;
-    padding: 2px 5px !important;
-    margin-bottom: 0 !important;
-    margin-right: 10px !important;
-    font-size: 12px !important;
-    font-weight: normal !important;
-    line-height: 1.42857143 !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-    vertical-align: middle !important;
-    width: auto !important;
-    border: 1px solid transparent !important;
-    border-radius: 3px !important;
-    height: auto !important;
-}
-.table {
-    font-size: 14px;
-}
+
 </style>
