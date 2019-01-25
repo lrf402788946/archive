@@ -277,34 +277,35 @@ export default {
 </script>
 
 <style scoped>
-.marginBot4{
+.marginBot4 {
   margin-bottom: 4px;
 }
-.marginBot{
+.marginBot {
   margin-bottom: 15px;
 }
-.resetButton{
-  color:#fff;
-  margin-right:20px;
+.resetButton {
+  color: #fff;
+  margin-right: 20px;
 }
-.table th, .table td {
-    padding: 0.5rem;
+.table th,
+.table td {
+  padding: 0.5rem;
 }
 .btn {
-    margin-left: 0 !important;
-    padding: 2px 5px !important;
-    margin-bottom: 0 !important;
-    margin-right: 10px !important;
-    font-size: 12px !important;
-    font-weight: normal !important;
-    line-height: 1.42857143 !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-    vertical-align: middle !important;
-    width: auto !important;
-    border: 1px solid transparent !important;
-    border-radius: 3px !important;
-    height: auto !important;
+  margin-left: 0 !important;
+  padding: 2px 5px !important;
+  margin-bottom: 0 !important;
+  margin-right: 10px !important;
+  font-size: 12px !important;
+  font-weight: normal !important;
+  line-height: 1.42857143 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+  width: auto !important;
+  border: 1px solid transparent !important;
+  border-radius: 3px !important;
+  height: auto !important;
 }
 .btn-primary {
   background-color: #5bc0de;
@@ -463,15 +464,15 @@ li {
   list-style: none;
 }
 .modal.show .modal-dialog {
-    -webkit-transform: none;
-    transform: none;
-    max-width: 700px !important;
+  -webkit-transform: none;
+  transform: none;
+  max-width: 700px !important;
 }
-@media (min-width: 576px){
- .modal-dialog {
+@media (min-width: 576px) {
+  .modal-dialog {
     max-width: 700px !important;
     margin: 1.75rem auto;
- }
+  }
 }
 </style>
 
