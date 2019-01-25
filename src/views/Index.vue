@@ -42,13 +42,8 @@
           </div>
         </div>
         <div class="base-padding-20 base-bg-fff">
-<<<<<<< HEAD:src/views/index.vue
           <div class="base-align-right" style="margin-bottom:20px;">
             <a class="btn btn-info base-margin-bottom" style="font-size:14px !important;padding: 6px 12px !important;" data-toggle="tooltip" title="" @click="$router.push({ name: 'Details', query: { type: 'add' } })"
-=======
-          <div class="base-align-right">
-            <a class="btn btn-info base-margin-bottom" @click="$router.push({ name: 'Details', query: { type: 'add' } })" data-toggle="tooltip" title=""
->>>>>>> master:src/views/Index.vue
               role="button"><i class="base-margin-right-5 fa fa-plus-square"></i>添加人员</a>
             <!--  <button type="submit" class="btn btn-info base-margin-bottom"><a href="#" data-toggle="tooltip" title="导出">导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></button> -->
           </div>

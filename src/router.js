@@ -4,16 +4,10 @@ import Index from './views/Index.vue';
 import LoginPage from './views/LoginPage.vue';
 import DeptIndex from './views/dept/Index.vue';
 import UserIndex from './views/user/Index.vue';
-<<<<<<< HEAD
-import Details from './views/details.vue';
-import RoleIndex from './views/role/Index.vue';
-import UserRoleIndex from './views/userRole/Index.vue';
-=======
 import Details from './views/Details.vue';
 import RoleIndex from './views/role/Index.vue';
 import UserRoleIndex from './views/userRole/Index.vue';
 import UpdatePW from './views/user/UpdatePW.vue';
->>>>>>> master
 
 Vue.use(Router);
 
@@ -56,14 +50,11 @@ const router = new Router({
       name: 'UserRoleIndex',
       component: UserRoleIndex,
     },
-<<<<<<< HEAD
-=======
     {
       path: '/UpdatePW',
       name: 'UpdatePW',
       component: UpdatePW,
     },
->>>>>>> master
   ],
 });
 router.beforeEach((to, from, next) => {

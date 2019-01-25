@@ -53,10 +53,7 @@
 
 <script>
 import jbqk from './jbqk/Index.vue';
-<<<<<<< HEAD:src/views/details.vue
-=======
 import Personal from './jbqkDetail/Personal.vue';
->>>>>>> master:src/views/Details.vue
 import PersonDocument from './jbqkDetail/PersonDocument.vue';
 import RoutineConversation from './jbqkDetail/RoutineConversation.vue';
 import ProblemClue from './jbqkDetail/ProblemClue.vue';
