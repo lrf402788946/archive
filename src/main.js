@@ -5,6 +5,7 @@ import store from './store';
 import axios from 'axios';
 import Qs from 'qs';
 import '@/plugins/meta';
+import '@/plugins/element';
 import '@/plugins/filters';
 import '@/plugins/md5';
 import BootstrapVue from 'bootstrap-vue';

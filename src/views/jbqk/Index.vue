@@ -114,28 +114,32 @@
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">出生日期：</label>
-                <input v-model="cadreInformation.birthday" type="text" class="form-control tyx-cursor" id="birthdaydate" data-date-format="yyyy-mm-dd"
-                      :disabled="is_readonly" />
+                <!-- <input v-model="cadreInformation.birthday" type="text" class="form-control tyx-cursor" id="birthdaydate" data-date-format="yyyy-mm-dd"
+                      :disabled="is_readonly" /> -->
+                <el-date-picker v-model="cadreInformation.birthday" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">入党时间：</label>
-                <input v-model="cadreInformation.rdsj" type="text" class="form-control tyx-cursor" id="rdsjdate" data-date-format="yyyy-mm-dd"
-                      :disabled="is_readonly" />
+                <!-- <input v-model="cadreInformation.rdsj" type="text" class="form-control tyx-cursor" id="rdsjdate" data-date-format="yyyy-mm-dd"
+                      :disabled="is_readonly" /> -->
+                <el-date-picker v-model="cadreInformation.rdsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">任职时间：</label>
-                <input v-model="cadreInformation.rzsj" type="text" class="form-control tyx-cursor" :disabled="is_readonly" />
+                <!-- <input v-model="cadreInformation.rzsj" type="text" class="form-control tyx-cursor" :disabled="is_readonly" /> -->
+                <el-date-picker v-model="cadreInformation.rzsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">参加工作时间：</label>
-                <input v-model="cadreInformation.cgsj" type="text" class="form-control tyx-cursor" id="cgsjdate" data-date-format="yyyy-mm-dd"
-                      :disabled="is_readonly" />
+                <!-- <input v-model="cadreInformation.cgsj" type="text" class="form-control tyx-cursor" id="cgsjdate" data-date-format="yyyy-mm-dd"
+                      :disabled="is_readonly" /> -->
+                <el-date-picker v-model="cadreInformation.cgsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>
               </div>
             </div>
           </div>
@@ -305,8 +309,9 @@ export default {
   },
   methods: {
     startAdd() {
-      if (this.$route.query.type == 'add' && this.type === 0) {
+      if (this.$route.query.type == 'add') {
         this.is_readonly = false;
+        this.$emit('changeToAdd', 0);
         return true;
       } else {
         return false;
@@ -349,9 +354,6 @@ export default {
       // let result = await this.$axios.post('jszx/jbqk/？？？？？', { data: this.cadreInformation });
     },
     async toAdd() {
-      this.cadreInformation.birthday = document.getElementById('birthdaydate').value;
-      this.cadreInformation.rdsj = document.getElementById('rdsjdate').value;
-      this.cadreInformation.cgsj = document.getElementById('cgsjdate').value;
       let result = await this.$axios.post('jszx/jbqk/jbqk_save', { data: this.cadreInformation });
       this.cadreInformation = {};
       this.$router.push('/');
@@ -369,9 +371,6 @@ export default {
     },
     //修改
     async update(index) {
-      this.cadreInformation.birthday = document.getElementById('birthdaydate').value;
-      this.cadreInformation.rdsj = document.getElementById('rdsjdate').value;
-      this.cadreInformation.cgsj = document.getElementById('cgsjdate').value;
       console.log(this.cadreInformation);
       let result = await this.$axios.post('/jszx/jbqk/jbqk_edit', { data: this.cadreInformation });
       this.$router.push('/');

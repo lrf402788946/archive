@@ -11,6 +11,7 @@
     "async-validator": "^1.10.1",
     "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.11",
+    "element-ui": "^2.4.11",
     "lodash": "^4.17.11",
     "md5": "^2.2.1",
     "moment": "^2.23.0",

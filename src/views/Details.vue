@@ -92,7 +92,6 @@ export default {
       }
     },
     changeToAdd(type) {
-      console.log(type);
       this.type = type;
     },
     changeImage(e) {
