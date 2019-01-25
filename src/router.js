@@ -57,14 +57,14 @@ const router = new Router({
     },
   ],
 });
-router.beforeEach((to, from, next) => {
-  const is_login = sessionStorage.getItem('userInfo');
-  console.log(is_login);
-  if (is_login) {
-    next();
-  } else {
-    if (to.path.includes('Login')) next();
-    else next('/LoginPage');
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   const is_login = sessionStorage.getItem('userInfo');
+//   console.log(is_login);
+//   if (is_login) {
+//     next();
+//   } else {
+//     if (to.path.includes('Login')) next();
+//     else next('/LoginPage');
+//   }
+// });
 export default router;

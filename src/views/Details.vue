@@ -3,9 +3,8 @@
     <body style="overflow-y: scroll;">
       <div class="base-main-right">
         <b-breadcrumb>
-          <b-breadcrumb-item>线路维护</b-breadcrumb-item>
-          <b-breadcrumb-item>线路管理</b-breadcrumb-item>
-          <b-breadcrumb-item>添加路线</b-breadcrumb-item>
+          <b-breadcrumb-item :to="{name:'Index'}">干部信息</b-breadcrumb-item>
+          <b-breadcrumb-item>信息详情</b-breadcrumb-item>
         </b-breadcrumb>
 
         <div class="base-form">

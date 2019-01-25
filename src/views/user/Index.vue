@@ -75,7 +75,7 @@
                   <b-form-input v-model="addForm.emaill" placeholder="电子信箱" class="marginBot"></b-form-input>
               </div>
               <div class="col-lg-6">
-                  <b-form-input v-model="addForm.birthday" placeholder="出生日期" type="text" class="form-control tyx-cursor marginBot" id="birthday" data-date-format="yyyy-mm-dd"></b-form-input>
+                  <el-date-picker v-model="addForm.birthday" type="date" placeholder="出生日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" ></el-date-picker>
               </div>
               <div class="col-lg-6">
                    <b-form-input v-model="addForm.id_number" placeholder="身份证号" class="marginBot"></b-form-input>
@@ -195,24 +195,6 @@ export default {
     this.search();
     this.getDeptList();
   },
-  mounted() {
-    $('#birthday').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-    $('#updateBirthday').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-  },
   computed: {},
   methods: {
     //查询
@@ -223,7 +205,6 @@ export default {
     },
     //添加
     async toAdd() {
-      this.addForm.birthday = document.getElementById('birthday').value;
       let result = await this.$axios.post('user/user_save', { data: this.addForm });
       this.currentPage = 1;
       this.$refs.addAlert.hide();
@@ -233,7 +214,6 @@ export default {
     //修改
     async toUpdate() {
       let result = await this.$axios.post('user/user_edit', { data: this.updateForm });
-      console.log(result);
       this.closeAlert('update');
       this.updateForm = {};
       this.search();

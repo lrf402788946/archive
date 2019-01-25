@@ -18,7 +18,7 @@ module.exports = {
     port: '8001',
     //api地址前缀
     proxy: {
-      '/ ': {
+      '/jszx': {
         target: 'http://10.16.11.186:8080',
         changeOrigin: true,
         ws: true,

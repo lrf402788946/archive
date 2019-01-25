@@ -124,14 +124,14 @@
                 <label for="exampleInputName2">入党时间：</label>
                 <!-- <input v-model="cadreInformation.rdsj" type="text" class="form-control tyx-cursor" id="rdsjdate" data-date-format="yyyy-mm-dd"
                       :disabled="is_readonly" /> -->
-                <el-date-picker v-model="cadreInformation.rdsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>
+                <el-date-picker v-model="cadreInformation.rdsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>&nbsp;
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">任职时间：</label>
                 <!-- <input v-model="cadreInformation.rzsj" type="text" class="form-control tyx-cursor" :disabled="is_readonly" /> -->
-                <el-date-picker v-model="cadreInformation.rzsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>
+                <el-date-picker v-model="cadreInformation.rzsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>&nbsp;
               </div>
             </div>
             <div class="col-lg-3">
@@ -139,7 +139,7 @@
                 <label for="exampleInputName2">参加工作时间：</label>
                 <!-- <input v-model="cadreInformation.cgsj" type="text" class="form-control tyx-cursor" id="cgsjdate" data-date-format="yyyy-mm-dd"
                       :disabled="is_readonly" /> -->
-                <el-date-picker v-model="cadreInformation.cgsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>
+                <el-date-picker v-model="cadreInformation.cgsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>&nbsp;
               </div>
             </div>
           </div>
@@ -228,80 +228,6 @@ export default {
       genders: [{ text: '1', value: '男' }, { text: '0', value: '女' }],
     };
   },
-  mounted() {
-    $('#begindate').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-    $('#theTimeBegin').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-    $('#theTimeEnd').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-    $('#creationTime').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-    $('#partyTime').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-    $('#begindateT').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-    $('#birthdaydate').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-    $('#rdsjdate').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-    $('#cgsjdate').datetimepicker({
-      language: 'zh-CN',
-      autoclose: true,
-      todayBtn: true,
-      minView: 2,
-      weekStart: 1,
-      linked: true,
-    });
-  },
   created() {
     if (this.$route.query.id) {
       this.query();
@@ -380,6 +306,9 @@ export default {
 </script>
 
 <style lang='css' scoped>
+.el-date-editor.el-input, .el-date-editor.el-input__inner {
+    width: 180px;
+}
 .row {
   display: block !important;
 }

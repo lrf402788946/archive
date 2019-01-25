@@ -33,11 +33,15 @@
               </tr>
             </tbody>
           </table>
-          <b-modal id="updateAlert" title="修改权限" ref="updateAlert" hide-footer> 
-              <b-form-group label="请选择权限">
-                <b-form-checkbox-group id="checkboxes1" name="flavour1" v-model="form.id" :options="roleList">
+          <b-modal id="updateAlert" title="修改权限" ref="updateAlert" hide-footer>
+            <label>请选择权限</label> 
+            <el-checkbox-group v-model="form.id">
+              <el-checkbox v-for="(item,index) in roleList" :key="index" :label="item.value">{{item.text}}</el-checkbox>
+            </el-checkbox-group>
+              <!-- <b-form-group label="请选择权限">
+                <b-form-checkbox-group id="checkboxes1" name="role" v-model="form.id" :options="roleList">
                 </b-form-checkbox-group>
-              </b-form-group>
+              </b-form-group> -->
               <b-button variant="secondary"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" @click="$refs.updateAlert.hide();" >返&nbsp;&nbsp;回</b-button>
               <b-button variant="primary"  style="font-size:14px !important; color:#fff; padding:4px 8px !important;" @click="toSave()" >保&nbsp;&nbsp;存</b-button>
             <!-- <b-button variant="secondary" @click="form={}" >重置</b-button><b-button variant="primary" @click="toAdd()" >保存</b-button> -->
@@ -91,8 +95,8 @@ export default {
     //修改
     async toSave() {
       console.log(this.form);
-      // let result = await this.$axios.post('userRole/userRole_save', { data: this.form });
-      // this.form = {};
+      let result = await this.$axios.post('userRole/userRole_save', { data: this.form });
+      this.form = {};
       this.search();
       this.$refs.updateAlert.hide();
     },
