@@ -9,8 +9,8 @@
           <div id="base-user">
             <a href="#" class="user-name" @mouseover="mopen('m1')" @mouseout="mclose()">Admin<span class="button-down fa fa-caret-down"></span></a>
             <div id="m1" style="z-index:999;" @mouseover="mopen('m1')" @mouseout="mclose()">
-              <a href="#"><i class="fa fa-lock base-margin-right-5"></i>修改密码</a>
-              <a href="#"><i class="fa fa-sign-out base-margin-right-5"></i>安全退出</a>
+              <a @click="$router.push({name:'UpdatePW'})"><i class="fa fa-lock base-margin-right-5"></i>修改密码</a>
+              <a @click="logout()"><i class="fa fa-sign-out base-margin-right-5"></i>安全退出</a>
             </div>
           </div>
         </div>
@@ -41,6 +41,10 @@ export default {
     },
     mclose() {
       if (this.ddmenuitem) this.ddmenuitem.style.visibility = 'hidden';
+    },
+    logout() {
+      sessionStorage.removeItem('userInfo');
+      this.$router.push({ path: '/LoginPage' });
     },
   },
 };

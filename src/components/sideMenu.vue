@@ -9,7 +9,7 @@
             </li>
             <ul class="submenu">
               <div class="expand-triangle"></div>
-              <router-link :to="{name:'index'}"><li><span>干部信息</span></li></router-link>
+              <router-link :to="{name:'Index'}"><li><span>干部信息</span></li></router-link>
 
             </ul>
             <li>
@@ -30,7 +30,10 @@
               <router-link :to="{name:'UserIndex'}"><li><span> 用户管理</span></li></router-link>
               <router-link :to="{name:'RoleIndex'}"><li><span> 角色管理</span></li></router-link>
               <router-link :to="{name:'UserRoleIndex'}"><li><span> 权限分配</span></li></router-link>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
             </ul>
 
           </ul>
