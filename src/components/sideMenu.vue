@@ -12,7 +12,7 @@
               <router-link :to="{name:'Index'}"><li><span>干部信息</span></li></router-link>
 
             </ul>
-            <li>
+            <!-- <li>
               <span><i class="fa-stack fa fa-area-chart"></i>预警与统计分析</span>
             </li>
             <ul class="submenu">
@@ -20,7 +20,7 @@
               <router-link :to="{name:'Details'}"><li><span>监测预警</span></li></router-link>
               <li><span>统计分析</span></li>
 
-            </ul>
+            </ul> -->
             <li>
               <span><i class="fa-stack fa fa-cogs"></i>系统管理</span>
             </li>
