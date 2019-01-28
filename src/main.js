@@ -7,12 +7,11 @@ import Qs from 'qs';
 import '@/plugins/meta';
 import '@/plugins/element';
 import '@/plugins/filters';
-import '@/plugins/md5';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-axios.defaults.baseURL = 'http://10.16.11.186:8080'; //http://10.16.11.186:8080合并项目用本地
+axios.defaults.baseURL = 'http://139.210.167.203:8080'; //http://10.16.11.186:8080合并项目用本地
 axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
 Vue.prototype.$axios = axios;
 Vue.prototype.qs = Qs;

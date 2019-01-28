@@ -1,7 +1,3 @@
-import { Util } from 'naf-core';
-
-const { isNullOrUndefined } = Util;
-
 export default {
   //获取url的参数params
   getParams() {

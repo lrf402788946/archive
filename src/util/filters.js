@@ -1,13 +1,10 @@
 import _ from 'lodash';
-import { Util, Error } from 'naf-core';
-
-const { isNullOrUndefined } = Util;
 
 const filters = {
   getName(object) {
     const { data, searchItem, value, label } = object;
     if (data.length > 0) {
-      if (!isNullOrUndefined(value)) {
+      if (value !== null || value !== undefined) {
         let returnText = 'undefined';
         for (const item of data) {
           if (item.value === value) {
