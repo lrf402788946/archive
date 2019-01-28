@@ -41,8 +41,11 @@ export default {
       $('#base-nav').width($(window).width() - 241);
     });
   },
+  created() {
+    this.isLogin();
+  },
   methods: {
-    ...mapMutations(['isLogout']),
+    ...mapMutations(['isLogout', 'isLogin']),
     mopen(id) {
       // this.mcancelclosetime();
       if (this.ddmenuitem) this.ddmenuitem.style.visibility = 'hidden';

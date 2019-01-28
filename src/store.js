@@ -7,8 +7,9 @@ const state = {
 };
 
 var mutations = {
-  isLogin(state, payload) {
-    state.userName = payload;
+  isLogin(state) {
+    console.log('in');
+    console.log(sessionStorage.getItem('userInfo'));
     state.userName = sessionStorage.getItem('userInfo');
   },
   // 登出
