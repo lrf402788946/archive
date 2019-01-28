@@ -3,35 +3,19 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const state = {
-  // 登录状态为没登录
-  logined: false,
-  // 用户信息数据
-  Loginedname: null,
-  UserId: null,
+  userName: '',
 };
 
 var mutations = {
-  LOGIN(state, user) {
-    // 登录
-    // 先让登录状态变为登录了
-    // 若只是改变state里的值，在强制刷新后会丢失，数据添加到sessionStorage里
-    sessionStorage.setItem('Loginedname', user.Loginedname);
-    sessionStorage.setItem('UserId', user.UserId);
-    sessionStorage.setItem('logined', true);
-    state.Loginedname = user.Loginedname;
-    state.UserId = user.UserId;
-    state.logined = true;
+  isLogin(state, payload) {
+    state.userName = payload;
+    state.userName = sessionStorage.getItem('userInfo');
   },
-
   // 登出
-  LOGOUT(state) {
+  isLogout(state) {
     // 这个同理
-    sessionStorage.removeItem('Loginedname');
-    sessionStorage.removeItem('UserId');
-    sessionStorage.removeItem('logined');
-    state.Loginedname = '';
-    state.UserId = '';
-    state.logined = false;
+    state.userName = '';
+    sessionStorage.removeItem('userInfo');
   },
 };
 var getters = {

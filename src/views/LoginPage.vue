@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 export default {
   data() {
     return {
@@ -42,15 +43,17 @@ export default {
     };
   },
   methods: {
+    ...mapMutations(['isLogin']),
     async login() {
       if (this.form.login_id && this.form.password) {
-        let result = await this.$axios.post('user/login', { data: this.form }, {});
+        let result = await this.$axios.post('user/login', { data: this.form });
         console.log(result);
         if (result.data.rescode === '0') {
           sessionStorage.setItem('userInfo', this.form.login_id);
         } else {
           alert(result.data.msg);
         }
+        this.isLogin(this.form.login_id);
         //存入sessionStorage
         // sessionStorage.setItem('userInfo', JSON.stringify(this.form));
         this.$router.push('/');
