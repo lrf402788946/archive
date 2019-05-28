@@ -54,6 +54,7 @@ const router = new Router({
             name: 'UpdatePW',
             component: UpdatePW,
         },
+
     ],
 });
 // router.beforeEach((to, from, next) => {
