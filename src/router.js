@@ -12,59 +12,57 @@ import UpdatePW from './views/user/UpdatePW.vue';
 Vue.use(Router);
 
 const router = new Router({
-  // base: '/archive/',
-  // mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'Index',
-      component: Index,
-    },
-    {
-      path: '/LoginPage',
-      name: 'LoginPage',
-      component: LoginPage,
-    },
-    {
-      path: '/DeptIndex',
-      name: 'DeptIndex',
-      component: DeptIndex,
-    },
-    {
-      path: '/Details',
-      name: 'Details',
-      component: Details,
-    },
-    {
-      path: '/UserIndex',
-      name: 'UserIndex',
-      component: UserIndex,
-    },
-    {
-      path: '/RoleIndex',
-      name: 'RoleIndex',
-      component: RoleIndex,
-    },
-    {
-      path: '/UserRoleIndex',
-      name: 'UserRoleIndex',
-      component: UserRoleIndex,
-    },
-    {
-      path: '/UpdatePW',
-      name: 'UpdatePW',
-      component: UpdatePW,
-    },
-  ],
+    // base: '/archive/',
+    // mode: 'history',
+    routes: [{
+            path: '/',
+            name: 'Index',
+            component: Index,
+        },
+        {
+            path: '/LoginPage',
+            name: 'LoginPage',
+            component: LoginPage,
+        },
+        {
+            path: '/DeptIndex',
+            name: 'DeptIndex',
+            component: DeptIndex,
+        },
+        {
+            path: '/Details',
+            name: 'Details',
+            component: Details,
+        },
+        {
+            path: '/UserIndex',
+            name: 'UserIndex',
+            component: UserIndex,
+        },
+        {
+            path: '/RoleIndex',
+            name: 'RoleIndex',
+            component: RoleIndex,
+        },
+        {
+            path: '/UserRoleIndex',
+            name: 'UserRoleIndex',
+            component: UserRoleIndex,
+        },
+        {
+            path: '/UpdatePW',
+            name: 'UpdatePW',
+            component: UpdatePW,
+        },
+    ],
 });
-router.beforeEach((to, from, next) => {
-  const is_login = sessionStorage.getItem('userInfo');
-  console.log(is_login);
-  if (is_login) {
-    next();
-  } else {
-    if (to.path.includes('Login')) next();
-    else next('/LoginPage');
-  }
-});
+// router.beforeEach((to, from, next) => {
+//     const is_login = sessionStorage.getItem('userInfo');
+//     if (is_login) {
+//         next();
+//     } else {
+//         if (to.path.includes('Login')) next();
+//         else next('/LoginPage');
+//     }
+// });
 export default router;
