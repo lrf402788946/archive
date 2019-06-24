@@ -76,7 +76,12 @@
 
 <script>
 import _ from 'lodash';
+import scan from '@/components/scan.vue';
 export default {
+  components: {
+    // eslint-disable-next-line vue/no-unused-components
+    scan,
+  },
   data() {
     return {
       is_readonly: true,
@@ -98,6 +103,9 @@ export default {
     },
   },
   methods: {
+    getFile(name) {
+      this.$set(this.detail, `file_path`, `data:image/png;base64,${name}`); //data:image/png;base64,base64, data:image/jpeg;base64,base64, http://10.16.11.186/common/upload/
+    },
     goToBack() {
       this.changeShow();
       this.$router.push({ name: 'Details', query: { id: this.ID } });

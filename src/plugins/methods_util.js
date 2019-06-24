@@ -319,7 +319,7 @@ const Plugin = {
       // }
       //减少引用计数,不明白为啥
       plugin().Image_Release(img);
-      if (bSave) return bSave;
+      if (bSave) return `data:image/png;base64,${bSave}`;
       //`${type}${Name}`
       else return false;
     };

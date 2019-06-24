@@ -68,6 +68,8 @@
                    title="" role="button" style="background-color: #dc3545 !important; border:none !important; ">删&nbsp;&nbsp;除</a>
                 <a class="btn btn-xs btn-info base-margin-2" @click="$router.push({ name: 'Details', query: { id: item.id } })"
                    data-toggle="tooltip" title=""  style=" border:none !important; " role="button">查&nbsp;&nbsp;看</a>
+                   <a class="btn btn-xs btn-info base-margin-2" @click="$router.push({ name: 'Archive', query: { id: item.id } })"
+                   data-toggle="tooltip" title=""  style=" border:none !important; " role="button">档案管理</a>
               </td>
             </tr>
 

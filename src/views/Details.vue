@@ -13,30 +13,6 @@
               <b-tab title="基本情况" :title-link-class="linkClass(0)">
                 <jbqk v-show="tabIndex === 0" :type="type" @changeToAdd="changeToAdd"></jbqk>
               </b-tab>
-              <b-tab title="个人事项" :title-link-class="linkClass(1)">
-                <Personal v-show="tabIndex === 1" :type="type" @changeToAdd="changeToAdd"></Personal>
-              </b-tab>
-              <b-tab title="个人档案" :title-link-class="linkClass(2)">
-                <PersonDocument v-show="tabIndex === 2" :type="type" @changeToAdd="changeToAdd"></PersonDocument>
-              </b-tab>
-              <b-tab title="例行谈话" :title-link-class="linkClass(3)">
-                <RoutineConversation v-show="tabIndex === 3" :type="type" @changeToAdd="changeToAdd"></RoutineConversation>
-              </b-tab>
-              <b-tab title="述责述廉" :title-link-class="linkClass(4)">
-                <SpeakWithHonesty v-show="tabIndex === 4" :type="type" @changeToAdd="changeToAdd"></SpeakWithHonesty>
-              </b-tab>
-              <b-tab title="重大事项" :title-link-class="linkClass(5)">
-                <MajorIssues v-show="tabIndex === 5" :type="type" @changeToAdd="changeToAdd"></MajorIssues>
-              </b-tab>
-              <b-tab title="问题线索" :title-link-class="linkClass(6)">
-                <ProblemClue v-show="tabIndex === 6" :type="type" @changeToAdd="changeToAdd"></ProblemClue>
-              </b-tab>
-              <b-tab title="处置问责" :title-link-class="linkClass(7)">
-                <AccountabilityForDisposal v-show="tabIndex === 7" :type="type" @changeToAdd="changeToAdd"></AccountabilityForDisposal>
-              </b-tab>
-              <b-tab title="立案处理" :title-link-class="linkClass(8)">
-                <CaseFiling v-show="tabIndex === 8" :type="type" @changeToAdd="changeToAdd"></CaseFiling>
-              </b-tab>
             </b-tabs>
           </b-card>
         </div>
@@ -49,26 +25,9 @@
 
 <script>
 import jbqk from './jbqk/Index.vue';
-import PersonDocument from './jbqkDetail/PersonDocument.vue';
-import RoutineConversation from './jbqkDetail/RoutineConversation.vue';
-import ProblemClue from './jbqkDetail/ProblemClue.vue';
-import Personal from './jbqkDetail/Personal.vue';
-import SpeakWithHonesty from './jbqkDetail/SpeakWithHonesty.vue';
-import AccountabilityForDisposal from './jbqkDetail/AccountabilityForDisposal.vue';
-import MajorIssues from './jbqkDetail/MajorIssues.vue';
-import CaseFiling from './jbqkDetail/CaseFiling.vue';
-
 export default {
   components: {
     jbqk,
-    Personal,
-    PersonDocument,
-    RoutineConversation,
-    ProblemClue,
-    SpeakWithHonesty,
-    AccountabilityForDisposal,
-    MajorIssues,
-    CaseFiling,
   },
   data() {
     return {
@@ -79,9 +38,6 @@ export default {
     };
   },
   methods: {
-    async aaa() {
-      var result = await this.$axios.post('jbqk/jbqk_save', { data: this.form });
-    },
     linkClass(idx) {
       if (this.tabIndex === idx) {
         return ['bgPrimary', 'textLight'];

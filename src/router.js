@@ -8,6 +8,7 @@ import Details from './views/Details.vue';
 import RoleIndex from './views/role/Index.vue';
 import UserRoleIndex from './views/userRole/Index.vue';
 import UpdatePW from './views/user/UpdatePW.vue';
+import Archive from './views/archive/Archive.vue';
 
 Vue.use(Router);
 
@@ -54,6 +55,11 @@ const router = new Router({
       path: '/UpdatePW',
       name: 'UpdatePW',
       component: UpdatePW,
+    },
+    {
+      path: '/Archive',
+      name: 'Archive',
+      component: Archive,
     },
   ],
 });

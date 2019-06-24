@@ -6,14 +6,14 @@
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">姓名：</label>
-                <input v-model="cadreInformation.user_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.user_name" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputEmail2">性别：</label>
-                <select class="form-control" v-model='cadreInformation.gender' :disabled="is_readonly"><!--返回0和1，0是女，1是男-->
-                  <option value="" disabled>请选择：</option>
+                <select class="form-control" v-model='cadreInformation.gender'><!--返回0和1，0是女，1是男-->
+                  <option value="" disabled>请选择</option>
                   <option v-for="(a,index) in genders" :key="index" v-bind:value="a.text">
                     {{ a.value }}
                   </option>
@@ -23,149 +23,140 @@
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">民族：</label>
-                <input v-model="cadreInformation.mz" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.mz" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">婚姻状况：</label>
-                <input v-model="cadreInformation.hyzk" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.hyzk" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">文化程度：</label>
-                <input v-model="cadreInformation.whcd" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.whcd" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">政治面貌：</label>
-                <input v-model="cadreInformation.zzmm" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.zzmm" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">办公室电话：</label>
-                <input v-model="cadreInformation.office_tell" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.office_tell" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">个人电话：</label>
-                <input v-model="cadreInformation.phone_no" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.phone_no" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <!--需要关联出部门表然后进行查询以显示部门名称-->
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">单位：</label>
-                <input v-model="cadreInformation.dept_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.dept_name" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">单位性质：</label>
-                <input v-model="cadreInformation.dept_type" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.dept_type" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">职务：</label>
-                <input v-model="cadreInformation.post" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.post" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">级别：</label>
-                <input v-model="cadreInformation.level" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.level" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">职称：</label>
-                <input v-model="cadreInformation.title" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.title" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">分管工作：</label>
-                <input v-model="cadreInformation.work_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.work_name" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">家庭住址：</label>
-                <input v-model="cadreInformation.home_address" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.home_address" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">电子信箱：</label>
-                <input v-model="cadreInformation.emaill" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.emaill" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>
             <div class="col-lg-3">
               <div class=" form-group">
                 <label for="exampleInputName2">身份证号：</label>
-                <input v-model="cadreInformation.id_number" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
+                <input v-model="cadreInformation.id_number" type="text" class="form-control" id="exampleInputName2" placeholder="">
               </div>
             </div>          
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">出生日期：</label>
-                <!-- <input v-model="cadreInformation.birthday" type="text" class="form-control tyx-cursor" id="birthdaydate" data-date-format="yyyy-mm-dd"
-                      :disabled="is_readonly" /> -->
-                <el-date-picker v-model="cadreInformation.birthday" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>
+                <el-date-picker v-model="cadreInformation.birthday" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd"></el-date-picker>
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">入党时间：</label>
-                <!-- <input v-model="cadreInformation.rdsj" type="text" class="form-control tyx-cursor" id="rdsjdate" data-date-format="yyyy-mm-dd"
-                      :disabled="is_readonly" /> -->
-                <el-date-picker v-model="cadreInformation.rdsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>&nbsp;
+                <el-date-picker v-model="cadreInformation.rdsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd"></el-date-picker>&nbsp;
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">任职时间：</label>
-                <!-- <input v-model="cadreInformation.rzsj" type="text" class="form-control tyx-cursor" :disabled="is_readonly" /> -->
-                <el-date-picker v-model="cadreInformation.rzsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>&nbsp;
+                <el-date-picker v-model="cadreInformation.rzsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd"></el-date-picker>&nbsp;
               </div>
             </div>
             <div class="col-lg-3">
               <div class="tyx-margin-right-40 form-group">
                 <label for="exampleInputName2">参加工作时间：</label>
-                <!-- <input v-model="cadreInformation.cgsj" type="text" class="form-control tyx-cursor" id="cgsjdate" data-date-format="yyyy-mm-dd"
-                      :disabled="is_readonly" /> -->
-                <el-date-picker v-model="cadreInformation.cgsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" :disabled="is_readonly"></el-date-picker>&nbsp;
+                <el-date-picker v-model="cadreInformation.cgsj" type="date" placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd"></el-date-picker>&nbsp;
               </div>
             </div>
           </div>
 
-          <div class="col-lg-2">
+          <div class="col-lg-2" style="padding-left: 0;">
             <div class="base-margin-right-40 form-group">
               <div class="form-group">
                 <label for="exampleInputEmail1">照片：</label>
                 <div class="rz-picter">
-                  <img :src="avatar" class="img-rounded">
+                  <img :src="cadreInformation.photo ? cadreInformation.photo : avatar" class="img-rounded">
                 </div>
               </div>
-              <div class="form-group" v-if="!is_readonly">
-                <label for="exampleInputFile">File input</label>
+              <div class="form-group">
+                <label for="exampleInputFile"></label>
                 <input type="file" name="avatar" id="uppic" accept="image/gif,image/jpeg,image/jpg,image/png"
-                      @change="changeImage($event)" ref="avatarInput" class="uppic">
-                <!-- <p class="help-block">提示语.</p> -->
+                      @change="changeImage($event)" ref="avatarInput" class="uppic" ><!-- style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;width: -webkit-fill-available;" -->
               </div>
-              <!-- <button type="button"  @click="uploadPhotos($event)" v-if="!is_readonly" >上传</button> -->
             </div>
           </div>
         </div>
         <div class="col-lg-10">
           <div class="form-group">
             <label for="exampleInputName2">备注：</label>
-            <textarea v-model="cadreInformation.remark" class="form-control" rows="4" :disabled="is_readonly"></textarea>
+            <textarea v-model="cadreInformation.remark" class="form-control" rows="4"></textarea>
           </div>
         </div>
         <div class="col-lg-6">
@@ -178,12 +169,7 @@
                 <div class="form-group">
                   <label for="exampleInputEmail1">干部基本状况表：</label>
                 </div>
-                
-                <scan @getPic="getFile" type="jbqk" v-if="!is_readonly"></scan>
-                <div style="margin-top:10px;">
-                  <p class="help-block" v-if="!is_readonly">请扫面文件并上传.</p>
-                  <img :src="cadreInformation.file_path ? cadreInformation.file_path : avatar" style="width:150px;height:150px;" class="img-rounded">
-                </div>
+                <scan @getPic="getFile" type="jbqk"></scan>
               </div>
             </div>
           </div>
@@ -191,23 +177,11 @@
       </div>
 
       <div class="base-padding-20 base-bg-fff" style="clear:both;">
-        <div class="base-margin-top-10 base-align-right" v-if="startAdd()">
-          <a class="btn btn-info" @click="$router.go(-1)" data-toggle="tooltip" title="" role="button"><i
-              class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-          <a id="preservation" class="btn btn-info" data-toggle="tooltip" title="" role="button" @click='toAdd()'><i
-              class="base-margin-right-5 fa fa-hand-o-left "></i>保&nbsp;&nbsp;存</a>
-        </div>
-        <div class="base-margin-top-10 base-align-right" v-if="startUpdate()">
-          <a class="btn btn-info" @click="returnQuery()" data-toggle="tooltip" title="" role="button"><i
-              class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-          <a class="btn btn-info" @click="update()" data-toggle="tooltip" title="" role="button"><i
-              class="base-margin-right-5 fa fa-hand-o-left "></i>保&nbsp;&nbsp;存</a>
-        </div>
-        <div class="base-margin-top-10 base-align-right" v-if="startBrowse()">
+        <div class="base-margin-top-10 base-align-right">
           <a class="btn btn-info" @click="$router.push('/')" data-toggle="tooltip" title="" role="button"><i
               class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-          <a class="btn btn-info" @click="toupdate()" data-toggle="tooltip" title="" role="button"><i
-              class="base-margin-right-5 fa fa-hand-o-left "></i>修&nbsp;&nbsp;改</a>
+          <a class="btn btn-info" @click="toOperation()" data-toggle="tooltip" title="" role="button"><i
+              class="base-margin-right-5 fa fa-hand-o-left "></i>保&nbsp;&nbsp;存</a>
         </div>
       </div>
   </div>
@@ -226,7 +200,6 @@ export default {
   data() {
     return {
       avatar: require('@/assets/img/8082.jpg'),
-      is_readonly: true,
       cadreInformation: {
         gender: '',
       },
@@ -236,41 +209,17 @@ export default {
   },
   created() {
     if (this.$route.query.id) {
-      this.query();
+      this.search();
     }
   },
   methods: {
+    //查看
+    async search() {
+      let result = await this.$axios.get(`jbqk/jbqk_info?id=${this.$route.query.id}`);
+      this.$set(this, 'cadreInformation', result.data.data);
+    },
     getFile(name) {
-      this.$set(this.cadreInformation, `file_path`, `data:image/png;base64,${name}`); //data:image/png;base64,base64, data:image/jpeg;base64,base64, http://10.16.11.186/common/upload/
-    },
-    startAdd() {
-      if (this.$route.query.type == 'add') {
-        this.is_readonly = false;
-        this.$emit('changeToAdd', 0);
-        return true;
-      } else {
-        return false;
-      }
-    },
-    startUpdate() {
-      if (this.$route.query.type == 'update') {
-        this.is_readonly = false;
-        return true;
-      } else {
-        return false;
-      }
-    },
-    startBrowse() {
-      if (this.$route.query.id) {
-        this.is_readonly = true;
-        return true;
-      } else {
-        return false;
-      }
-    },
-    toupdate() {
-      this.id = this.$route.query.id;
-      this.$router.push({ name: 'Details', query: { type: 'update' } });
+      this.$set(this.cadreInformation, `file_path`, `${name}`); //data:image/png;base64,base64, data:image/jpeg;base64,base64, http://10.16.11.186/common/upload/
     },
     changeImage(e) {
       var file = e.target.files[0];
@@ -282,34 +231,22 @@ export default {
       var that = this;
       reader.readAsDataURL(file);
       reader.onload = function(e) {
-        that.avatar = this.result;
-        that.cadreInformation.photo = this.result;
+        that.$set(that.cadreInformation, `photo`, this.result);
       };
     },
-    async uploadPhotos(event) {
-      // let result = await this.$axios.post('jbqk/？？？？？', { data: this.cadreInformation });
+    toOperation() {
+      this.operation();
     },
-    async toAdd() {
-      let result = await this.$axios.post('jbqk/jbqk_save', { data: this.cadreInformation });
-      this.cadreInformation = {};
-      this.$router.push('/');
-    },
-    async returnQuery() {
-      this.$router.push({ name: 'Details', query: { id: this.id } });
-      let result = await this.$axios.get(`jbqk/jbqk_info?id=${this.id}`);
-      this.$set(this, 'cadreInformation', result.data.data);
-      this.id = -1;
-    },
-    //查看
-    async query() {
-      let result = await this.$axios.get(`jbqk/jbqk_info?id=${this.$route.query.id}`);
-      this.$set(this, 'cadreInformation', result.data.data);
-    },
-    //修改
-    async update(index) {
-      console.log(this.cadreInformation);
-      let result = await this.$axios.post('jbqk/jbqk_edit', { data: this.cadreInformation });
-      this.$router.push('/');
+    async operation() {
+      let has_id = Object.keys(this.cadreInformation).filter(item => item === 'id').length;
+      let type;
+      has_id > 0 ? (type = 'edit') : (type = 'save');
+      let newData = { data: this.form };
+      let result = await this.$axios.post(`jbqk/jbqk_${type}`, newData);
+      if (result.rescode === '0' || result.rescode === 0) {
+        this.$message.success('操作成功');
+        this.$router.push({ path: '/' });
+      }
     },
   },
 };

@@ -1,144 +1,146 @@
 <template lang='html'>
     <div id="index">
         <div class="base-padding-20 base-bg-fff">
-            
-            <div>
-                <div class="row" v-if="changeShow()">
-                    <div class="col-lg-12">
-                        <div class="col-lg-3">
-                            <div class=" form-group">
-                                <label for="exampleInputName2">个人事项：</label>
-                                <input class="form-control" v-model='detailsList.title'/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" v-else>
-                    <div class="col-lg-12">
-                        <div class="col-lg-3">
-                            <div class=" form-group">
-                                <label for="exampleInputName2">个人事项：</label>
-                                <select class="form-control" v-model='detail.index'>
-                                    <option v-for="(item,index) in detailsList" :key="index" v-bind:value="index">
-                                        {{index+1}}、{{item.title}}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-lg-12">
-                <div class="form-group">
-                    <label for="exampleInputName2">个人事项备注：</label>
-                    <textarea class="form-control" rows="4" v-model='detail.memo' :disabled="is_readonly"></textarea>
-                </div>
-            </div>
-            <div class="col-lg-6">
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="col-lg-6">
-                        <div class="base-margin-right-40 form-group">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">个人事项状况表：</label>
-                            </div>
-                            <button type="submit" class="btn btn-default">扫描文件</button>
-                            <div style="margin-top:10px;">
-                                <p class="help-block">请扫面文件并上传.</p>
-                                <img src="../../assets/img/8082.jpg" alt="..." class="img-rounded">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <el-row style="margin:3% 0;">
+            <el-col :span="18">&nbsp;</el-col>
+            <el-col :span="4">
+              <el-button type="primary" @click="openDialog('add')" icon="el-icon-document">添加</el-button>
+            </el-col>
+            <el-col :span="2">&nbsp;</el-col>
+          </el-row>
+          <el-table :data="list" stripe border style="width: 100%">
+            <el-table-column prop="title" align="center" label="个人事项" width="180"></el-table-column>
+            <el-table-column prop="memo" label="备注" align="center" width="180"></el-table-column>
+            <el-table-column align="center" label="信息图片">
+              <template slot-scope="scope">
+                <img :src="scope.row.file_path ? scope.row.file_path : avatar" style="width:150px;height:150px;" class="img-rounded">
+              </template>
+            </el-table-column>
+            <el-table-column align="center"  label="操作">
+              <template slot-scope="scope">
+                <el-row>
+                  <el-col :span='6'>
+                    <el-button type="primary" @click="openDialog('edit', scope.row)" icon="el-icon-edit-outline">修改</el-button>
+                  </el-col>
+                  <el-col :span='2'>&nbsp;</el-col>
+                  <el-col :span='6'>
+                    <el-button type="danger" @click="openDialog('delete', scope.row)" icon="el-icon-delete">删除</el-button>
+                  </el-col>
+                </el-row>
+              </template>
+            </el-table-column>
+          </el-table>
+          <el-dialog :title="dialogTitle" center :visible.sync="dialog" :close-on-click-modal="false" :before-close="closeAlert">
+            <el-row>
+              <el-col :span="24">
+                <label for="exampleInputName2">个人事项：</label>
+              </el-col>
+              <el-col :span="10">
+                <el-input></el-input>
+              </el-col>
+              <el-col :span="24">
+                <label for="exampleInputName2">备注：</label>
+              </el-col>
+              <el-col :span="24">
+                <el-input type="textarea" row="4"></el-input>
+              </el-col>
+              <el-col :span="24">
+                <label for="exampleInputName2">个人事项信息表：</label>
+                <scan @getPic="getFile" type="personal"></scan>
+              </el-col>
+            </el-row>
+            <span slot="footer" class="dialog-footer">
+              <el-button type="primary" v-if="!form.id" @click="toOperation()">保存</el-button>
+              <el-button type="primary" v-else @click="dialog = false">修改</el-button>
+              <el-button @click="closeAlert()">取 消</el-button>
+            </span>
+          </el-dialog>
         </div>
 
-        <div class="base-padding-20 base-bg-fff" style="clear:both;">
-            <div class="base-margin-top-10 base-align-right" v-if="changeShow()">
-                <a class="btn btn-info" @click="goToBack()" data-toggle="tooltip" title="" role="button" style="padding: 4px 9px !important;"><i
-                    class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                <a id="preservation" class="btn btn-info" data-toggle="tooltip" title="" role="button" @click='toAdd()' style="padding: 4px 9px !important;"><i
-                    class="base-margin-right-5 fa fa-hand-o-left "></i>保&nbsp;&nbsp;存</a>
-            </div>
-            <div class="base-margin-top-10 base-align-right" v-else>
-                <a class="btn btn-info" @click="$router.go(-1)" data-toggle="tooltip" title="" role="button" style="padding: 4px 9px !important;"><i
-                    class="base-margin-right-5 fa fa-hand-o-left "></i>返&nbsp;&nbsp;回</a>
-                <a class="btn btn-info" @click="goToAdd()" data-toggle="tooltip" title="" role="button" style="padding: 4px 9px !important;"><i
-                    class="base-margin-right-5 fa fa-hand-o-left "></i>添&nbsp;&nbsp;加</a>
-            </div>
-        </div>
     </div>
 </template>
 <script>
 import _ from 'lodash';
+import scan from '@/components/scan.vue';
 export default {
+  components: {
+    scan,
+  },
   data() {
     return {
-      is_readonly: true,
-      detailsList: [],
-      detailsList1: [],
-      detail: {},
-      ID: -1,
-      someValue: '',
+      list: [{ title: '个人事项1', memo: '备注1' }],
+      form: {},
+      dialog: false,
+      dialogTitle: '',
+      operationId: '',
+      avatar: require('@/assets/img/8082.jpg'),
     };
-  },
-  watch: {
-    'detail.index': {
-      handler(nVal, oVal) {
-        if (nVal !== undefined) {
-          this.detail.title = this.detailsList[nVal].title;
-          this.detail.memo = this.detailsList[nVal].memo;
-        }
-      },
-    },
-  },
-  methods: {
-    goToBack() {
-      this.changeShow();
-      this.$router.push({ name: 'Details', query: { id: this.ID } });
-      this.query();
-    },
-    changeShow() {
-      if (this.$route.query.type == 'add') {
-        this.is_readonly = false;
-        this.$emit('changeToAdd', 1);
-        return true;
-      } else {
-        return false;
-      }
-    },
-    goToAdd() {
-      this.detail = {};
-      this.detailsList1 = this.detailsList;
-      this.detailsList = {};
-      this.ID = this.$route.query.id;
-      this.$router.push({ name: 'Details', query: { type: 'add' } });
-    },
-    async toAdd() {
-      this.detailsList['memo'] = this.detail.memo;
-      this.detailsList['jbqk_id'] = this.ID;
-      this.detailsList['type'] = '1';
-      console.log(this.detailsList);
-      let result = await this.$axios.post('jbqk/jbqk_detail_save', { data: this.detailsList });
-      this.detailsList = {};
-      this.$router.push('/');
-    },
-    async query() {
-      console.log(this.$route.query.id);
-      let result = await this.$axios.get(`jbqk/jbqk_detail?id=${this.$route.query.id}&type=1`);
-      console.log(result.data);
-      this.$set(this, 'detailsList', result.data.data);
-    },
   },
   created() {
     if (this.$route.query.id) {
-      this.query();
+      this.search();
     }
-    this.changeShow();
+  },
+  methods: {
+    getFile(name) {
+      this.$set(this.form, `file_path`, `${name}`);
+    },
+    async search() {
+      let result = await this.$axios.get(`jbqk/jbqk_detail?id=${this.$route.query.id}&type=1`);
+      console.log(result.data);
+      this.$set(this, 'list', result.data.data);
+    },
+    async openDialog(type, item) {
+      this.$set(this, `dialogTitle`, `个人事项${type === 'delete' ? '删除' : type === 'add' ? '添加' : '修改'}`);
+      if (type === 'edit') {
+        this.$set(this, `form`, item);
+      } else if (type === 'delete') {
+        this.operationId = item.id;
+        await this.$confirm('确认要删除该数据吗?', `删除提示`, {
+          type: 'warning',
+        })
+          .then(async () => {
+            //确认删除
+            console.log(`delete${this.operationId}`);
+            await this.productOperation({ data: { id: this.operationId }, type: 'productDelete' });
+            this.closeAlert();
+            this.toSearch();
+          })
+          .catch(() => {
+            //不删除
+            console.log(`cancel`);
+          });
+        this.closeAlert();
+        return;
+      }
+      this.dialog = true;
+    },
+    closeAlert() {
+      this.operationId = '';
+      this.form = {};
+      this.dialog = false;
+    },
+    toOperation() {
+      this.operation();
+    },
+    async operation() {
+      let has_id = Object.keys(this.form).filter(item => item === 'id').length;
+      let type;
+      let newData;
+      has_id > 0 ? (type = 'edit') : (type = 'save');
+      if (has_id > 0) {
+        newData = { data: this.form };
+      } else {
+        newData = { data: { ...this.form, jbqk_id: this.$route.query.id, type: 1 } };
+      }
+      let result = await this.$axios.post(`jbqk/jbqk_detail_${type}`, newData);
+      console.log(result);
+      if (result.rescode === '0' || result.rescode === 0) {
+        this.$message.success('操作成功');
+        this.search();
+        this.closeAlert();
+      }
+    },
   },
 };
 </script>
