@@ -47,7 +47,6 @@ export default {
     async login() {
       if (this.form.login_id && this.form.password) {
         let result = await this.$axios.post('/user/login', { data: this.form });
-        console.log(result);
         if (result.data.rescode === '0') {
           sessionStorage.setItem('userInfo', this.form.login_id);
         } else {
