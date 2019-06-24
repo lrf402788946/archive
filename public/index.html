@@ -13,7 +13,21 @@
     <noscript>
       <strong>We're sorry but archive doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app" style="z-index:1;"></div>
+    <div id="eloam" style="position: absolute; width: 400px; height: 420px; margin: auto; top: 0; left: 100%; bottom: 0; right: 0; overflow-x: hidden; overflow-y: hidden;z-index: -99;">
+      <object id="view1" type="application/x-eloamplugin" style="width:300px;height: 400px;float:left;margin: 0 30px;" name="view"></object>
+    </div>
+    <div style="display:none;">
+      <object id="thumb1" type="application/x-eloamplugin"
+        style="width:200px;height: 400px;background:whitesmoke;float:left;  border: 1px solid;" name="thumb"></object>
+      <select id="device" style="width: 90px" name="device" onchange="changeDev()"></select>
+      <select id="subType" style="width: 90px" name="subType" onchange="changesubType()"></select>
+      <select id="selRes" style="width: 90px" name="selRes"></select>
+      <!--选择出图的分辨率并不影响模拟视图的大小-->
+      <input class="submit_01" type="button" value="打开视频" onclick="OpenVideo()" />
+      <input class="submit_01" type="button" value="关闭视频" onclick="CloseVideo()" />
+      <input class="submit_01" type="button" value="拍照" onclick="Scan()" />
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>

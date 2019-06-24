@@ -7,6 +7,7 @@ import Qs from 'qs';
 import '@/plugins/meta';
 import '@/plugins/element';
 import '@/plugins/filters';
+import '@/plugins/methods_util';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';

@@ -156,9 +156,9 @@
                 <label for="exampleInputFile">File input</label>
                 <input type="file" name="avatar" id="uppic" accept="image/gif,image/jpeg,image/jpg,image/png"
                       @change="changeImage($event)" ref="avatarInput" class="uppic">
-                <p class="help-block">提示语.</p>
+                <!-- <p class="help-block">提示语.</p> -->
               </div>
-              <button type="submit" class="btn btn-default" @click="uploadPhotos($event)" v-if="!is_readonly" >上传</button>
+              <!-- <button type="button"  @click="uploadPhotos($event)" v-if="!is_readonly" >上传</button> -->
             </div>
           </div>
         </div>
@@ -178,10 +178,11 @@
                 <div class="form-group">
                   <label for="exampleInputEmail1">干部基本状况表：</label>
                 </div>
-                <button type="submit" class="btn btn-default" v-if="!is_readonly">扫描文件</button>
+                
+                <scan @getPic="getFile" type="jbqk" v-if="!is_readonly"></scan>
                 <div style="margin-top:10px;">
                   <p class="help-block" v-if="!is_readonly">请扫面文件并上传.</p>
-                  <img src="../../assets/img/8082.jpg" alt="..." class="img-rounded">
+                  <img :src="cadreInformation.file_path ? cadreInformation.file_path : avatar" style="width:150px;height:150px;" class="img-rounded">
                 </div>
               </div>
             </div>
@@ -213,9 +214,14 @@
 </template>
 
 <script>
+import scan from '@/components/scan.vue';
 export default {
   props: {
     type: { type: Number, default: 0 },
+  },
+  components: {
+    // eslint-disable-next-line vue/no-unused-components
+    scan,
   },
   data() {
     return {
@@ -234,6 +240,9 @@ export default {
     }
   },
   methods: {
+    getFile(name) {
+      this.$set(this.cadreInformation, `file_path`, `data:image/png;base64,${name}`); //data:image/png;base64,base64, data:image/jpeg;base64,base64, http://10.16.11.186/common/upload/
+    },
     startAdd() {
       if (this.$route.query.type == 'add') {
         this.is_readonly = false;
@@ -274,13 +283,13 @@ export default {
       reader.readAsDataURL(file);
       reader.onload = function(e) {
         that.avatar = this.result;
+        that.cadreInformation.photo = this.result;
       };
     },
-    async uploadPhotos($event) {
+    async uploadPhotos(event) {
       // let result = await this.$axios.post('jbqk/？？？？？', { data: this.cadreInformation });
     },
     async toAdd() {
-      console.log(this.cadreInformation);
       let result = await this.$axios.post('jbqk/jbqk_save', { data: this.cadreInformation });
       this.cadreInformation = {};
       this.$router.push('/');
