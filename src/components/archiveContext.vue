@@ -97,7 +97,6 @@ export default {
         let result = await this.$axios.post(`jbqk/jbqk_file`, { data: { id: item.id } });
         if (result.data.rescode === '0' || result.data.rescode === 0) {
           this.$set(this, `form`, result.data.jbqkDetail);
-          console.log(result.data.jbqkFile.length);
           if (result.data.jbqkFile.length > 0) {
             this.$set(this.form, `file_path`, result.data.jbqkFile[0].file_path);
           }
@@ -112,7 +111,12 @@ export default {
           .then(async () => {
             //确认删除
             console.log(`delete${this.operationId}`);
-            // await this.productOperation({ data: { id: this.operationId }, type: 'productDelete' });
+            let result = await this.$axios.post(`jbqk/jbqk_detail_delete`, { data: { id: this.operationId } });
+            if (result.data.rescode === '0' || result.data.rescode === 0) {
+              this.$message.success('操作成功');
+            } else {
+              this.$message.error('操作失败');
+            }
             this.closeAlert();
             this.search();
           })
