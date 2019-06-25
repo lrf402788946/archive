@@ -9,29 +9,29 @@
       <b-card no-body>
         <b-tabs card v-model="tabIndex">
           <b-tab title="个人事项" :title-link-class="linkClass(0)">
-            <Personal v-show="tabIndex === 0"  ></Personal>
+            <archiveContext :type="1"></archiveContext>
           </b-tab>
-          <b-tab title="个人档案" :title-link-class="linkClass(1)">
-            <PersonDocument v-show="tabIndex === 1"  ></PersonDocument>
+           <b-tab title="信息档案" :title-link-class="linkClass(1)">
+            <archiveContext :type="2"></archiveContext>
           </b-tab>
           <b-tab title="例行谈话" :title-link-class="linkClass(2)">
-            <RoutineConversation v-show="tabIndex === 2"  ></RoutineConversation>
+            <archiveContext :type="3"></archiveContext>
           </b-tab>
           <b-tab title="述责述廉" :title-link-class="linkClass(3)">
-            <SpeakWithHonesty v-show="tabIndex === 3"  ></SpeakWithHonesty>
+            <archiveContext :type="4"></archiveContext>
           </b-tab>
           <b-tab title="重大事项" :title-link-class="linkClass(4)">
-            <MajorIssues v-show="tabIndex === 4"  ></MajorIssues>
+            <archiveContext :type="5"></archiveContext>
           </b-tab>
           <b-tab title="问题线索" :title-link-class="linkClass(5)">
-            <ProblemClue v-show="tabIndex === 5"  ></ProblemClue>
+            <archiveContext :type="6"></archiveContext>
           </b-tab>
           <b-tab title="处置问责" :title-link-class="linkClass(6)">
-            <AccountabilityForDisposal v-show="tabIndex === 6"  ></AccountabilityForDisposal>
+            <archiveContext :type="7"></archiveContext>
           </b-tab>
           <b-tab title="立案处理" :title-link-class="linkClass(7)">
-            <CaseFiling v-show="tabIndex === 7"  ></CaseFiling>
-          </b-tab>
+            <archiveContext :type="8"></archiveContext>
+          </b-tab> 
         </b-tabs>
       </b-card>
     </div>
@@ -39,25 +39,13 @@
 </template>
 
 <script>
-import PersonDocument from '@/views/jbqkDetail/PersonDocument.vue';
-import RoutineConversation from '@/views/jbqkDetail/RoutineConversation.vue';
-import ProblemClue from '@/views/jbqkDetail/ProblemClue.vue';
-import Personal from '@/views/jbqkDetail/Personal.vue';
-import SpeakWithHonesty from '@/views/jbqkDetail/SpeakWithHonesty.vue';
-import AccountabilityForDisposal from '@/views/jbqkDetail/AccountabilityForDisposal.vue';
-import MajorIssues from '@/views/jbqkDetail/MajorIssues.vue';
-import CaseFiling from '@/views/jbqkDetail/CaseFiling.vue';
+import archiveContext from '@/components/archiveContext.vue';
+// import Personal from '@/views/jbqkDetail/Personal.vue';
 export default {
   name: 'Archive',
   components: {
-    Personal,
-    PersonDocument,
-    RoutineConversation,
-    ProblemClue,
-    SpeakWithHonesty,
-    AccountabilityForDisposal,
-    MajorIssues,
-    CaseFiling,
+    // Personal,
+    archiveContext,
   },
   data() {
     return {
@@ -66,6 +54,7 @@ export default {
     };
   },
   computed: {},
+  created() {},
   methods: {
     linkClass(idx) {
       if (this.tabIndex === idx) {

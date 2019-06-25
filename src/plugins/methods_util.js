@@ -263,6 +263,7 @@ const Plugin = {
       plugin().Global_InitDevs();
     };
     Vue.prototype.$Unload = () => {
+      let deInit = false;
       if (Video) {
         //销毁视频,上面写过了
         view().View_SetText('', 0);
@@ -273,6 +274,7 @@ const Plugin = {
         //销毁主摄像头
         plugin().Device_Release(DeviceMain);
         DeviceMain = null;
+        deInit = true;
       }
       if (DeviceAssist) {
         //同理可得3

@@ -9,13 +9,13 @@
             <el-col :span="2">&nbsp;</el-col>
           </el-row>
           <el-table :data="list" stripe border style="width: 100%">
-            <el-table-column prop="title" align="center" label="个人事项" width="180"></el-table-column>
-            <el-table-column prop="memo" label="备注" align="center" width="180"></el-table-column>
-            <el-table-column align="center" label="信息图片">
+            <el-table-column prop="title" align="center" :label="getInfo(type)" width="350"></el-table-column>
+            <el-table-column prop="memo" label="备注" align="center" width="350"></el-table-column>
+            <!-- <el-table-column align="center" label="信息图片">
               <template slot-scope="scope">
                 <img :src="scope.row.file_path ? scope.row.file_path : avatar" style="width:150px;height:150px;" class="img-rounded">
               </template>
-            </el-table-column>
+            </el-table-column> -->
             <el-table-column align="center"  label="操作">
               <template slot-scope="scope">
                 <el-row>
@@ -33,7 +33,7 @@
           <el-dialog :title="dialogTitle" center :visible.sync="dialog" :close-on-click-modal="false" :before-close="closeAlert">
             <el-row>
               <el-col :span="24">
-                <label for="exampleInputName2">个人事项：</label>
+                <label for="exampleInputName2">{{ getInfo(type) }}：</label>
               </el-col>
               <el-col :span="10">
                 <el-input v-model="form.title"></el-input>
@@ -45,8 +45,8 @@
                 <el-input type="textarea" v-model="form.memo" row="4"></el-input>
               </el-col>
               <el-col :span="24">
-                <label for="exampleInputName2">个人事项信息表：</label>
-                <scan @getPic="getFile" type="personal"></scan>
+                <label for="exampleInputName2">{{ getInfo(type) }}信息表：</label>
+                <scan @getPic="getFile" type="personal" :file_path="form.file_path"></scan>
               </el-col>
             </el-row>
             <span slot="footer" class="dialog-footer">
@@ -66,6 +66,9 @@ export default {
   components: {
     scan,
   },
+  props: {
+    type: { type: Number, defalut: 0 }, //类型1,个人事项;2,信息档案;3,例行谈话;4,述责述廉;5,重大事项;6,问题线索;7,处置问责;8,立案处理
+  },
   data: () => ({
     list: [{ title: '个人事项1', memo: '备注1' }],
     form: {},
@@ -84,13 +87,23 @@ export default {
       this.$set(this.form, `file_path`, `${name}`);
     },
     async search() {
-      let result = await this.$axios.get(`jbqk/jbqk_detail?id=${this.$route.query.id}&type=1`);
+      let result = await this.$axios.get(`jbqk/jbqk_detail?id=${this.$route.query.id}&type=${this.type}`);
       this.$set(this, 'list', result.data.data ? result.data.data : []);
     },
     async openDialog(type, item) {
-      this.$set(this, `dialogTitle`, `个人事项${type === 'delete' ? '删除' : type === 'add' ? '添加' : '修改'}`);
+      this.$set(this, `dialogTitle`, `${this.getInfo(this.type)}${type === 'delete' ? '删除' : type === 'add' ? '添加' : '修改'}`);
+      console.log(type);
       if (type === 'edit') {
-        this.$set(this, `form`, JSON.parse(JSON.stringify(item)));
+        let result = await this.$axios.post(`jbqk/jbqk_file`, { data: { id: item.id } });
+        if (result.data.rescode === '0' || result.data.rescode === 0) {
+          this.$set(this, `form`, result.data.jbqkDetail);
+          console.log(result.data.jbqkFile.length);
+          if (result.data.jbqkFile.length > 0) {
+            this.$set(this.form, `file_path`, result.data.jbqkFile[0].file_path);
+          }
+        } else {
+          this.$set(this, `form`, {});
+        }
       } else if (type === 'delete') {
         this.operationId = item.id;
         await this.$confirm('确认要删除该数据吗?', `删除提示`, {
@@ -99,9 +112,9 @@ export default {
           .then(async () => {
             //确认删除
             console.log(`delete${this.operationId}`);
-            await this.productOperation({ data: { id: this.operationId }, type: 'productDelete' });
+            // await this.productOperation({ data: { id: this.operationId }, type: 'productDelete' });
             this.closeAlert();
-            this.toSearch();
+            this.search();
           })
           .catch(() => {
             //不删除
@@ -125,10 +138,13 @@ export default {
       let type;
       let newData;
       has_id > 0 ? (type = 'edit') : (type = 'save');
+      let origin = JSON.parse(JSON.stringify(this.form));
+      let subForm = [{ file_path: origin.file_path }];
+      delete origin.file_path;
       if (has_id > 0) {
-        newData = { data: this.form };
+        newData = { data: { ...origin, subForm: subForm } };
       } else {
-        newData = { data: { ...this.form, jbqk_id: this.$route.query.id, type: 1 } };
+        newData = { data: { ...origin, subForm: subForm, jbqk_id: `${this.$route.query.id}`, file_type: `${this.type}` } };
       }
       let result = await this.$axios.post(`jbqk/jbqk_detail_${type}`, newData);
       console.log(result); //edit没有返回data;save插不进去
@@ -140,6 +156,39 @@ export default {
       } else {
         this.$message.error(result.data.msg);
       }
+    },
+    getInfo(type) {
+      let info;
+      switch (type) {
+        case 1:
+          info = '个人事项';
+          break;
+        case 2:
+          info = '信息档案';
+          break;
+        case 3:
+          info = '例行谈话';
+          break;
+        case 4:
+          info = '述责述廉';
+          break;
+        case 5:
+          info = '重大事项';
+          break;
+        case 6:
+          info = '问题线索';
+          break;
+        case 7:
+          info = '处置问责';
+          break;
+        case 8:
+          info = '立案处理';
+          break;
+        default:
+          info = '无此项';
+          break;
+      }
+      return info;
     },
   },
 };

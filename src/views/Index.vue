@@ -64,12 +64,12 @@
               <td>{{item.id_number}}</td>
               <td>{{item.phone_no}}</td>
               <td>
-                <a class="btn btn-xs btn-info base-margin-2" @click="openDeleteAlert(item.id)" data-toggle="tooltip"
-                   title="" role="button" style="background-color: #dc3545 !important; border:none !important; ">删&nbsp;&nbsp;除</a>
                 <a class="btn btn-xs btn-info base-margin-2" @click="$router.push({ name: 'Details', query: { id: item.id } })"
                    data-toggle="tooltip" title=""  style=" border:none !important; " role="button">查&nbsp;&nbsp;看</a>
-                   <a class="btn btn-xs btn-info base-margin-2" @click="$router.push({ name: 'Archive', query: { id: item.id } })"
+                <a class="btn btn-xs btn-info base-margin-2" @click="$router.push({ name: 'Archive', query: { id: item.id } })"
                    data-toggle="tooltip" title=""  style=" border:none !important; " role="button">档案管理</a>
+                <a class="btn btn-xs btn-info base-margin-2" @click="openDeleteAlert(item.id)" data-toggle="tooltip"
+                   title="" role="button" style="background-color: #dc3545 !important; border:none !important; ">删&nbsp;&nbsp;除</a>
               </td>
             </tr>
 
@@ -81,7 +81,7 @@
           <ul class="pagination pagination-sm">
             <li v-if="cur>1"><a v-on:click="cur--,query(cur)">上一页</a></li>
             <li v-if="cur==1"><a class="banclick">上一页</a></li>
-            <li v-for="index in indexs" :key="index" v-bind:class="{ 'active': cur == index}">
+            <li v-for="index in pageNumber" :key="index" v-bind:class="{ 'active': cur == index}">
               <a v-on:click="btnClick(index),query(cur)">{{ index }}</a>
             </li>
             <li v-if="cur!=pageNumber"><a v-on:click="cur++,query(cur)">下一页</a></li>
@@ -94,7 +94,7 @@
     </div>
     <b-modal id="deleteAlert" title="确认删除" ref="deleteAlert" hide-footer>
       <div class="d-block text-center">
-        <b-alert variant="danger" show>删除之后可能会有严重影响,确认删除吗?</b-alert>
+        <b-alert variant="danger" show>您确认删除该条信息吗?</b-alert>
       </div>
       <b-button variant="danger" style="float:right;font-size:16px !important; color:white; margin-top:35px; padding:6px 80px !important;margin-bottom:30px !important; rgb(220, 53, 69) !important; margin-right:0 !important;" 
       @click="deleted(deleteItem)">删除</b-button>
@@ -114,9 +114,7 @@ export default {
         id_number: '',
       },
       skip: 0,
-      limit: 5, //每页信息数量
-      timeout: 500,
-      closetimer: 0,
+      limit: 15, //每页信息数量
       totalRow: 0, //词条数量
       pageNumber: 1, //页码数量
       cur: 1, //当前页码

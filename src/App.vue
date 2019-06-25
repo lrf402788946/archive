@@ -2,7 +2,7 @@
   <div id="app">
     <body>
       <div v-show="isLogin()">
-        <router-view/>
+        <router-view name="LoginPage"/>
       </div>
       <div class="base-wrapper" v-show="!isLogin()">
         <Header></Header>

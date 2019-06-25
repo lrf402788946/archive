@@ -26,15 +26,23 @@ export default {
   components: {},
   props: {
     type: { type: String, default: 'undefinded' },
+    file_path: { type: String },
   },
   data() {
     return {
       is_open: true,
       dialog: false,
       avatar: require('@/assets/img/8082.jpg'),
-      file_path: '',
+      // file_path: '',
     };
   },
+  // watch: {
+  //   file: {
+  //     handler(val) {
+  //       this.$set(this, `file_path`, val);
+  //     },
+  //   },
+  // },
   computed: {
     bigImg() {
       let style = {};

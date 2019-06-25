@@ -162,7 +162,7 @@
         <div class="col-lg-6">
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-lg-12">
             <div class="col-lg-6">
               <div class="base-margin-right-40 form-group">
@@ -173,7 +173,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="base-padding-20 base-bg-fff" style="clear:both;">
@@ -188,14 +188,13 @@
 </template>
 
 <script>
-import scan from '@/components/scan.vue';
+// import scan from '@/components/scan.vue';
 export default {
   props: {
     type: { type: Number, default: 0 },
   },
   components: {
-    // eslint-disable-next-line vue/no-unused-components
-    scan,
+    // scan,
   },
   data() {
     return {
@@ -218,9 +217,9 @@ export default {
       let result = await this.$axios.get(`jbqk/jbqk_info?id=${this.$route.query.id}`);
       this.$set(this, 'cadreInformation', result.data.data);
     },
-    getFile(name) {
-      this.$set(this.cadreInformation, `file_path`, `${name}`); //data:image/png;base64,base64, data:image/jpeg;base64,base64, http://10.16.11.186/common/upload/
-    },
+    // getFile(name) {
+    //   this.$set(this.cadreInformation, `file_path`, `${name}`); //data:image/png;base64,base64, data:image/jpeg;base64,base64, http://10.16.11.186/common/upload/
+    // },
     changeImage(e) {
       var file = e.target.files[0];
       if (file.size > 2 * 1000000) {
@@ -241,11 +240,13 @@ export default {
       let has_id = Object.keys(this.cadreInformation).filter(item => item === 'id').length;
       let type;
       has_id > 0 ? (type = 'edit') : (type = 'save');
-      let newData = { data: this.form };
+      let newData = { data: this.cadreInformation };
       let result = await this.$axios.post(`jbqk/jbqk_${type}`, newData);
-      if (result.rescode === '0' || result.rescode === 0) {
+      if (result.data.rescode === '0' || result.data.rescode === 0) {
         this.$message.success('操作成功');
         this.$router.push({ path: '/' });
+      } else {
+        this.$message.error(result.data.msg);
       }
     },
   },
