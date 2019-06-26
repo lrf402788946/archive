@@ -47,15 +47,13 @@ export default {
     async login() {
       if (this.form.login_id && this.form.password) {
         let result = await this.$axios.post('/user/login', { data: this.form });
-        if (result.data.rescode === '0') {
+        if (result.data.rescode === '0' || result.data.rescode === 0) {
           sessionStorage.setItem('userInfo', this.form.login_id);
+          this.isLogin();
+          this.$router.push('/');
         } else {
-          alert(result.data.msg);
+          this.$message.error(result.data.msg);
         }
-        this.isLogin();
-        //存入sessionStorage
-        // sessionStorage.setItem('userInfo', JSON.stringify(this.form));
-        this.$router.push('/');
       }
     },
   },

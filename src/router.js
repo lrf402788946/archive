@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import IndexContext from './views/IndexContext.vue';
 import Index from './views/Index.vue';
 import LoginPage from './views/LoginPage.vue';
 import DeptIndex from './views/dept/Index.vue';
@@ -18,60 +19,65 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Index',
-      component: Index,
+      name: 'IndexContext',
+      component: IndexContext,
+      children: [
+        {
+          path: '/',
+          name: 'Index',
+          component: Index,
+        },
+        {
+          path: '/DeptIndex',
+          name: 'DeptIndex',
+          component: DeptIndex,
+        },
+        {
+          path: '/Details',
+          name: 'Details',
+          component: Details,
+        },
+        {
+          path: '/UserIndex',
+          name: 'UserIndex',
+          component: UserIndex,
+        },
+        {
+          path: '/RoleIndex',
+          name: 'RoleIndex',
+          component: RoleIndex,
+        },
+        {
+          path: '/UserRoleIndex',
+          name: 'UserRoleIndex',
+          component: UserRoleIndex,
+        },
+        {
+          path: '/UpdatePW',
+          name: 'UpdatePW',
+          component: UpdatePW,
+        },
+        {
+          path: '/Archive',
+          name: 'Archive',
+          component: Archive,
+        },
+      ],
     },
     {
       path: '/LoginPage',
       name: 'LoginPage',
       component: LoginPage,
     },
-    {
-      path: '/DeptIndex',
-      name: 'DeptIndex',
-      component: DeptIndex,
-    },
-    {
-      path: '/Details',
-      name: 'Details',
-      component: Details,
-    },
-    {
-      path: '/UserIndex',
-      name: 'UserIndex',
-      component: UserIndex,
-    },
-    {
-      path: '/RoleIndex',
-      name: 'RoleIndex',
-      component: RoleIndex,
-    },
-    {
-      path: '/UserRoleIndex',
-      name: 'UserRoleIndex',
-      component: UserRoleIndex,
-    },
-    {
-      path: '/UpdatePW',
-      name: 'UpdatePW',
-      component: UpdatePW,
-    },
-    {
-      path: '/Archive',
-      name: 'Archive',
-      component: Archive,
-    },
   ],
 });
 router.beforeEach((to, from, next) => {
-  // const is_login = sessionStorage.getItem('userInfo');
-  // console.log(is_login);
-  // if (is_login) {
-  //   next();
-  // } else {
-  //   if (to.path.includes('Login')) next();
-  //   else next('/LoginPage');
-  // }
-  next();
+  const is_login = sessionStorage.getItem('userInfo');
+  if (is_login) {
+    next();
+  } else {
+    if (to.path.includes('Login')) next();
+    else next('/LoginPage');
+  }
 });
 export default router;
