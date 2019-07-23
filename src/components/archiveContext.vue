@@ -148,7 +148,7 @@ export default {
       if (has_id > 0) {
         newData = { data: { ...origin, subForm: subForm } };
       } else {
-        newData = { data: { ...origin, subForm: subForm, jbqk_id: `${this.$route.query.id}`, file_type: `${this.type}` } };
+        newData = { data: { ...origin, subForm: subForm, jbqk_id: `${this.$route.query.id}`, type: `${this.type}` } };
       }
       let result = await this.$axios.post(`jbqk/jbqk_detail_${type}`, newData);
       console.log(result); //edit没有返回data;save插不进去
